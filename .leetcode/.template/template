@@ -1,0 +1,17 @@
+# 
+#
+# @lc idea=start
+#
+# 求
+#
+# @lc idea=end
+
+from typing import *
+from collections import *
+
+
+
+
+if __name__ == '__main__':
+    print(Solution().generateParenthesis(4))
+
