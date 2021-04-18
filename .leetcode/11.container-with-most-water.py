@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=11 lang=python3
 #
 # [11] Container With Most Water
@@ -64,13 +63,23 @@
 #
 #
 #
+
+# @lc tags=array;two-pointers
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 在一系列柱子中，计算选择两个柱子组成的容器最大的容量。从两侧向内依次找比原来大高的柱子。比如从左侧开始，之后向右找到一根更高的柱子，这根柱子与另一侧柱子组成的容器才有可能大于原来的容器，因为移动时，容器的底变小了。每次都移动较小的一侧的柱子。
 #
 # @lc idea=end
 
-from typing import *
+# @lc group=
+
+# @lc rank=
+
 # @lc code=start
 
 
@@ -106,4 +115,46 @@ class Solution:
             waterMax = water if water > waterMax else waterMax
         return waterMax
 
+        pass
 # @lc code=end
+
+# @lc main=start
+if __name__ == '__main__':
+    print('Example 1:')
+    print('Input : ')
+    print('height = [1,8,6,2,5,4,8,3,7]')
+    print('Output :')
+    print(str(Solution().maxArea([1,8,6,2,5,4,8,3,7])))
+    print('Exception :')
+    print('49')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('height = [1,1]')
+    print('Output :')
+    print(str(Solution().maxArea([1,1])))
+    print('Exception :')
+    print('1')
+    print()
+    
+    print('Example 3:')
+    print('Input : ')
+    print('height = [4,3,2,1,4]')
+    print('Output :')
+    print(str(Solution().maxArea([4,3,2,1,4])))
+    print('Exception :')
+    print('16')
+    print()
+    
+    print('Example 4:')
+    print('Input : ')
+    print('height = [1,2,1]')
+    print('Output :')
+    print(str(Solution().maxArea([1,2,1])))
+    print('Exception :')
+    print('2')
+    print()
+    
+    pass
+# @lc main=end

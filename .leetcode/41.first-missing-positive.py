@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=41 lang=python3
 #
 # [41] First Missing Positive
@@ -42,6 +41,13 @@
 #
 #
 #
+
+# @lc tags=array
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 求无序数组中，缺少的最小的正数。
@@ -53,9 +59,9 @@
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
 
+# @lc rank=
 
 # @lc code=start
 class Solution:
@@ -84,11 +90,37 @@ class Solution:
             self.setFlag(i, n)
 
 
+        pass
 # @lc code=end
 
+# @lc main=start
 if __name__ == '__main__':
-    print(Solution().firstMissingPositive([]))
-    print(Solution().firstMissingPositive([1, 2, 0]))
-    print(Solution().firstMissingPositive([3, 4, -1, 1]))
-    print(Solution().firstMissingPositive([-5, -50]))
-    print(Solution().firstMissingPositive([7, 8, 9, 11, 12]))
+    print('Example 1:')
+    print('Input : ')
+    print('nums = [1,2,0]')
+    print('Output :')
+    print(str(Solution().firstMissingPositive([1,2,0])))
+    print('Exception :')
+    print('3')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('nums = [3,4,-1,1]')
+    print('Output :')
+    print(str(Solution().firstMissingPositive([3,4,-1,1])))
+    print('Exception :')
+    print('2')
+    print()
+    
+    print('Example 3:')
+    print('Input : ')
+    print('nums = [7,8,9,11,12]')
+    print('Output :')
+    print(str(Solution().firstMissingPositive([7,8,9,11,12])))
+    print('Exception :')
+    print('1')
+    print()
+    
+    pass
+# @lc main=end

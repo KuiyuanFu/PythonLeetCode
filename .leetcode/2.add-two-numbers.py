@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=2 lang=python3
 #
 # [2] Add Two Numbers
@@ -56,13 +55,22 @@
 # 
 #
 
+
+# @lc tags=linked-list;math
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 目的是将两个倒序排列的数字的链表加起来，首先在低位时，直接相加，同时判断进位情况；在超过其中一个链表长度时，需要根据进位情况加到高位上，同时把这一部分链接到之前的根链表上。最后若是较长的链表也读取完了，还有进位，就需要额外建立一个节点，不能利用已有节点了。
 #
 # @lc idea=end
 
-from typing import *
+# @lc group=
+
+# @lc rank=
 
 # @lc code=start
 # Definition for singly-linked list.
@@ -116,5 +124,37 @@ class Solution:
         if a == 1:
             left.next = ListNode(a)
         return root   
+        pass
 # @lc code=end
 
+# @lc main=start
+if __name__ == '__main__':
+    print('Example 1:')
+    print('Input : ')
+    print('l1 = [2,4,3], l2 = [5,6,4]')
+    print('Output :')
+    print(str(Solution().addTwoNumbers(listToListNode([2,4,3]),listToListNode([5,6,4]))))
+    print('Exception :')
+    print('[7,0,8]')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('l1 = [0], l2 = [0]')
+    print('Output :')
+    print(str(Solution().addTwoNumbers(listToListNode([0]),listToListNode([0]))))
+    print('Exception :')
+    print('[0]')
+    print()
+    
+    print('Example 3:')
+    print('Input : ')
+    print('l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]')
+    print('Output :')
+    print(str(Solution().addTwoNumbers(listToListNode([9,9,9,9,9,9,9]),listToListNode([9,9,9,9]))))
+    print('Exception :')
+    print('[8,9,9,9,0,0,0,1]')
+    print()
+    
+    pass
+# @lc main=end

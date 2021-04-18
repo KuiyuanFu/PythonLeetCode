@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=24 lang=python3
 #
 # [24] Swap Nodes in Pairs
@@ -49,15 +48,22 @@
 # Follow up: Can you solve the problem without modifying the values in the
 # list's nodes? (i.e., Only nodes themselves may be changed.)
 #
+
+# @lc tags=linked-list
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 反转相邻的两个节点。直接操作就行。
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
 
+# @lc rank=
 
 # @lc code=start
 # Definition for singly-linked list.
@@ -84,4 +90,37 @@ class Solution:
                 break
         return pseudo.next
 
+        pass
 # @lc code=end
+
+# @lc main=start
+if __name__ == '__main__':
+    print('Example 1:')
+    print('Input : ')
+    print('head = [1,2,3,4]')
+    print('Output :')
+    print(str(Solution().swapPairs(listToListNode([1,2,3,4]))))
+    print('Exception :')
+    print('[2,1,4,3]')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('head = []')
+    print('Output :')
+    print(str(Solution().swapPairs(listToListNode([]))))
+    print('Exception :')
+    print('[]')
+    print()
+    
+    print('Example 3:')
+    print('Input : ')
+    print('head = [1]')
+    print('Output :')
+    print(str(Solution().swapPairs(listToListNode([1]))))
+    print('Exception :')
+    print('[1]')
+    print()
+    
+    pass
+# @lc main=end

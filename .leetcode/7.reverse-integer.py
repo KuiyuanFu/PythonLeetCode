@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=7 lang=python3
 #
 # [7] Reverse Integer
@@ -45,6 +44,13 @@
 #
 #
 #
+
+# @lc tags=math
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 反转数字。首先将数字变成字符串，关键点是异号的除数和被除数的求模和整数除法与同好的不同，且不同编程语言的实现也不同。 Python 中如下：
@@ -69,8 +75,9 @@
 
 # @lc idea=end
 
-from typing import *
+# @lc group=
 
+# @lc rank=
 
 # @lc code=start
 class Solution:
@@ -99,5 +106,46 @@ class Solution:
         
 
         
+        pass
 # @lc code=end
 
+# @lc main=start
+if __name__ == '__main__':
+    print('Example 1:')
+    print('Input : ')
+    print('x = 123')
+    print('Output :')
+    print(str(Solution().reverse(123)))
+    print('Exception :')
+    print('321')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('x = -123')
+    print('Output :')
+    print(str(Solution().reverse(-123)))
+    print('Exception :')
+    print('-321')
+    print()
+    
+    print('Example 3:')
+    print('Input : ')
+    print('x = 120')
+    print('Output :')
+    print(str(Solution().reverse(120)))
+    print('Exception :')
+    print('21')
+    print()
+    
+    print('Example 4:')
+    print('Input : ')
+    print('x = 0')
+    print('Output :')
+    print(str(Solution().reverse(0)))
+    print('Exception :')
+    print('0')
+    print()
+    
+    pass
+# @lc main=end

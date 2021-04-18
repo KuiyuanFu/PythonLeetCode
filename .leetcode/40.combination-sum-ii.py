@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=40 lang=python3
 #
 # [40] Combination Sum II
@@ -57,15 +56,22 @@
 #
 #
 
+
+# @lc tags=array;backtracking
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 求数字和为target 的所有组合。递归，备忘录。
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
 
+# @lc rank=
 
 # @lc code=start
 class Solution:
@@ -97,6 +103,28 @@ class Solution:
         return result
 
 
+        pass
 # @lc code=end
+
+# @lc main=start
 if __name__ == '__main__':
-    print(Solution().combinationSum2([10, 1, 2, 7, 6, 1, 5], 8))
+    print('Example 1:')
+    print('Input : ')
+    print('candidates = [10,1,2,7,6,1,5], target = 8')
+    print('Output :')
+    print(str(Solution().combinationSum2([10,1,2,7,6,1,5],8)))
+    print('Exception :')
+    print('[[1,1,6],[1,2,5],[1,7],[2,6]]')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('candidates = [2,5,2,1,2], target = 5')
+    print('Output :')
+    print(str(Solution().combinationSum2([2,5,2,1,2],5)))
+    print('Exception :')
+    print('[[1,2,2],[5]]')
+    print()
+    
+    pass
+# @lc main=end

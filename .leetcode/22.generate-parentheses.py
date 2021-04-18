@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=22 lang=python3
 #
 # [22] Generate Parentheses
@@ -33,6 +32,13 @@
 #
 #
 #
+
+# @lc tags=string;backtracking
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 给定括号对数量，计算所有合法的括号对。
@@ -40,7 +46,10 @@
 #
 # @lc idea=end
 
-from typing import *
+# @lc group=
+
+# @lc rank=
+
 # @lc code=start
 
 
@@ -56,8 +65,28 @@ class Solution:
                 parentheses.add(s[:i]+'()'+s[i:])
         return list(parentheses)
 
+        pass
 # @lc code=end
 
-
+# @lc main=start
 if __name__ == '__main__':
-    print(Solution().generateParenthesis(4))
+    print('Example 1:')
+    print('Input : ')
+    print('n = 3')
+    print('Output :')
+    print(str(Solution().generateParenthesis(3)))
+    print('Exception :')
+    print('["((()))","(()())","(())()","()(())","()()()"]')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('n = 1')
+    print('Output :')
+    print(str(Solution().generateParenthesis(1)))
+    print('Exception :')
+    print('["()"]')
+    print()
+    
+    pass
+# @lc main=end

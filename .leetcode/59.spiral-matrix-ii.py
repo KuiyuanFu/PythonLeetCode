@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=59 lang=python3
 #
 # [59] Spiral Matrix II
@@ -41,6 +40,13 @@
 #
 #
 #
+
+# @lc tags=array
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 求大小为n的方阵，其中元素以螺旋方式排列。
@@ -48,9 +54,9 @@
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
 
+# @lc rank=
 
 # @lc code=start
 class Solution:
@@ -68,10 +74,28 @@ class Solution:
         return matrix
 
 
+        pass
 # @lc code=end
+
+# @lc main=start
 if __name__ == '__main__':
-    # print(Solution().generateMatrix(1))
-    # print(Solution().generateMatrix(2))
-    print(Solution().generateMatrix(3))
-    print(Solution().generateMatrix(4))
-    print(Solution().generateMatrix(5))
+    print('Example 1:')
+    print('Input : ')
+    print('n = 3')
+    print('Output :')
+    print(str(Solution().generateMatrix(3)))
+    print('Exception :')
+    print('[[1,2,3],[8,9,4],[7,6,5]]')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('n = 1')
+    print('Output :')
+    print(str(Solution().generateMatrix(1)))
+    print('Exception :')
+    print('[[1]]')
+    print()
+    
+    pass
+# @lc main=end

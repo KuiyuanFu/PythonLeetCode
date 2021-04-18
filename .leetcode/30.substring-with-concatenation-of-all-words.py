@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=30 lang=python3
 #
 # [30] Substring with Concatenation of All Words
@@ -59,6 +58,13 @@
 #
 #
 #
+
+# @lc tags=hash-table;two-pointers;string
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 返回一个字符串中 用一系列相同长度的词组成的字符串的首字符索引值。
@@ -67,9 +73,9 @@
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
 
+# @lc rank=
 
 # @lc code=start
 class Solution:
@@ -144,12 +150,37 @@ class Solution:
         return target
 
 
+        pass
 # @lc code=end
 
+# @lc main=start
 if __name__ == '__main__':
-    print(Solution().findSubstring(
-        "aaa",
-        ["a", "a", ]))
-    print(Solution().findSubstring(
-        "barfoofoobarthefoobarman",
-        ["bar", "foo", "the"]))
+    print('Example 1:')
+    print('Input : ')
+    print('s = "barfoothefoobarman", words = ["foo","bar"]')
+    print('Output :')
+    print(str(Solution().findSubstring("barfoothefoobarman",["foo","bar"])))
+    print('Exception :')
+    print('[0,9]')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('s = "wordgoodgoodgoodbestword", words = ["word","good","best","word"]')
+    print('Output :')
+    print(str(Solution().findSubstring("wordgoodgoodgoodbestword",["word","good","best","word"])))
+    print('Exception :')
+    print('[]')
+    print()
+    
+    print('Example 3:')
+    print('Input : ')
+    print('s = "barfoofoobarthefoobarman", words = ["bar","foo","the"]')
+    print('Output :')
+    print(str(Solution().findSubstring("barfoofoobarthefoobarman",["bar","foo","the"])))
+    print('Exception :')
+    print('[6,9,12]')
+    print()
+    
+    pass
+# @lc main=end

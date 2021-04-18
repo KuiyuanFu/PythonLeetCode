@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=5 lang=python3
 #
 # [5] Longest Palindromic Substring
@@ -53,14 +52,22 @@
 # s consist of only digits and English letters (lower-case and/or upper-case),
 #
 #
+
+# @lc tags=string;dynamic-programming
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 求最长回文子字符串。很朴素的想法，直接遍历，判断是否是回文就可以了。唯一需要注意的就是，回文中心可以是同一个索引，也可以是相邻的两个索引。
 #
 # @lc idea=end
 
-from typing import *
+# @lc group=
 
+# @lc rank=
 
 # @lc code=start
 class Solution:
@@ -80,5 +87,46 @@ class Solution:
         if len(s) > len(self.maxS):
             self.maxS = s
 
+        pass
 # @lc code=end
 
+# @lc main=start
+if __name__ == '__main__':
+    print('Example 1:')
+    print('Input : ')
+    print('s = "babad"')
+    print('Output :')
+    print(str(Solution().longestPalindrome("babad")))
+    print('Exception :')
+    print('"bab"')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('s = "cbbd"')
+    print('Output :')
+    print(str(Solution().longestPalindrome("cbbd")))
+    print('Exception :')
+    print('"bb"')
+    print()
+    
+    print('Example 3:')
+    print('Input : ')
+    print('s = "a"')
+    print('Output :')
+    print(str(Solution().longestPalindrome("a")))
+    print('Exception :')
+    print('"a"')
+    print()
+    
+    print('Example 4:')
+    print('Input : ')
+    print('s = "ac"')
+    print('Output :')
+    print(str(Solution().longestPalindrome("ac")))
+    print('Exception :')
+    print('"a"')
+    print()
+    
+    pass
+# @lc main=end

@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=68 lang=python3
 #
 # [68] Text Justification
@@ -97,6 +96,13 @@
 #
 #
 #
+
+# @lc tags=string
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 文本适配。
@@ -104,9 +110,9 @@
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
 
+# @lc rank=
 
 # @lc code=start
 class Solution:
@@ -138,6 +144,35 @@ class Solution:
 
 
 # @lc code=end
+
+# @lc main=start
 if __name__ == '__main__':
-    print(Solution().fullJustify(
-        ["This", "is", "an", "example", "of", "text", "justification."], 16))
+    print('Example 1:')
+    print('Input : ')
+    print('words = ["This", "is", "an", "example", "of", "text","justification."], maxWidth = 16')
+    print('Output :')
+    print(str(Solution().fullJustify(["This", "is", "an", "example", "of", "text","justification."],16)))
+    print('Exception :')
+    print('["This    is    an","example  of text","justification.  "]')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('words = ["What","must","be","acknowledgment","shall","be"], maxWidth =16')
+    print('Output :')
+    print(str(Solution().fullJustify(["What","must","be","acknowledgment","shall","be"],16)))
+    print('Exception :')
+    print('["What   must   be","acknowledgment  ","shall be        "]')
+    print()
+    
+    print('Example 3:')
+    print('Input : ')
+    print('words =["Science","is","what","we","understand","well","enough","to","explain","to","a","computer.","Art","is","everything","else","we","do"],maxWidth = 20')
+    print('Output :')
+    print(str(Solution().fullJustify(["Science","is","what","we","understand","well","enough","to","explain","to","a","computer.","Art","is","everything","else","we","do"],20)))
+    print('Exception :')
+    print('["Science  is  what we",⁠ "understand      well","enough to explain to","a  computer.  Art is","everything  else  we","do                  "]')
+    print()
+    
+    pass
+# @lc main=end

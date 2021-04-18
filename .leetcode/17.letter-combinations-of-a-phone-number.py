@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=17 lang=python3
 #
 # [17] Letter Combinations of a Phone Number
@@ -53,14 +52,22 @@
 #
 #
 #
+
+# @lc tags=string;backtracking
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 递归，很简单的思想
 #
 # @lc idea=end
 
-from typing import *
+# @lc group=
 
+# @lc rank=
 
 # @lc code=start
 class Solution:
@@ -78,4 +85,37 @@ class Solution:
         return result if len(result) != 0 else ls
 
 
+        pass
 # @lc code=end
+
+# @lc main=start
+if __name__ == '__main__':
+    print('Example 1:')
+    print('Input : ')
+    print('digits = "23"')
+    print('Output :')
+    print(str(Solution().()))
+    print('Exception :')
+    print('["ad","ae","af","bd","be","bf","cd","ce","cf"]')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('digits = ""')
+    print('Output :')
+    print(str(Solution().()))
+    print('Exception :')
+    print('[]')
+    print()
+    
+    print('Example 3:')
+    print('Input : ')
+    print('digits = "2"')
+    print('Output :')
+    print(str(Solution().()))
+    print('Exception :')
+    print('["a","b","c"]')
+    print()
+    
+    pass
+# @lc main=end

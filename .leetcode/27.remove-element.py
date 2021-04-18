@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=27 lang=python3
 #
 # [27] Remove Element
@@ -78,14 +77,22 @@
 #
 # 
 #
+
+# @lc tags=array;two-pointers
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 数组去特定值，快慢双指针。
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
+
+# @lc rank=
 
 # @lc code=start
 class Solution:
@@ -101,5 +108,28 @@ class Solution:
             fast += 1
         return slow
         
+        pass
 # @lc code=end
 
+# @lc main=start
+if __name__ == '__main__':
+    print('Example 1:')
+    print('Input : ')
+    print('nums = [3,2,2,3], val = 3')
+    print('Output :')
+    print(str(Solution().removeElement([3,2,2,3],3)))
+    print('Exception :')
+    print('2, nums = [2,2]')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('nums = [0,1,2,2,3,0,4,2], val = 2')
+    print('Output :')
+    print(str(Solution().removeElement([0,1,2,2,3,0,4,2],2)))
+    print('Exception :')
+    print('5, nums = [0,1,4,0,3]')
+    print()
+    
+    pass
+# @lc main=end

@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=66 lang=python3
 #
 # [66] Plus One
@@ -57,15 +56,22 @@
 #
 #
 #
+
+# @lc tags=array
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 给定一个数组，正序，使其加一。
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
 
+# @lc rank=
 
 # @lc code=start
 class Solution:
@@ -80,4 +86,37 @@ class Solution:
         if i == 1:
             digits = [1] + digits
         return digits
+        pass
 # @lc code=end
+
+# @lc main=start
+if __name__ == '__main__':
+    print('Example 1:')
+    print('Input : ')
+    print('digits = [1,2,3]')
+    print('Output :')
+    print(str(Solution().plusOne([1,2,3])))
+    print('Exception :')
+    print('[1,2,4]')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('digits = [4,3,2,1]')
+    print('Output :')
+    print(str(Solution().plusOne([4,3,2,1])))
+    print('Exception :')
+    print('[4,3,2,2]')
+    print()
+    
+    print('Example 3:')
+    print('Input : ')
+    print('digits = [0]')
+    print('Output :')
+    print(str(Solution().plusOne([0])))
+    print('Exception :')
+    print('[1]')
+    print()
+    
+    pass
+# @lc main=end

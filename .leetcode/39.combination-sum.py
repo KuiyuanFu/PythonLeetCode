@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=39 lang=python3
 #
 # [39] Combination Sum
@@ -78,15 +77,22 @@
 #
 #
 #
+
+# @lc tags=array;backtracking
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 求数字和为target 的所有组合。递归，备忘录。
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
 
+# @lc rank=
 
 # @lc code=start
 class Solution:
@@ -112,6 +118,55 @@ class Solution:
         return result
 
 
+        pass
 # @lc code=end
+
+# @lc main=start
 if __name__ == '__main__':
-    print(Solution().combinationSum([2, 3, 6, 7],  7))
+    print('Example 1:')
+    print('Input : ')
+    print('candidates = [2,3,6,7], target = 7')
+    print('Output :')
+    print(str(Solution().combinationSum([2,3,6,7],7)))
+    print('Exception :')
+    print('[[2,2,3],[7]]')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('candidates = [2,3,5], target = 8')
+    print('Output :')
+    print(str(Solution().combinationSum([2,3,5],8)))
+    print('Exception :')
+    print('[[2,2,2,2],[2,3,3],[3,5]]')
+    print()
+    
+    print('Example 3:')
+    print('Input : ')
+    print('candidates = [2], target = 1')
+    print('Output :')
+    print(str(Solution().combinationSum([2],1)))
+    print('Exception :')
+    print('[]')
+    print()
+    
+    print('Example 4:')
+    print('Input : ')
+    print('candidates = [1], target = 1')
+    print('Output :')
+    print(str(Solution().combinationSum([1],1)))
+    print('Exception :')
+    print('[[1]]')
+    print()
+    
+    print('Example 5:')
+    print('Input : ')
+    print('candidates = [1], target = 2')
+    print('Output :')
+    print(str(Solution().combinationSum([1],2)))
+    print('Exception :')
+    print('[[1,1]]')
+    print()
+    
+    pass
+# @lc main=end

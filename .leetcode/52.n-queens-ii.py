@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=52 lang=python3
 #
 # [52] N-Queens II
@@ -45,6 +44,13 @@
 # 
 #
 
+
+# @lc tags=backtracking
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # n皇后问题，皇后不能在同一行、列、斜线。
@@ -52,9 +58,9 @@
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
 
+# @lc rank=
 
 # @lc code=start
 class Solution:
@@ -94,9 +100,28 @@ class Solution:
             self.flags[i][j] += flag
 
 
+        pass
 # @lc code=end
+
+# @lc main=start
 if __name__ == '__main__':
-    print(Solution().totalNQueens(1))
-    print(Solution().totalNQueens(2))
-    print(Solution().totalNQueens(3))
-    print(Solution().totalNQueens(4))
+    print('Example 1:')
+    print('Input : ')
+    print('n = 4')
+    print('Output :')
+    print(str(Solution().totalNQueens(4)))
+    print('Exception :')
+    print('2')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('n = 1')
+    print('Output :')
+    print(str(Solution().totalNQueens(1)))
+    print('Exception :')
+    print('1')
+    print()
+    
+    pass
+# @lc main=end

@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=38 lang=python3
 #
 # [38] Count and Say
@@ -64,15 +63,22 @@
 #
 #
 #
+
+# @lc tags=string
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 读数字，就是简单递归
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
 
+# @lc rank=
 
 # @lc code=start
 class Solution:
@@ -92,9 +98,28 @@ class Solution:
         return res
 
 
+        pass
 # @lc code=end
+
+# @lc main=start
 if __name__ == '__main__':
-    print(Solution().countAndSay(1))
-    print(Solution().countAndSay(2))
-    print(Solution().countAndSay(3))
-    print(Solution().countAndSay(4))
+    print('Example 1:')
+    print('Input : ')
+    print('n = 1')
+    print('Output :')
+    print(str(Solution().countAndSay(1)))
+    print('Exception :')
+    print('"1"')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('n = 4')
+    print('Output :')
+    print(str(Solution().countAndSay(4)))
+    print('Exception :')
+    print('"1211"')
+    print()
+    
+    pass
+# @lc main=end

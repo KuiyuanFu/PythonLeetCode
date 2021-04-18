@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=32 lang=python3
 #
 # [32] Longest Valid Parentheses
@@ -51,15 +50,22 @@
 #
 #
 #
+
+# @lc tags=string;dynamic-programming
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 求最长有效括号，使用栈和一个临时变量，栈中存储匹配这个左括号，就会多出多少长度。
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
 
+# @lc rank=
 
 # @lc code=start
 class Solution:
@@ -81,4 +87,37 @@ class Solution:
                     length = 0
 
         return lengthMax
+        pass
 # @lc code=end
+
+# @lc main=start
+if __name__ == '__main__':
+    print('Example 1:')
+    print('Input : ')
+    print('s = "(()"')
+    print('Output :')
+    print(str(Solution().longestValidParentheses("(()")))
+    print('Exception :')
+    print('2')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('s = ")()())"')
+    print('Output :')
+    print(str(Solution().longestValidParentheses(")()())")))
+    print('Exception :')
+    print('4')
+    print()
+    
+    print('Example 3:')
+    print('Input : ')
+    print('s = ""')
+    print('Output :')
+    print(str(Solution().longestValidParentheses("")))
+    print('Exception :')
+    print('0')
+    print()
+    
+    pass
+# @lc main=end

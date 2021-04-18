@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=18 lang=python3
 #
 # [18] 4Sum
@@ -50,6 +49,13 @@
 # 
 #
 
+
+# @lc tags=array;hash-table;two-pointers
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 官方解法，复杂度是 n^(t -1 ) 题目为求 t 个数的和为 target。
@@ -57,8 +63,9 @@
 #
 # @lc idea=end
 
-from typing import *
+# @lc group=
 
+# @lc rank=
 
 # @lc code=start
 class Solution:
@@ -95,5 +102,28 @@ class Solution:
 
         nums.sort()
         return kSum(nums, target, 4)
+        pass
 # @lc code=end
 
+# @lc main=start
+if __name__ == '__main__':
+    print('Example 1:')
+    print('Input : ')
+    print('nums = [1,0,-1,0,-2,2], target = 0')
+    print('Output :')
+    print(str(Solution().fourSum([1,0,-1,0,-2,2],0)))
+    print('Exception :')
+    print('[[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('nums = [2,2,2,2,2], target = 8')
+    print('Output :')
+    print(str(Solution().fourSum([2,2,2,2,2],8)))
+    print('Exception :')
+    print('[[2,2,2,2]]')
+    print()
+    
+    pass
+# @lc main=end

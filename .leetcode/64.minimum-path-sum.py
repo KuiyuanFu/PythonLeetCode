@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=64 lang=python3
 #
 # [64] Minimum Path Sum
@@ -47,6 +46,13 @@
 #
 # 
 #
+
+# @lc tags=array;dynamic-programming
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 求加权最短路径代价。
@@ -54,9 +60,9 @@
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
 
+# @lc rank=
 
 # @lc code=start
 class Solution:
@@ -69,5 +75,28 @@ class Solution:
             for j in range(len(grid[0])-2,-1,-1):
                 grid[i][j] += grid[i+1][j] if grid[i+1][j] < grid[i][j+1] else grid[i][j+1]
         return grid[0][0]
+        pass
 # @lc code=end
 
+# @lc main=start
+if __name__ == '__main__':
+    print('Example 1:')
+    print('Input : ')
+    print('grid = [[1,3,1],[1,5,1],[4,2,1]]')
+    print('Output :')
+    print(str(Solution().minPathSum([[1,3,1],[1,5,1],[4,2,1]])))
+    print('Exception :')
+    print('7')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('grid = [[1,2,3],[4,5,6]]')
+    print('Output :')
+    print(str(Solution().minPathSum([[1,2,3],[4,5,6]])))
+    print('Exception :')
+    print('12')
+    print()
+    
+    pass
+# @lc main=end

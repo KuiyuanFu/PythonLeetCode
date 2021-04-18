@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=45 lang=python3
 #
 # [45] Jump Game II
@@ -51,6 +50,13 @@
 #
 #
 #
+
+# @lc tags=array;greedy
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 给定数组，数组的数字就是当前的跳跃能力，目标是跳到数组的结尾。
@@ -58,9 +64,9 @@
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
 
+# @lc rank=
 
 # @lc code=start
 class Solution:
@@ -87,8 +93,28 @@ class Solution:
         return times
 
 
+        pass
 # @lc code=end
+
+# @lc main=start
 if __name__ == '__main__':
-    print(Solution().jump([2, 3, 1, 1, 4]))
-    print(Solution().jump([2, 3, 0, 1, 4]))
-    print(Solution().jump([2]))
+    print('Example 1:')
+    print('Input : ')
+    print('nums = [2,3,1,1,4]')
+    print('Output :')
+    print(str(Solution().jump([2,3,1,1,4])))
+    print('Exception :')
+    print('2')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('nums = [2,3,0,1,4]')
+    print('Output :')
+    print(str(Solution().jump([2,3,0,1,4])))
+    print('Exception :')
+    print('2')
+    print()
+    
+    pass
+# @lc main=end

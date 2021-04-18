@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=43 lang=python3
 #
 # [43] Multiply Strings
@@ -40,6 +39,13 @@
 #
 #
 #
+
+# @lc tags=math;string
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 计算两个正整数的乘积，以字符串的形式计算。
@@ -47,9 +53,9 @@
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
 
+# @lc rank=
 
 # @lc code=start
 class Solution:
@@ -64,12 +70,28 @@ class Solution:
         return r if len(r) > 0 else '0'
 
 
+        pass
 # @lc code=end
 
+# @lc main=start
 if __name__ == '__main__':
-    print(Solution().multiply("0", "0"))
-    print(Solution().multiply("1", "456"))
-    print(Solution().multiply("123", "0"))
-    print(Solution().multiply("0", "456"))
-    print(Solution().multiply("123", "456"))
-    print(Solution().multiply("999", "999"))
+    print('Example 1:')
+    print('Input : ')
+    print('num1 = "2", num2 = "3"')
+    print('Output :')
+    print(str(Solution().multiply("2","3")))
+    print('Exception :')
+    print('"6"')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('num1 = "123", num2 = "456"')
+    print('Output :')
+    print(str(Solution().multiply("123","456")))
+    print('Exception :')
+    print('"56088"')
+    print()
+    
+    pass
+# @lc main=end

@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=10 lang=python3
 #
 # [10] Regular Expression Matching
@@ -81,14 +80,22 @@
 
 #
 #
+
+# @lc tags=string;dynamic-programming;backtracking
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 正则表达式匹配，通配符只有 . * ，这种依赖于之前状态的可以使用动态规划或递归法，这个需要所有的基本结构的解，所以使用动态规划。
 #
 # @lc idea=end
 
-from typing import *
+# @lc group=
 
+# @lc rank=
 
 # @lc code=start
 class Solution:
@@ -126,11 +133,55 @@ class Solution:
                         dp[i][j] = False
         return dp[r-1][c-1]
 
+        pass
 # @lc code=end
 
-
+# @lc main=start
 if __name__ == '__main__':
-    print(Solution().isMatch("", '.*'))
-    print(Solution().isMatch("aaa", '.*'))
-    print(Solution().isMatch("aac", 'b*a*c'))
-    print(Solution().isMatch("aaa", 'aaaa'))
+    print('Example 1:')
+    print('Input : ')
+    print('s = "aa", p = "a"')
+    print('Output :')
+    print(str(Solution().isMatch("aa","a")))
+    print('Exception :')
+    print('false')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('s = "aa", p = "a*"')
+    print('Output :')
+    print(str(Solution().isMatch("aa","a*")))
+    print('Exception :')
+    print('true')
+    print()
+    
+    print('Example 3:')
+    print('Input : ')
+    print('s = "ab", p = ".*"')
+    print('Output :')
+    print(str(Solution().isMatch("ab",".*")))
+    print('Exception :')
+    print('true')
+    print()
+    
+    print('Example 4:')
+    print('Input : ')
+    print('s = "aab", p = "c*a*b"')
+    print('Output :')
+    print(str(Solution().isMatch("aab","c*a*b")))
+    print('Exception :')
+    print('true')
+    print()
+    
+    print('Example 5:')
+    print('Input : ')
+    print('s = "mississippi", p = "mis*is*p*."')
+    print('Output :')
+    print(str(Solution().isMatch("mississippi","mis*is*p*.")))
+    print('Exception :')
+    print('false')
+    print()
+    
+    pass
+# @lc main=end

@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=53 lang=python3
 #
 # [53] Maximum Subarray
@@ -53,6 +52,13 @@
 #
 # 
 #
+
+# @lc tags=array;divide-and-conquer;dynamic-programming
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 求数字数组的子序列的最大和。至少包括一个元素。
@@ -60,9 +66,9 @@
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
 
+# @lc rank=
 
 # @lc code=start
 class Solution:
@@ -77,9 +83,37 @@ class Solution:
  
 
         
+        pass
 # @lc code=end
-if __name__ == '__main__':
-    print(Solution().maxSubArray([-2,1,-3,4,-1,2,1,-5,4]))
-    print(Solution().maxSubArray([1]))
-    print(Solution().maxSubArray([5,4,-1,7,8]))
 
+# @lc main=start
+if __name__ == '__main__':
+    print('Example 1:')
+    print('Input : ')
+    print('nums = [-2,1,-3,4,-1,2,1,-5,4]')
+    print('Output :')
+    print(str(Solution().maxSubArray([-2,1,-3,4,-1,2,1,-5,4])))
+    print('Exception :')
+    print('6')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('nums = [1]')
+    print('Output :')
+    print(str(Solution().maxSubArray([1])))
+    print('Exception :')
+    print('1')
+    print()
+    
+    print('Example 3:')
+    print('Input : ')
+    print('nums = [5,4,-1,7,8]')
+    print('Output :')
+    print(str(Solution().maxSubArray([5,4,-1,7,8])))
+    print('Exception :')
+    print('23')
+    print()
+    
+    pass
+# @lc main=end

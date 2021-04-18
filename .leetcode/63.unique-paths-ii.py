@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=63 lang=python3
 #
 # [63] Unique Paths II
@@ -57,15 +56,22 @@
 #
 # 
 #
+
+# @lc tags=array;dynamic-programming
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 有障碍的路径个数。
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
 
+# @lc rank=
 
 # @lc code=start
 class Solution:
@@ -91,12 +97,28 @@ class Solution:
                     obstacleGrid[i][j] += obstacleGrid[i+1][j] if  obstacleGrid[i+1][j] <0 else 0
                     obstacleGrid[i][j] += obstacleGrid[i][j+1] if  obstacleGrid[i][j+1] <0 else 0
         return -1 * obstacleGrid[0][0] if obstacleGrid[0][0]<= 0 else 0
+        pass
 # @lc code=end
 
+# @lc main=start
 if __name__ == '__main__':
-    print(Solution().uniquePathsWithObstacles([[0]]))
-    print(Solution().uniquePathsWithObstacles([[1]]))
-    print(Solution().uniquePathsWithObstacles([[1,0]]))
-    print(Solution().uniquePathsWithObstacles([[0,1]]))
-    print(Solution().uniquePathsWithObstacles([[0,0,0],[0,1,1],[0,0,0]]))
-    print(Solution().uniquePathsWithObstacles([[0,0,0],[0,1,0],[0,0,0]]))
+    print('Example 1:')
+    print('Input : ')
+    print('obstacleGrid = [[0,0,0],[0,1,0],[0,0,0]]')
+    print('Output :')
+    print(str(Solution().uniquePathsWithObstacles([[0,0,0],[0,1,0],[0,0,0]])))
+    print('Exception :')
+    print('2')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('obstacleGrid = [[0,1],[0,0]]')
+    print('Output :')
+    print(str(Solution().uniquePathsWithObstacles([[0,1],[0,0]])))
+    print('Exception :')
+    print('1')
+    print()
+    
+    pass
+# @lc main=end

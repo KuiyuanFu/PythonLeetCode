@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=48 lang=python3
 #
 # [48] Rotate Image
@@ -62,6 +61,13 @@
 #
 #
 #
+
+# @lc tags=array
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 原地旋转一个方阵。
@@ -69,9 +75,9 @@
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
 
+# @lc rank=
 
 # @lc code=start
 class Solution:
@@ -91,6 +97,46 @@ class Solution:
         for i in range(0, len(matrix)):
             for j in range(i+1, len(matrix)):
                 matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+        pass
 # @lc code=end
+
+# @lc main=start
 if __name__ == '__main__':
-    print(Solution().rotate([[1,2,3],[4,5,6],[7,8,9]]))
+    print('Example 1:')
+    print('Input : ')
+    print('matrix = [[1,2,3],[4,5,6],[7,8,9]]')
+    print('Output :')
+    print(str(Solution().rotate([[1,2,3],[4,5,6],[7,8,9]])))
+    print('Exception :')
+    print('[[7,4,1],[8,5,2],[9,6,3]]')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('matrix = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]')
+    print('Output :')
+    print(str(Solution().rotate([[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]])))
+    print('Exception :')
+    print('[[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]')
+    print()
+    
+    print('Example 3:')
+    print('Input : ')
+    print('matrix = [[1]]')
+    print('Output :')
+    print(str(Solution().rotate([[1]])))
+    print('Exception :')
+    print('[[1]]')
+    print()
+    
+    print('Example 4:')
+    print('Input : ')
+    print('matrix = [[1,2],[3,4]]')
+    print('Output :')
+    print(str(Solution().rotate([[1,2],[3,4]])))
+    print('Exception :')
+    print('[[3,1],[4,2]]')
+    print()
+    
+    pass
+# @lc main=end

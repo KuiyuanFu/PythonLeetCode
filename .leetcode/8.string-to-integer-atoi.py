@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=8 lang=python3
 #
 # [8] String to Integer (atoi)
@@ -147,13 +146,22 @@
 #
 #
 #
+
+# @lc tags=math;string
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 字符串转数字，就是状态有点多，所以使用自动状态机来避免麻烦的状态标记。
 #
 # @lc idea=end
 
-from typing import *
+# @lc group=
+
+# @lc rank=
 
 # @lc code=start
 class Solution:
@@ -203,7 +211,55 @@ class Solution:
         return positive * int(num)
 
 
+        pass
 # @lc code=end
-if __name__ == '__main__':
 
-    print(Solution().myAtoi("  0000000000012345678"))
+# @lc main=start
+if __name__ == '__main__':
+    print('Example 1:')
+    print('Input : ')
+    print('s = "42"')
+    print('Output :')
+    print(str(Solution().myAtoi("42")))
+    print('Exception :')
+    print('42')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('s = "   -42"')
+    print('Output :')
+    print(str(Solution().myAtoi("   -42")))
+    print('Exception :')
+    print('-42')
+    print()
+    
+    print('Example 3:')
+    print('Input : ')
+    print('s = "4193 with words"')
+    print('Output :')
+    print(str(Solution().myAtoi("4193 with words")))
+    print('Exception :')
+    print('4193')
+    print()
+    
+    print('Example 4:')
+    print('Input : ')
+    print('s = "words and 987"')
+    print('Output :')
+    print(str(Solution().myAtoi("words and 987")))
+    print('Exception :')
+    print('0')
+    print()
+    
+    print('Example 5:')
+    print('Input : ')
+    print('s = "-91283472332"')
+    print('Output :')
+    print(str(Solution().myAtoi("-91283472332")))
+    print('Exception :')
+    print('-2147483648')
+    print()
+    
+    pass
+# @lc main=end

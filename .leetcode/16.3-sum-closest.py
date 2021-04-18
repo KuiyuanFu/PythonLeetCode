@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=16 lang=python3
 #
 # [16] 3Sum Closest
@@ -38,6 +37,13 @@
 #
 #
 
+
+# @lc tags=array;two-pointers
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 # 使用回溯和备忘录方法，每一次经过一个索引，分成两部分，一个是使用这个值，另一个是不使用。使用次数为3时，就返回和，之后判断差值。
 # 
@@ -45,8 +51,9 @@
 #
 # @lc idea=end
 
-from typing import *
+# @lc group=
 
+# @lc rank=
 
 # @lc code=start
 class Solution:
@@ -84,9 +91,19 @@ class Solution:
         self.memory[(index, times, n)] = result
         return result
 
+        pass
 # @lc code=end
 
-
+# @lc main=start
 if __name__ == '__main__':
-    print(Solution().threeSumClosest([0, 0, 0], 1))
-    print(Solution().threeSumClosest([-1, 2, 1, -4], 1))
+    print('Example 1:')
+    print('Input : ')
+    print('nums = [-1,2,1,-4], target = 1')
+    print('Output :')
+    print(str(Solution().threeSumClosest([-1,2,1,-4],1)))
+    print('Exception :')
+    print('2')
+    print()
+    
+    pass
+# @lc main=end

@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=14 lang=python3
 #
 # [14] Longest Common Prefix
@@ -44,13 +43,23 @@
 # 
 # 
 #
+
+# @lc tags=string
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 最长公共前缀，直接遍历就可以了。
 #
 # @lc idea=end
 
-from typing import *
+# @lc group=
+
+# @lc rank=
+
 # @lc code=start
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
@@ -65,5 +74,28 @@ class Solution:
         return strs[0][:length]
 
         
+        pass
 # @lc code=end
 
+# @lc main=start
+if __name__ == '__main__':
+    print('Example 1:')
+    print('Input : ')
+    print('strs = ["flower","flow","flight"]')
+    print('Output :')
+    print(str(Solution().longestCommonPrefix(["flower","flow","flight"])))
+    print('Exception :')
+    print('"fl"')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('strs = ["dog","racecar","car"]')
+    print('Output :')
+    print(str(Solution().longestCommonPrefix(["dog","racecar","car"])))
+    print('Exception :')
+    print('""')
+    print()
+    
+    pass
+# @lc main=end

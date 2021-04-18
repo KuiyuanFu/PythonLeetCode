@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=62 lang=python3
 #
 # [62] Unique Paths
@@ -68,6 +67,13 @@
 #
 #
 #
+
+# @lc tags=array;dynamic-programming
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 在一个board 上，只能向右或下走，从左上到右下有多少种路径。
@@ -75,9 +81,9 @@
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
 
+# @lc rank=
 
 # @lc code=start
 class Solution:
@@ -90,10 +96,46 @@ class Solution:
         return dp[1][-1]
 
 
+        pass
 # @lc code=end
 
+# @lc main=start
 if __name__ == '__main__':
-    print(Solution().uniquePaths(2,2))
-    print(Solution().uniquePaths(2,3))
-    print(Solution().uniquePaths(3,3))
-    print(Solution().uniquePaths(3, 7))
+    print('Example 1:')
+    print('Input : ')
+    print('m = 3, n = 7')
+    print('Output :')
+    print(str(Solution().uniquePaths(3,7)))
+    print('Exception :')
+    print('28')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('m = 3, n = 2')
+    print('Output :')
+    print(str(Solution().uniquePaths(3,2)))
+    print('Exception :')
+    print('3')
+    print()
+    
+    print('Example 3:')
+    print('Input : ')
+    print('m = 7, n = 3')
+    print('Output :')
+    print(str(Solution().uniquePaths(7,3)))
+    print('Exception :')
+    print('28')
+    print()
+    
+    print('Example 4:')
+    print('Input : ')
+    print('m = 3, n = 3')
+    print('Output :')
+    print(str(Solution().uniquePaths(3,3)))
+    print('Exception :')
+    print('6')
+    print()
+    
+    pass
+# @lc main=end

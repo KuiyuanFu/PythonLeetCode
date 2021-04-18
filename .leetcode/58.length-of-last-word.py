@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=58 lang=python3
 #
 # [58] Length of Last Word
@@ -38,15 +37,22 @@
 #
 #
 #
+
+# @lc tags=string
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 #  求最后一个词的长度，直接求解。
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
 
+# @lc rank=
 
 # @lc code=start
 class Solution:
@@ -56,4 +62,28 @@ class Solution:
             return 0
         return  len(s.split(' ')[-1])
 
+        pass
 # @lc code=end
+
+# @lc main=start
+if __name__ == '__main__':
+    print('Example 1:')
+    print('Input : ')
+    print('s = "Hello World"')
+    print('Output :')
+    print(str(Solution().lengthOfLastWord("Hello World")))
+    print('Exception :')
+    print('5')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('s = " "')
+    print('Output :')
+    print(str(Solution().lengthOfLastWord(" ")))
+    print('Exception :')
+    print('0')
+    print()
+    
+    pass
+# @lc main=end

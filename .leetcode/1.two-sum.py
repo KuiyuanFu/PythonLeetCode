@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=1 lang=python3
 #
 # [1] Two Sum
@@ -56,13 +55,22 @@
 #
 #
 
+
+# @lc tags=array;hash-table
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 目的是求和为 target 的两个数字的索引。使用一个d ic 存储数字与其索引的键值对。这样每读取一个数字时，判断 dic中是否已经有与其和为 target 的数字，若有就可以在字典中直接读取另一个数字的索引，之后直接输出。
 #
 # @lc idea=end
 
-from typing import *
+# @lc group=
+
+# @lc rank=
 
 # @lc code=start
 class Solution:
@@ -74,4 +82,37 @@ class Solution:
             else:
                 s[n] = i
 
+        pass
 # @lc code=end
+
+# @lc main=start
+if __name__ == '__main__':
+    print('Example 1:')
+    print('Input : ')
+    print('nums = [2,7,11,15], target = 9')
+    print('Output :')
+    print(str(Solution().twoSum([2,7,11,15],9)))
+    print('Exception :')
+    print('[0,1]Because nums[0] + nums[1] == 9, we return [0, 1].')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('nums = [3,2,4], target = 6')
+    print('Output :')
+    print(str(Solution().twoSum([3,2,4],6)))
+    print('Exception :')
+    print('[1,2]')
+    print()
+    
+    print('Example 3:')
+    print('Input : ')
+    print('nums = [3,3], target = 6')
+    print('Output :')
+    print(str(Solution().twoSum([3,3],6)))
+    print('Exception :')
+    print('[0,1]')
+    print()
+    
+    pass
+# @lc main=end

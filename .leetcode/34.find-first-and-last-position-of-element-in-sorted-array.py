@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=34 lang=python3
 #
 # [34] Find First and Last Position of Element in Sorted Array
@@ -44,6 +43,13 @@
 #
 #
 #
+
+# @lc tags=array;binary-search
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 求关键字在有序数组中的第一个出现的位置及最后出现的位置
@@ -51,9 +57,9 @@
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
 
+# @lc rank=
 
 # @lc code=start
 class Solution:
@@ -97,5 +103,35 @@ class Solution:
         return ret
 
 # @lc code=end
+
+# @lc main=start
 if __name__ == '__main__':
-    print(Solution().searchRange([1], 1))
+    print('Example 1:')
+    print('Input : ')
+    print('nums = [5,7,7,8,8,10], target = 8')
+    print('Output :')
+    print(str(Solution().searchRange([5,7,7,8,8,10],8)))
+    print('Exception :')
+    print('[3,4]')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('nums = [5,7,7,8,8,10], target = 6')
+    print('Output :')
+    print(str(Solution().searchRange([5,7,7,8,8,10],6)))
+    print('Exception :')
+    print('[-1,-1]')
+    print()
+    
+    print('Example 3:')
+    print('Input : ')
+    print('nums = [], target = 0')
+    print('Output :')
+    print(str(Solution().searchRange([],0)))
+    print('Exception :')
+    print('[-1,-1]')
+    print()
+    
+    pass
+# @lc main=end

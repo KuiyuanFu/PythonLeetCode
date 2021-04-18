@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=15 lang=python3
 #
 # [15] 3Sum
@@ -40,6 +39,13 @@
 #
 #
 #
+
+# @lc tags=array;two-pointers
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 返回所有三元组，满足和为0。由于要求不能重复，需要有重复校验。最简单就是三重循环，这样复杂度太高了。由于是三个数，所以时间复杂度不可能太低。
@@ -47,7 +53,9 @@
 #
 # @lc idea=end
 
-from typing import *
+# @lc group=
+
+# @lc rank=
 
 # @lc code=start
 
@@ -93,8 +101,37 @@ class Solution:
     def listToString(self, l: List[int]) -> str:
         return '#'.join([str(i) for i in l])
 
+        pass
 # @lc code=end
 
-
+# @lc main=start
 if __name__ == '__main__':
-    print(Solution().threeSum([-1, 0, 1, 2, -1, -4]))
+    print('Example 1:')
+    print('Input : ')
+    print('nums = [-1,0,1,2,-1,-4]')
+    print('Output :')
+    print(str(Solution().threeSum([-1,0,1,2,-1,-4])))
+    print('Exception :')
+    print('[[-1,-1,2],[-1,0,1]]')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('nums = []')
+    print('Output :')
+    print(str(Solution().threeSum([])))
+    print('Exception :')
+    print('[]')
+    print()
+    
+    print('Example 3:')
+    print('Input : ')
+    print('nums = [0]')
+    print('Output :')
+    print(str(Solution().threeSum([0])))
+    print('Exception :')
+    print('[]')
+    print()
+    
+    pass
+# @lc main=end

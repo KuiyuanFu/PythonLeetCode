@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=4 lang=python3
 #
 # [4] Median of Two Sorted Arrays
@@ -69,6 +68,13 @@
 #
 # Follow up: The overall run time complexity should be O(log (m+n)).
 #
+
+# @lc tags=array;binary-search;divide-and-conquer
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 求两个排序过的数组的中位数，同时要求时间复杂度是 lg n+m 级别，所以只能用分治法。
@@ -79,7 +85,9 @@
 #
 # @lc idea=end
 
-from typing import *
+# @lc group=
+
+# @lc rank=
 
 # @lc code=start
 
@@ -162,13 +170,53 @@ class Solution:
 
 
 # @lc code=end
-if __name__ == "__main__":
-    # print(Solution().findMedianSortedArrays(
-    #     [4, 5, 6, 7, 8, 9, 10], [7,8,9,10,11,12,13]))
-    # print(Solution().findMedianSortedArrays(
-    #     [1,2,3], [4]))
-    print(Solution().findMedianSortedArrays(
-        [1,5], [2,3,4,6]))
-    # print(Solution().findMedianSortedArrays(
-    #     [0, 0, 0, 0, 0],
-    #     [-1, 0, 0, 0, 0, 0, 1]))
+
+# @lc main=start
+if __name__ == '__main__':
+    print('Example 1:')
+    print('Input : ')
+    print('nums1 = [1,3], nums2 = [2]')
+    print('Output :')
+    print(str(Solution().findMedianSortedArrays([1,3],[2])))
+    print('Exception :')
+    print('2.00000')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('nums1 = [1,2], nums2 = [3,4]')
+    print('Output :')
+    print(str(Solution().findMedianSortedArrays([1,2],[3,4])))
+    print('Exception :')
+    print('2.50000')
+    print()
+    
+    print('Example 3:')
+    print('Input : ')
+    print('nums1 = [0,0], nums2 = [0,0]')
+    print('Output :')
+    print(str(Solution().findMedianSortedArrays([0,0],[0,0])))
+    print('Exception :')
+    print('0.00000')
+    print()
+    
+    print('Example 4:')
+    print('Input : ')
+    print('nums1 = [], nums2 = [1]')
+    print('Output :')
+    print(str(Solution().findMedianSortedArrays([],[1])))
+    print('Exception :')
+    print('1.00000')
+    print()
+    
+    print('Example 5:')
+    print('Input : ')
+    print('nums1 = [2], nums2 = []')
+    print('Output :')
+    print(str(Solution().findMedianSortedArrays([2],[])))
+    print('Exception :')
+    print('2.00000')
+    print()
+    
+    pass
+# @lc main=end

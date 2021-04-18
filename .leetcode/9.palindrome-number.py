@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=9 lang=python3
 #
 # [9] Palindrome Number
@@ -63,15 +62,22 @@
 #
 #
 #
+
+# @lc tags=math
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 # 
 #  判断数字是否是回文，根据题意，负数一定不是，正数情况下，正常是需要依次求余来确定每一位的数字的，这里直接使用 itoa 来确定字符串，直接比较，很方便。
 # 
 # @lc idea=end
 
-from typing import *
+# @lc group=
 
-
+# @lc rank=
 
 # @lc code=start
 class Solution:
@@ -92,3 +98,44 @@ class Solution:
         pass
 
 # @lc code=end
+
+# @lc main=start
+if __name__ == '__main__':
+    print('Example 1:')
+    print('Input : ')
+    print('x = 121')
+    print('Output :')
+    print(str(Solution().isPalindrome(121)))
+    print('Exception :')
+    print('true')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('x = -121')
+    print('Output :')
+    print(str(Solution().isPalindrome(-121)))
+    print('Exception :')
+    print('false')
+    print()
+    
+    print('Example 3:')
+    print('Input : ')
+    print('x = 10')
+    print('Output :')
+    print(str(Solution().isPalindrome(10)))
+    print('Exception :')
+    print('false')
+    print()
+    
+    print('Example 4:')
+    print('Input : ')
+    print('x = -101')
+    print('Output :')
+    print(str(Solution().isPalindrome(-101)))
+    print('Exception :')
+    print('false')
+    print()
+    
+    pass
+# @lc main=end

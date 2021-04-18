@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=65 lang=python3
 #
 # [65] Valid Number
@@ -89,6 +88,13 @@
 #
 #
 #
+
+# @lc tags=math;string
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 判断是否是合法的数字字符串。
@@ -96,9 +102,9 @@
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
 
+# @lc rank=
 
 # @lc code=start
 class Solution:
@@ -152,11 +158,46 @@ class Solution:
         return True
 
 
+        pass
 # @lc code=end
+
+# @lc main=start
 if __name__ == '__main__':
-    print(Solution().isNumber('0'))
-    print(Solution().isNumber('e'))
-    print(Solution().isNumber('.'))
-    print(Solution().isNumber('.1'))
-    print(Solution().isNumber('.1.'))
-    print(Solution().isNumber('6e6.5'))
+    print('Example 1:')
+    print('Input : ')
+    print('s = "0"')
+    print('Output :')
+    print(str(Solution().isNumber("0")))
+    print('Exception :')
+    print('true')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('s = "e"')
+    print('Output :')
+    print(str(Solution().isNumber("e")))
+    print('Exception :')
+    print('false')
+    print()
+    
+    print('Example 3:')
+    print('Input : ')
+    print('s = "."')
+    print('Output :')
+    print(str(Solution().isNumber(".")))
+    print('Exception :')
+    print('false')
+    print()
+    
+    print('Example 4:')
+    print('Input : ')
+    print('s = ".1"')
+    print('Output :')
+    print(str(Solution().isNumber(".1")))
+    print('Exception :')
+    print('true')
+    print()
+    
+    pass
+# @lc main=end

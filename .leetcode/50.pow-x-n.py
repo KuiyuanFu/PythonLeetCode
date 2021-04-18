@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=50 lang=python3
 #
 # [50] Pow(x, n)
@@ -50,15 +49,22 @@
 #
 #
 #
+
+# @lc tags=math;binary-search
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 幂函数。模重复平方计算法。
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
 
+# @lc rank=
 
 # @lc code=start
 class Solution:
@@ -79,10 +85,37 @@ class Solution:
         return sum
 
 
+        pass
 # @lc code=end
+
+# @lc main=start
 if __name__ == '__main__':
-    print(Solution().myPow(2, 10))
-    print(Solution().myPow(-2, 10))
-    print(Solution().myPow(2.1, 3))
-    print(Solution().myPow(-2.1, 3))
-    print(Solution().myPow(2, -2))
+    print('Example 1:')
+    print('Input : ')
+    print('x = 2.00000, n = 10')
+    print('Output :')
+    print(str(Solution().myPow(2.00000,10)))
+    print('Exception :')
+    print('1024.00000')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('x = 2.10000, n = 3')
+    print('Output :')
+    print(str(Solution().myPow(2.10000,3)))
+    print('Exception :')
+    print('9.26100')
+    print()
+    
+    print('Example 3:')
+    print('Input : ')
+    print('x = 2.00000, n = -2')
+    print('Output :')
+    print(str(Solution().myPow(2.00000,-2)))
+    print('Exception :')
+    print('0.25000')
+    print()
+    
+    pass
+# @lc main=end

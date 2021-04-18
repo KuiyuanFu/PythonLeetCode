@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=31 lang=python3
 #
 # [31] Next Permutation
@@ -46,6 +45,13 @@
 #
 #
 #
+
+# @lc tags=array
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 求下一个排列，按照字典顺序，溢出则返回第一个。
@@ -54,9 +60,9 @@
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
 
+# @lc rank=
 
 # @lc code=start
 class Solution:
@@ -85,6 +91,46 @@ class Solution:
             nums[l-1], nums[index] = nums[index], nums[l-1]
         return nums
 
+        pass
 # @lc code=end
+
+# @lc main=start
 if __name__ == '__main__':
-    print(Solution().nextPermutation([1,3,2]))
+    print('Example 1:')
+    print('Input : ')
+    print('nums = [1,2,3]')
+    print('Output :')
+    print(str(Solution().nextPermutation([1,2,3])))
+    print('Exception :')
+    print('[1,3,2]')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('nums = [3,2,1]')
+    print('Output :')
+    print(str(Solution().nextPermutation([3,2,1])))
+    print('Exception :')
+    print('[1,2,3]')
+    print()
+    
+    print('Example 3:')
+    print('Input : ')
+    print('nums = [1,1,5]')
+    print('Output :')
+    print(str(Solution().nextPermutation([1,1,5])))
+    print('Exception :')
+    print('[1,5,1]')
+    print()
+    
+    print('Example 4:')
+    print('Input : ')
+    print('nums = [1]')
+    print('Output :')
+    print(str(Solution().nextPermutation([1])))
+    print('Exception :')
+    print('[1]')
+    print()
+    
+    pass
+# @lc main=end

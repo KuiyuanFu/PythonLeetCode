@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=60 lang=python3
 #
 # [60] Permutation Sequence
@@ -51,6 +50,13 @@
 #
 # 
 #
+
+# @lc tags=math;backtracking
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 求前n个正整数的第k个排列。
@@ -58,9 +64,9 @@
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
 
+# @lc rank=
 
 # @lc code=start
 class Solution:
@@ -81,9 +87,37 @@ class Solution:
         return result 
 
         
+        pass
 # @lc code=end
 
+# @lc main=start
 if __name__ == '__main__':
-    print(Solution().getPermutation(3,3))
-    print(Solution().getPermutation(4,9))
-    print(Solution().getPermutation(3,1))
+    print('Example 1:')
+    print('Input : ')
+    print('n = 3, k = 3')
+    print('Output :')
+    print(str(Solution().getPermutation(3,3)))
+    print('Exception :')
+    print('"213"')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('n = 4, k = 9')
+    print('Output :')
+    print(str(Solution().getPermutation(4,9)))
+    print('Exception :')
+    print('"2314"')
+    print()
+    
+    print('Example 3:')
+    print('Input : ')
+    print('n = 3, k = 1')
+    print('Output :')
+    print(str(Solution().getPermutation(3,1)))
+    print('Exception :')
+    print('"123"')
+    print()
+    
+    pass
+# @lc main=end

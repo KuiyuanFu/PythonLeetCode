@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=13 lang=python3
 #
 # [13] Roman to Integer
@@ -91,13 +90,23 @@
 # It is guaranteed that s is a valid roman numeral in the range [1, 3999].
 #
 #
+
+# @lc tags=math;string
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 罗马汉字转数字，需要根据大小关系，判断是否是较小值在较大值左侧，需要减掉这个。
 #
 # @lc idea=end
 
-from typing import *
+# @lc group=
+
+# @lc rank=
+
 # @lc code=start
 
 
@@ -113,8 +122,55 @@ class Solution:
             num += n + ((-2 * nPre) if nPre < n else 0)
             nPre = n
         return num
+        pass
 # @lc code=end
 
-
+# @lc main=start
 if __name__ == '__main__':
-    print(Solution().romanToInt("MCMXCIV"))
+    print('Example 1:')
+    print('Input : ')
+    print('s = "III"')
+    print('Output :')
+    print(str(Solution().romanToInt("III")))
+    print('Exception :')
+    print('3')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('s = "IV"')
+    print('Output :')
+    print(str(Solution().romanToInt("IV")))
+    print('Exception :')
+    print('4')
+    print()
+    
+    print('Example 3:')
+    print('Input : ')
+    print('s = "IX"')
+    print('Output :')
+    print(str(Solution().romanToInt("IX")))
+    print('Exception :')
+    print('9')
+    print()
+    
+    print('Example 4:')
+    print('Input : ')
+    print('s = "LVIII"')
+    print('Output :')
+    print(str(Solution().romanToInt("LVIII")))
+    print('Exception :')
+    print('58')
+    print()
+    
+    print('Example 5:')
+    print('Input : ')
+    print('s = "MCMXCIV"')
+    print('Output :')
+    print(str(Solution().romanToInt("MCMXCIV")))
+    print('Exception :')
+    print('1994')
+    print()
+    
+    pass
+# @lc main=end

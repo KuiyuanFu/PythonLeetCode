@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=12 lang=python3
 #
 # [12] Integer to Roman
@@ -91,13 +90,23 @@
 #
 #
 #
+
+# @lc tags=math;string
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 最朴素的想法，就是依次判断是否大于临界值。
 #
 # @lc idea=end
 
-from typing import *
+# @lc group=
+
+# @lc rank=
+
 # @lc code=start
 
 
@@ -147,6 +156,55 @@ class Solution:
         return s
 
 
+        pass
 # @lc code=end
+
+# @lc main=start
 if __name__ == '__main__':
-    print(Solution().intToRoman(1994))
+    print('Example 1:')
+    print('Input : ')
+    print('num = 3')
+    print('Output :')
+    print(str(Solution().intToRoman(3)))
+    print('Exception :')
+    print('"III"')
+    print()
+    
+    print('Example 2:')
+    print('Input : ')
+    print('num = 4')
+    print('Output :')
+    print(str(Solution().intToRoman(4)))
+    print('Exception :')
+    print('"IV"')
+    print()
+    
+    print('Example 3:')
+    print('Input : ')
+    print('num = 9')
+    print('Output :')
+    print(str(Solution().intToRoman(9)))
+    print('Exception :')
+    print('"IX"')
+    print()
+    
+    print('Example 4:')
+    print('Input : ')
+    print('num = 58')
+    print('Output :')
+    print(str(Solution().intToRoman(58)))
+    print('Exception :')
+    print('"LVIII"')
+    print()
+    
+    print('Example 5:')
+    print('Input : ')
+    print('num = 1994')
+    print('Output :')
+    print(str(Solution().intToRoman(1994)))
+    print('Exception :')
+    print('"MCMXCIV"')
+    print()
+    
+    pass
+# @lc main=end
