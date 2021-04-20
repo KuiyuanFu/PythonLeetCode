@@ -1,6 +1,3 @@
-
-.vscode/.ropeproject/config.py
-.vscode/.ropeproject/objectdb
-.leetcode/.vscode/.ropeproject/objectdb
-.leetcode/.vscode/.ropeproject/config.py
-.leetcode/__pycache__/imports.cpython-38.pyc
+.vscode/
+.leetcode/.vscode/
+.leetcode/__pycache__/
