@@ -64,7 +64,8 @@ from imports import *
 
 # @lc idea=start
 #
-# 目的是将两个倒序排列的数字的链表加起来，首先在低位时，直接相加，同时判断进位情况；在超过其中一个链表长度时，需要根据进位情况加到高位上，同时把这一部分链接到之前的根链表上。最后若是较长的链表也读取完了，还有进位，就需要额外建立一个节点，不能利用已有节点了。
+# 给定两个倒序排列的数字的链表，求和。
+# 首先在低位时，直接相加，同时判断进位情况；在超过其中一个链表长度时，需要根据进位情况加到高位上，同时把这一部分链接到之前的根链表上。最后若是较长的链表也读取完了，还有进位，就需要额外建立一个节点，不能利用已有节点了。
 #
 # @lc idea=end
 
@@ -73,14 +74,6 @@ from imports import *
 # @lc rank=
 
 # @lc code=start
-# Definition for singly-linked list.
-
-
-# class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
-
 
 class Solution:
     # 整体思想就是相加，得到进位，之后链接剩余的高位，

@@ -77,96 +77,57 @@ from imports import *
 
 # @lc idea=start
 #
-# 求两个排序过的数组的中位数，同时要求时间复杂度是 lg n+m 级别，所以只能用分治法。
-# 若是一个数组求中位数，直接在左侧移除一定数量的元素，剩下的最小的就是中位数了，但现在有两个数组，那么就需要比较两个数组中的元素大小了。 
-# 首先的想法是，先计算左右两侧个需要移除多少个元素，之后直接比较两个数组当前范围内的中位数大小，若较小的一方左侧元素少于左侧需要移除的元素个数，就移除较小的一方所有左侧元素，较大一方同理。
-# 但这样有几个问题，最突出的是虽然少于需要移除的元素个数，但是较大的一方的左侧元素可能小于较小的一方左侧元素，这样有可能直接删掉了中位数。
-# 所以现在不是比较中位数，而是通过一侧需要移除的元素数来确定比较位置，由于这里是两个数组，取比较元素与边界的距离就是元素数的一半，之后比较，就可以安全的移除元素了，因为即使另一个数组的元素更小，那么现在移除的元素也是在需要移除元素的范围内的。
+# 求两个有序的数组的整体的中位数，同时要求时间复杂度是 lg n+m 级别，所以只能用二分搜索。
+# 若是求一个有序数组的中位数，直接在左侧移除一定数量的元素，剩下的最小的就是中位数了，但现在有两个数组，那么就需要比较两个数组中的元素大小了来确定如何移除元素。
+# 想法是，先计算左侧需要移除掉多少个元素，之后每次移除当前需要移除的个数的一半。每次移除一半是因为，确定了两个数组的比较位置后，此位置上的较小一方的所有左侧元素都可以确定为小于较大一方。但是较大一方左侧元素与较小一方的大小关系是无法确定的。所以如果每次移除的数量大于一半，那么就不能完全移除所有较小一方左侧的元素了。
+# 确定此次需要移除的个数后，再通过每个数组的当前左边界确定比较位置，比较大小，移动左边界。
 #
 # @lc idea=end
 
-# @lc group=
+# @lc group=binary-search
 
-# @lc rank=
+# @lc rank=10
 
 # @lc code=start
 
 
 class Solution:
+    def findMedianSortedArrays(self, nums1: List[int],
+                               nums2: List[int]) -> float:
 
-    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
-        # 若只有一个数组就可以直接获得中位数
-        if (len(nums1) == 0):
-            return (nums2[(len(nums2)-1)//2] + nums2[(len(nums2)-1)//2 + 1-len(nums2) % 2])/2
-        elif (len(nums2) == 0):
-            return (nums1[(len(nums1)-1)//2] + nums1[(len(nums1)-1)//2 + 1 - len(nums1) % 2])/2
+        # 需要删除的个数
+        needRemoveNumber = (len(nums1) + len(nums2) - 1) // 2
 
-        # 中位数的第一个位置
-        firstTarget = (len(nums1) + len(nums2)-1)//2
-        # 若长度为偶数，则第二个位置在第一个位置的右侧一位
-        secondTarget = firstTarget + 1 - (len(nums1) + len(nums2)) % 2
+        # 两个数组的左侧边界
+        f, s = 0, 0
 
-        # 数组的范围
-        firstLeft = 0
-        firstRight = len(nums1)-1
-        secondLeft = 0
-        secondRight = len(nums2) - 1
+        while needRemoveNumber != 0:
+            # 一个数组已经没有元素了
+            if f == len(nums1):
+                s += needRemoveNumber
+                break
+            if s == len(nums2):
+                f += needRemoveNumber
+                break
+            # 移动的长度
+            half = (needRemoveNumber - 1) // 2
+            # 比较的位置
+            fHalf = (f + half) if f + half < len(nums1) else (len(nums1) - 1)
+            sHalf = (s + half) if s + half < len(nums2) else (len(nums2) - 1)
 
-        # 需要删除的数量
-        leftNeedRemove = firstTarget 
-        rightNeedRemove = (len(nums1) + len(nums2)-1) - secondTarget
-        # print([firstTarget, secondTarget])
-
-        while(True):
-            # 其中一个已经是空的了
-            if (firstRight+1 == firstLeft):
-                return (nums2[secondLeft+leftNeedRemove] +nums2[secondLeft+leftNeedRemove + secondTarget - firstTarget] )/2
-            if (secondRight+1 == secondLeft):
-                return (nums1[firstLeft+leftNeedRemove] +nums1[firstLeft+leftNeedRemove + secondTarget - firstTarget] )/2
-        
-            # 数组很小的之后，可以直接排序
-            # 6 items
-            if (firstRight - firstLeft + secondRight - secondLeft) < 4:
-                temp = nums1[firstLeft:firstRight+1] + \
-                    nums2[secondLeft:secondRight+1]
-                temp.sort()
-                # print(temp)
-
-                return (temp[firstTarget-(firstLeft+secondLeft)] + temp[secondTarget-(firstLeft+secondLeft)])/2
-
-            # 取需要移除数量较大的一侧
-            if (leftNeedRemove > rightNeedRemove):
-
-                # 取一半
-                half = (leftNeedRemove - 1)//2
-
-                # 不能越界呀
-                firstT =( firstLeft + half )if firstLeft + half <= firstRight else firstRight
-                secondT = (secondLeft + half )if secondLeft + half <= secondRight else secondRight
-
-                # 移除较小的
-                if (nums1[firstT] < nums2[secondT]):
-                    leftNeedRemove -= firstT + 1 - firstLeft
-                    firstLeft = firstT + 1
-                else:
-                    leftNeedRemove -= secondT + 1 - secondLeft
-                    secondLeft = secondT + 1
+            # 移动边界
+            if nums1[fHalf] < nums2[sHalf]:
+                needRemoveNumber -= fHalf + 1 - f
+                f = fHalf + 1
             else:
+                needRemoveNumber -= sHalf + 1 - s
+                s = sHalf + 1
 
-                # 同理
-                half = (rightNeedRemove - 1)//2
-                firstT = (firstRight - half) if firstRight - half >= firstLeft else firstLeft
-                secondT = (secondRight - half )if (secondRight - half )>= secondLeft else secondLeft
-
-                # 移除较大的
-                if (nums1[firstT] < nums2[secondT]):
-                    rightNeedRemove -= secondRight - (secondT - 1)
-                    secondRight = secondT - 1
-                else:
-                    rightNeedRemove -= firstRight - (firstT - 1)
-                    firstRight = firstT - 1
-
-            pass
+        # 排序
+        t = nums1[f:min(f + 2, len(nums1))] + nums2[s:min(s + 2, len(nums2))]
+        t.sort()
+        # 根据数组元素数量确定是否求平均值
+        return (t[0] + t[1 - (len(nums1) + len(nums2)) % 2]) / 2
 
 
 # @lc code=end
@@ -177,46 +138,46 @@ if __name__ == '__main__':
     print('Input : ')
     print('nums1 = [1,3], nums2 = [2]')
     print('Output :')
-    print(str(Solution().findMedianSortedArrays([1,3],[2])))
+    print(str(Solution().findMedianSortedArrays([1, 3], [2])))
     print('Exception :')
     print('2.00000')
     print()
-    
+
     print('Example 2:')
     print('Input : ')
     print('nums1 = [1,2], nums2 = [3,4]')
     print('Output :')
-    print(str(Solution().findMedianSortedArrays([1,2],[3,4])))
+    print(str(Solution().findMedianSortedArrays([1, 2], [3, 4])))
     print('Exception :')
     print('2.50000')
     print()
-    
+
     print('Example 3:')
     print('Input : ')
     print('nums1 = [0,0], nums2 = [0,0]')
     print('Output :')
-    print(str(Solution().findMedianSortedArrays([0,0],[0,0])))
+    print(str(Solution().findMedianSortedArrays([0, 0], [0, 0])))
     print('Exception :')
     print('0.00000')
     print()
-    
+
     print('Example 4:')
     print('Input : ')
     print('nums1 = [], nums2 = [1]')
     print('Output :')
-    print(str(Solution().findMedianSortedArrays([],[1])))
+    print(str(Solution().findMedianSortedArrays([], [1])))
     print('Exception :')
     print('1.00000')
     print()
-    
+
     print('Example 5:')
     print('Input : ')
     print('nums1 = [2], nums2 = []')
     print('Output :')
-    print(str(Solution().findMedianSortedArrays([2],[])))
+    print(str(Solution().findMedianSortedArrays([2], [])))
     print('Exception :')
     print('2.00000')
     print()
-    
+
     pass
 # @lc main=end

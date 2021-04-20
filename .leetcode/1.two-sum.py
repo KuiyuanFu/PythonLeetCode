@@ -64,7 +64,8 @@ from imports import *
 
 # @lc idea=start
 #
-# 目的是求和为 target 的两个数字的索引。使用一个d ic 存储数字与其索引的键值对。这样每读取一个数字时，判断 dic中是否已经有与其和为 target 的数字，若有就可以在字典中直接读取另一个数字的索引，之后直接输出。
+# 给定一个数组，求和为 target 的两个元素的索引。
+# 使用一个 dic 存储元素与其索引的键值对。这样每读取一个元素时，判断 dic 中是否已经有与其和为 target 的元素，若有就可以在字典中直接读取另一个元素的索引，之后直接输出。
 #
 # @lc idea=end
 
@@ -81,8 +82,6 @@ class Solution:
                 return [s[target - n], i]
             else:
                 s[n] = i
-
-        pass
 # @lc code=end
 
 # @lc main=start
