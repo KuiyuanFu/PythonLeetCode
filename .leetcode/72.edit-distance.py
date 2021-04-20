@@ -73,9 +73,9 @@ from imports import *
 #
 # @lc idea=end
 
-# @lc group=
+# @lc group=dynamic-programming
 
-# @lc rank=
+# @lc rank=10
 
 
 # @lc code=start
