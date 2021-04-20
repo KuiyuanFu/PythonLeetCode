@@ -54,6 +54,7 @@ from imports import *
 # 给定一个32位的非负整数 x ，求其平方根的整数部分。
 # 朴素思想是从0开始，以此求其二次幂，之后判断是否大于 x 。
 # 这样时间复杂度是不可接受的。就使用二分搜索，加速这个过程。
+# 还有一个问题，就是直接计算二次幂的话，很可能会溢出，虽然在 Python 中不会出现这个情况，但也需要考虑，将 m*m > x 改为 m > x / m。
 #
 # @lc idea=end
 
@@ -70,10 +71,10 @@ class Solution:
         while l != r:
             # m 为较右的一个
             m = l + (r-l+1) // 2
-            if m*m > x:
+            if m > x / m:
                 r = m-1
             else:
-                l = m 
+                l = m
         return l
 
 
