@@ -37,22 +37,24 @@
 #
 #
 
-
 # @lc tags=array;two-pointers
 
 # @lc imports=start
 from imports import *
+
 # @lc imports=end
 
 # @lc idea=start
 #
-# 使用双指针法。首先确定第一个值，之后在剩下的数组中，使用双指针法找最小的差值。之后判断是否重复来剪枝。
+# 给定一个数组，求数组中三个元素和最接近目标的和。
+# 使用双指针法。首先对数组排序，确定第一个值，之后在剩下的数组中，使用双指针法找最小的差值。因为有序，所以可以通过左右移动指针，来修改剩余两个数的和的大小变化方向。之后判断是否重复来剪枝。
 #
 # @lc idea=end
 
-# @lc group=
+# @lc group=two-pointers
 
-# @lc rank=
+# @lc rank=10
+
 
 # @lc code=start
 class Solution:
@@ -70,16 +72,18 @@ class Solution:
         nums.sort()
         s = nums[0] + nums[1] + nums[2]
         dif = abs(s - target)
-        for i in range(len(nums)-2):
+        for i in range(len(nums) - 2):
+            # 重复元素。
             if i > 0 and nums[i] == nums[i - 1]:
                 continue
-            l = i+1
+            l = i + 1
             r = len(nums) - 1
             t = target - nums[i]
             while l < r:
                 if abs(t - nums[l] - nums[r]) < dif:
                     dif = abs(t - nums[l] - nums[r])
                     s = nums[i] + nums[l] + nums[r]
+                # 确定方向
                 if t - nums[l] - nums[r] > 0:
                     l = l + 1
                 else:
@@ -88,8 +92,9 @@ class Solution:
                 break
         return s
 
-
         pass
+
+
 # @lc code=end
 
 # @lc main=start
@@ -98,10 +103,10 @@ if __name__ == '__main__':
     print('Input : ')
     print('nums = [-1,2,1,-4], target = 1')
     print('Output :')
-    print(str(Solution().threeSumClosest([-1,2,1,-4],1)))
+    print(str(Solution().threeSumClosest([-1, 2, 1, -4], 1)))
     print('Exception :')
     print('2')
     print()
-    
+
     pass
 # @lc main=end

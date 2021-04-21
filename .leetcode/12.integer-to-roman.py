@@ -99,6 +99,7 @@ from imports import *
 
 # @lc idea=start
 #
+# 整数转为为罗马数字。
 # 最朴素的想法，就是依次判断是否大于临界值。
 #
 # @lc idea=end

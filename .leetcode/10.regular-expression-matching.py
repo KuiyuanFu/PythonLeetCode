@@ -89,13 +89,14 @@ from imports import *
 
 # @lc idea=start
 #
-# 正则表达式匹配，通配符只有 . * ，这种依赖于之前状态的可以使用动态规划或递归法，这个需要所有的基本结构的解，所以使用动态规划。
+# 正则表达式匹配。
+# 通配符只有 . * ，这种依赖于之前状态的可以使用动态规划或递归法，这个需要所有的基本结构的解，所以使用动态规划。
 #
 # @lc idea=end
 
-# @lc group=
+# @lc group=dynamic-programming
 
-# @lc rank=
+# @lc rank=10
 
 # @lc code=start
 class Solution:

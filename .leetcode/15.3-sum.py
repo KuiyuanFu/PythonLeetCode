@@ -48,8 +48,9 @@ from imports import *
 
 # @lc idea=start
 #
-# 返回所有三元组，满足和为0。由于要求不能重复，需要有重复校验。最简单就是三重循环，这样复杂度太高了。由于是三个数，所以时间复杂度不可能太低。
-# 这样使用
+# 给定一个整形数组，返回所有三元组，满足和为0。由于要求不能重复，需要有重复校验。最简单就是三重循环，这样复杂度太高了。由于是三个数，所以时间复杂度不可能太低。
+# 这样先使用字典降重，使每个数最多为三个。之后使用字符串形式为两数之和确定一个唯一标识。最后，再次遍历，确定和是否等于0，此时检查是否使用了相同元素。
+# 效率很低，很差，应该使用双指针。
 #
 # @lc idea=end
 
@@ -64,7 +65,7 @@ class Solution:
 
 
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-
+        # 每一个数最多三个
         dic = {}
         for n in nums:
             if not dic.__contains__(n):
@@ -75,6 +76,7 @@ class Solution:
         for i in list(dic.keys()):
             nums += [i]*dic[i]
 
+        # 存储两个值的和，并用字符串检查重复
         self.nums = nums
         sumToString = {}
         for i in range(len(nums)):
@@ -84,11 +86,13 @@ class Solution:
                     sumToString[n] = []
                 sumToString[n].append([i, j])
 
+        # 判断
         results = {}
         for i in range(len(nums)):
             n = - nums[i]
             if sumToString.__contains__(n):
                 for l in sumToString[n]:
+                    # 是否使用了重复的元素
                     if i not in l:
                         t = l.copy()
                         t.append(i)
