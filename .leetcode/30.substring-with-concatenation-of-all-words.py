@@ -63,13 +63,13 @@
 
 # @lc imports=start
 from imports import *
+
 # @lc imports=end
 
 # @lc idea=start
 #
-# 返回一个字符串中 用一系列相同长度的词组成的字符串的首字符索引值。
-# 想法是获得词的特征码，之后用一个字典存储这些特征码，以计算个数。之后再计算字符串中每个同样长度的子字符串的码。
-# 之后遍历次数为词的长度。每一次遍历时的间隔为词的长度，根据词的数量，确定滑动窗口的大小，若所有的词出现的个数都匹配，则匹配成功。
+# 给定了一个字符串，和一个字符串数组，返回字符串中，用这一系列相同长度的词组成的字符串的首字符索引值。
+# 用一个字典存储当前窗口内的单词及个数，每次间隔单词的长度来修改当前单词对应的数量。
 #
 # @lc idea=end
 
@@ -77,80 +77,50 @@ from imports import *
 
 # @lc rank=
 
+
 # @lc code=start
 class Solution:
-    mod = 67108863
-    mod26 = mod * 26
-    assciA = 97
-
     def findSubstring(self, s: str, words: List[str]) -> List[int]:
         result = []
-        length = len(words[0])
+        wordLength = len(words[0])
+
         # 不够位数
-        if len(s) < len(words) * len(words[0]):
+        if len(s) < len(words) * wordLength:
             return result
 
-        self.setNum(length)
-        d = self.getDict(words)
-        ints = self.getInts(s, length)
+        d = {}
+        for w in words:
+            d[w] = d.get(w, 0) + 1
 
         target = len(d)
         # 子字符串的首位索引与最后一个词的首字符索引的差值
-        lengthSum = (len(words) - 1) * len(words[0])
-        for i in range(length):
+        lengthSum = (len(words) - 1) * wordLength
+        for i in range(wordLength):
             dCopy = d.copy()
             j = i
             now = 0
-            while j < len(ints):
+            while j + wordLength <= len(s):
                 # 在内且等于0，说明这一个词在这正好满足个数了，计数器加一
-                if ints[j] in dCopy:
-                    dCopy[ints[j]] -= 1
-                    if dCopy[ints[j]] == 0:
+                word = s[j:j + wordLength]
+                if word in dCopy:
+                    dCopy[word] -= 1
+                    if dCopy[word] == 0:
                         now += 1
                 if now == target:
-                    result.append(j-lengthSum)
+                    result.append(j - lengthSum)
                 # 在内且等于1，说明这一个词在这正好不满足个数了，计数器减一
-                if j-lengthSum >=0 and ints[j-lengthSum] in dCopy:
-                    dCopy[ints[j-lengthSum]] += 1
-                    if dCopy[ints[j-lengthSum]] == 1:
-                        now -= 1
-                j += length
+
+                if j - lengthSum >= 0:
+                    wordOld = s[j - lengthSum:j - lengthSum + wordLength]
+                    if wordOld in dCopy:
+                        dCopy[wordOld] += 1
+                        if dCopy[wordOld] == 1:
+                            now -= 1
+                j += wordLength
 
         return result
-    # 获得首位的乘数
-    def setNum(self, length):
-        self.num = 1
-        for _ in range(length):
-            self.num = (self.num * 26) % self.mod
-    # 获得当前索引下的同样长度的子字符串的码
-    def getInts(self, s: str, length):
-        re = [0] * (len(s) - length + 1)
-        now = 0
-        for n in s[:length-1]:
-            now = (now + ord(n) - self.assciA) * 26 % self. mod
-
-        for i in range(len(s) - length+1):
-            now = (now + ord(s[i+length-1]) - self.assciA) * 26 % self.mod
-            re[i] = now
-            now = (now + self.mod26 -
-                   (ord(s[i]) - self.assciA)*self.num) % self.mod
-        return re
-    # 获得字典，内容是每个词出现的次数
-    def getDict(self, words: List[str]):
-        d = {}
-        for w in words:
-            i = self.toInt(w)
-            d[i] = d.get(i, 0) + 1
-        return d
-
-    def toInt(self, s):
-        target = 0
-        for n in s:
-            target = (target + ord(n) - self. assciA) * 26 % self.mod
-        return target
 
 
-        pass
 # @lc code=end
 
 # @lc main=start
@@ -159,28 +129,34 @@ if __name__ == '__main__':
     print('Input : ')
     print('s = "barfoothefoobarman", words = ["foo","bar"]')
     print('Output :')
-    print(str(Solution().findSubstring("barfoothefoobarman",["foo","bar"])))
+    print(str(Solution().findSubstring("barfoothefoobarman", ["foo", "bar"])))
     print('Exception :')
     print('[0,9]')
     print()
-    
+
     print('Example 2:')
     print('Input : ')
-    print('s = "wordgoodgoodgoodbestword", words = ["word","good","best","word"]')
+    print(
+        's = "wordgoodgoodgoodbestword", words = ["word","good","best","word"]'
+    )
     print('Output :')
-    print(str(Solution().findSubstring("wordgoodgoodgoodbestword",["word","good","best","word"])))
+    print(
+        str(Solution().findSubstring("wordgoodgoodgoodbestword",
+                                     ["word", "good", "best", "word"])))
     print('Exception :')
     print('[]')
     print()
-    
+
     print('Example 3:')
     print('Input : ')
     print('s = "barfoofoobarthefoobarman", words = ["bar","foo","the"]')
     print('Output :')
-    print(str(Solution().findSubstring("barfoofoobarthefoobarman",["bar","foo","the"])))
+    print(
+        str(Solution().findSubstring("barfoofoobarthefoobarman",
+                                     ["bar", "foo", "the"])))
     print('Exception :')
     print('[6,9,12]')
     print()
-    
+
     pass
 # @lc main=end

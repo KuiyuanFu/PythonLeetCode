@@ -57,7 +57,8 @@ from imports import *
 
 # @lc idea=start
 #
-# 反转相邻的两个节点。直接操作就行。
+# 给定一个链表，反转相邻的两个节点。
+# 直接操作就行。
 #
 # @lc idea=end
 
@@ -91,6 +92,8 @@ class Solution:
         return pseudo.next
 
         pass
+
+
 # @lc code=end
 
 # @lc main=start
@@ -99,11 +102,11 @@ if __name__ == '__main__':
     print('Input : ')
     print('head = [1,2,3,4]')
     print('Output :')
-    print(str(Solution().swapPairs(listToListNode([1,2,3,4]))))
+    print(str(Solution().swapPairs(listToListNode([1, 2, 3, 4]))))
     print('Exception :')
     print('[2,1,4,3]')
     print()
-    
+
     print('Example 2:')
     print('Input : ')
     print('head = []')
@@ -112,7 +115,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('[]')
     print()
-    
+
     print('Example 3:')
     print('Input : ')
     print('head = [1]')
@@ -121,6 +124,6 @@ if __name__ == '__main__':
     print('Exception :')
     print('[1]')
     print()
-    
+
     pass
 # @lc main=end

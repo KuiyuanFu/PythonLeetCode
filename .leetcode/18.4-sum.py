@@ -58,14 +58,15 @@ from imports import *
 
 # @lc idea=start
 #
-# 官方解法，复杂度是 n^(t -1 ) 题目为求 t 个数的和为 target。
+# 求四个数的和为指定的值。
+# 官方解法，复杂度是 n^(t -1 ) ，题目为求 t 个数的和为 target。
 # 每一次降低一个数字个数，直到求两个数的和为止。
 #
 # @lc idea=end
 
-# @lc group=
+# @lc group=two-pointers
 
-# @lc rank=
+# @lc rank=4
 
 # @lc code=start
 class Solution:

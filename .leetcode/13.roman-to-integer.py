@@ -36,8 +36,8 @@
 # are six instances where subtraction is used:
 #
 #
-# I can be placed before V (5) and X (10) to make 4 and 9. 
-# X can be placed before L (50) and C (100) to make 40 and 90. 
+# I can be placed before V (5) and X (10) to make 4 and 9.
+# X can be placed before L (50) and C (100) to make 40 and 90.
 # C can be placed before D (500) and M (1000) to make 400 and 900.
 #
 #
@@ -99,7 +99,8 @@ from imports import *
 
 # @lc idea=start
 #
-# 罗马汉字转数字，需要根据大小关系，判断是否是较小值在较大值左侧，需要减掉这个。
+# 罗马汉字转数字.
+# 需要根据大小关系，如果较小值在较大值左侧，需要减掉这个较小值。
 #
 # @lc idea=end
 
@@ -112,8 +113,8 @@ from imports import *
 
 class Solution:
     def romanToInt(self, s: str) -> int:
-        keys = [1000,  500,  100,  50,  10, 5, 1, ]
-        values = ['M', 'D', 'C',  'L', 'X', 'V', 'I']
+        keys = [1000, 500, 100, 50, 10, 5, 1]
+        values = ['M', 'D', 'C', 'L', 'X', 'V', 'I']
         num = 0
         nPre = 0
         for i, c in enumerate(s):
@@ -123,6 +124,8 @@ class Solution:
             nPre = n
         return num
         pass
+
+
 # @lc code=end
 
 # @lc main=start
@@ -135,7 +138,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('3')
     print()
-    
+
     print('Example 2:')
     print('Input : ')
     print('s = "IV"')
@@ -144,7 +147,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('4')
     print()
-    
+
     print('Example 3:')
     print('Input : ')
     print('s = "IX"')
@@ -153,7 +156,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('9')
     print()
-    
+
     print('Example 4:')
     print('Input : ')
     print('s = "LVIII"')
@@ -162,7 +165,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('58')
     print()
-    
+
     print('Example 5:')
     print('Input : ')
     print('s = "MCMXCIV"')
@@ -171,6 +174,6 @@ if __name__ == '__main__':
     print('Exception :')
     print('1994')
     print()
-    
+
     pass
 # @lc main=end

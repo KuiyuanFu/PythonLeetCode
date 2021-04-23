@@ -57,17 +57,20 @@
 
 # @lc imports=start
 from imports import *
+
 # @lc imports=end
 
 # @lc idea=start
 #
-# 递归，很简单的思想
+# 九宫格键盘，给定按键的顺序，返回所有可能的字母组合。
+# 递归，很简单的思想。
 #
 # @lc idea=end
 
 # @lc group=
 
 # @lc rank=
+
 
 # @lc code=start
 class Solution:
@@ -76,16 +79,17 @@ class Solution:
     def letterCombinations(self, digits: str) -> List[str]:
         if len(digits) == 0:
             return []
-        ls = self.pads[int(digits[0])]
+        ls = list(self.pads[int(digits[0])])
         rs = self.letterCombinations(digits[1:])
         result = []
         for l in ls:
             for r in rs:
-                result.append(l+r)
+                result.append(l + r)
         return result if len(result) != 0 else ls
 
-
         pass
+
+
 # @lc code=end
 
 # @lc main=start
@@ -94,28 +98,28 @@ if __name__ == '__main__':
     print('Input : ')
     print('digits = "23"')
     print('Output :')
-    print(str(Solution().()))
+    print(str(Solution().letterCombinations("23")))
     print('Exception :')
     print('["ad","ae","af","bd","be","bf","cd","ce","cf"]')
     print()
-    
+
     print('Example 2:')
     print('Input : ')
     print('digits = ""')
     print('Output :')
-    print(str(Solution().()))
+    print(str(Solution().letterCombinations("")))
     print('Exception :')
     print('[]')
     print()
-    
+
     print('Example 3:')
     print('Input : ')
     print('digits = "2"')
     print('Output :')
-    print(str(Solution().()))
+    print(str(Solution().letterCombinations("2")))
     print('Exception :')
     print('["a","b","c"]')
     print()
-    
+
     pass
 # @lc main=end
