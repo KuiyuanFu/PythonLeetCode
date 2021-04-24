@@ -1,3 +1,4 @@
+class Solution:
     # 获得字典，内容是每个词出现的次数
     def getDict(self, words: List[str]):
         d = {}
