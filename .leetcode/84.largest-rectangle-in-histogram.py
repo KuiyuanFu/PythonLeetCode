@@ -58,9 +58,9 @@ from imports import *
 #
 # @lc idea=end
 
-# @lc group=
+# @lc group=stack
 
-# @lc rank=
+# @lc rank=7
 
 
 # @lc code=start
