@@ -65,12 +65,13 @@ from imports import *
 #
 # 格雷码，相邻的两个编码只差一位。给定n表示位数，返回一个合法的格雷码序列
 # 就是找规律，每次改变一个位。每一位第一次抵达时，标志位置为True，添加到结果中。之后从新迭代，直到第二次抵达这一位，此时跳过，改变更高位。
+# 使用迭代展开递归。
 #
 # @lc idea=end
 
-# @lc group=
+# @lc group=backtracking
 
-# @lc rank=
+# @lc rank=8
 
 
 # @lc code=start
