@@ -56,16 +56,17 @@
 #
 #
 
-
 # @lc tags=array;backtracking
 
 # @lc imports=start
 from imports import *
+
 # @lc imports=end
 
 # @lc idea=start
 #
-# 求数字和为target 的所有组合。递归，备忘录。
+# 给定一个有重复元素的数组，再给定target，求元素和为target 的所有组合，每个元素可以用一次。
+# 递归，备忘录。使用一个字典统计数字出现的次数，之后根据上题思路，对于每一个数字，看target除其的商，在组合中最多出现的次数为商与字典中出现次数的最小值，之后每一次增加一个，对应的target就减少其数值，进入递归。
 #
 # @lc idea=end
 
@@ -73,9 +74,11 @@ from imports import *
 
 # @lc rank=
 
+
 # @lc code=start
 class Solution:
-    def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
+    def combinationSum2(self, candidates: List[int],
+                        target: int) -> List[List[int]]:
         d = {}
         for w in candidates:
             d[w] = d.get(w, 0) + 1
@@ -90,20 +93,22 @@ class Solution:
         if (index, target) in self.memo:
             return self.memo[(index, target)]
         n = target // self.candidates[index]
-        n = n if n < self.dic[self.candidates[index]
-                              ] else self.dic[self.candidates[index]]
+        n = n if n < self.dic[self.candidates[index]] else self.dic[
+            self.candidates[index]]
         result = []
         if target == self.candidates[index] * n:
-            result.append([self.candidates[index]]*n)
+            result.append([self.candidates[index]] * n)
             n -= 1
         if index + 1 < len(self.candidates):
-            for i in range(n+1):
-                for t in self.do(index+1, target - self.candidates[index] * i):
-                    result.append([self.candidates[index]]*i + t)
+            for i in range(n + 1):
+                for t in self.do(index + 1,
+                                 target - self.candidates[index] * i):
+                    result.append([self.candidates[index]] * i + t)
         return result
 
-
         pass
+
+
 # @lc code=end
 
 # @lc main=start
@@ -112,19 +117,19 @@ if __name__ == '__main__':
     print('Input : ')
     print('candidates = [10,1,2,7,6,1,5], target = 8')
     print('Output :')
-    print(str(Solution().combinationSum2([10,1,2,7,6,1,5],8)))
+    print(str(Solution().combinationSum2([10, 1, 2, 7, 6, 1, 5], 8)))
     print('Exception :')
     print('[[1,1,6],[1,2,5],[1,7],[2,6]]')
     print()
-    
+
     print('Example 2:')
     print('Input : ')
     print('candidates = [2,5,2,1,2], target = 5')
     print('Output :')
-    print(str(Solution().combinationSum2([2,5,2,1,2],5)))
+    print(str(Solution().combinationSum2([2, 5, 2, 1, 2], 5)))
     print('Exception :')
     print('[[1,2,2],[5]]')
     print()
-    
+
     pass
 # @lc main=end

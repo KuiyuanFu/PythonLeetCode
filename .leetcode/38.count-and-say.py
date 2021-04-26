@@ -68,17 +68,20 @@
 
 # @lc imports=start
 from imports import *
+
 # @lc imports=end
 
 # @lc idea=start
 #
-# 读数字，就是简单递归
+# 读数字，每次遇到连续的数字时，读作n个x，记作nx，作为下一轮需要读的字符串。
+# 就是简单递归。
 #
 # @lc idea=end
 
 # @lc group=
 
 # @lc rank=
+
 
 # @lc code=start
 class Solution:
@@ -88,17 +91,18 @@ class Solution:
         nPre = 0
         cPre = ''
         res = ''
-        for c in (self.countAndSay(n-1) + ' '):
+        for c in (self.countAndSay(n - 1) + ' '):
             if c == cPre:
                 nPre += 1
             else:
-                res =res+( str(nPre) if nPre!=0 else '') + cPre
+                res = res + (str(nPre) if nPre != 0 else '') + cPre
                 cPre = c
                 nPre = 1
         return res
 
-
         pass
+
+
 # @lc code=end
 
 # @lc main=start
@@ -111,7 +115,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('"1"')
     print()
-    
+
     print('Example 2:')
     print('Input : ')
     print('n = 4')
@@ -120,6 +124,6 @@ if __name__ == '__main__':
     print('Exception :')
     print('"1211"')
     print()
-    
+
     pass
 # @lc main=end
