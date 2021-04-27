@@ -12,7 +12,7 @@ class ListNode:
         p = self.next
         while p:
             s.append(p.val)
-            p = p. next
+            p = p.next
         return str(s)
 
     def __repr__(self):
@@ -37,12 +37,12 @@ class TreeNode:
                 q.put(node.left)
                 s.append(node.left.val)
             else:
-                s.append('null')
+                s.append('None')
             if node.right:
                 q.put(node.right)
                 s.append(node.right.val)
             else:
-                s.append('null')
+                s.append('None')
         return str(s)
 
     def __repr__(self):
@@ -55,5 +55,33 @@ def listToListNode(l: List[int]) -> ListNode:
     p = pseudo
     for i in l:
         p.next = ListNode(i)
-        p = p .next
+        p = p.next
     return pseudo.next
+
+
+def listToTreeNode(l: List[int]) -> TreeNode:
+    ''' List[int] to TreeNode '''
+    if len(l) == 0:
+        return None
+    head = TreeNode(val=l[0])
+    if len(l) == 1:
+        return head
+
+    import queue
+    q = queue.Queue()
+    q.put(head)
+    f = None
+    flag = True
+    for n in range(1, len(l)):
+
+        n = l[n]
+        if n:
+            n = TreeNode(val=n)
+            q.put(n)
+        if flag:
+            f = q.get()
+            f.left = n
+        else:
+            f.right = n
+        flag = not flag
+    return head
