@@ -73,6 +73,7 @@
 
 # @lc imports=start
 from imports import *
+
 # @lc imports=end
 
 # @lc idea=start
@@ -87,21 +88,32 @@ from imports import *
 
 # @lc rank=
 
+
 # @lc code=start
 class Solution:
     def isValid(self, s: str) -> bool:
-        ls = ['(', '[', '{', ]
-        rs = [')', ']', '}', ]
+        ls = [
+            '(',
+            '[',
+            '{',
+        ]
+        rs = [
+            ')',
+            ']',
+            '}',
+        ]
         stack = []
         for c in s:
             if c in ls:
                 stack.append(c)
-            elif len(stack) == 0 or ls.index(stack.pop()) != rs .index(c):
+            elif len(stack) == 0 or ls.index(stack.pop()) != rs.index(c):
                 return False
 
         return True if len(stack) == 0 else False
 
         pass
+
+
 # @lc code=end
 
 # @lc main=start
@@ -114,7 +126,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('true')
     print()
-    
+
     print('Example 2:')
     print('Input : ')
     print('s = "()[]{}"')
@@ -123,7 +135,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('true')
     print()
-    
+
     print('Example 3:')
     print('Input : ')
     print('s = "(]"')
@@ -132,7 +144,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('false')
     print()
-    
+
     print('Example 4:')
     print('Input : ')
     print('s = "([)]"')
@@ -141,7 +153,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('false')
     print()
-    
+
     print('Example 5:')
     print('Input : ')
     print('s = "{[]}"')
@@ -150,6 +162,6 @@ if __name__ == '__main__':
     print('Exception :')
     print('true')
     print()
-    
+
     pass
 # @lc main=end

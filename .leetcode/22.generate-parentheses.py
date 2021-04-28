@@ -61,12 +61,14 @@ class Solution:
         if n == 1:
             return ['()']
         parentheses = set()
-        for s in self.generateParenthesis(n-1):
+        for s in self.generateParenthesis(n - 1):
             for i in range(len(s) + 1):
-                parentheses.add(s[:i]+'()'+s[i:])
+                parentheses.add(s[:i] + '()' + s[i:])
         return list(parentheses)
 
         pass
+
+
 # @lc code=end
 
 # @lc main=start
@@ -79,7 +81,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('["((()))","(()())","(())()","()(())","()()()"]')
     print()
-    
+
     print('Example 2:')
     print('Input : ')
     print('n = 1')
@@ -88,6 +90,6 @@ if __name__ == '__main__':
     print('Exception :')
     print('["()"]')
     print()
-    
+
     pass
 # @lc main=end

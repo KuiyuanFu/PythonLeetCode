@@ -15,11 +15,11 @@
 # Given a signed 32-bit integer x, return x with its digits reversed. If
 # reversing x causes the value to go outside the signed 32-bit integer range
 # [-2^31, 2^31 - 1], then return 0.
-# 
+#
 # Assume the environment does not allow you to store 64-bit integers (signed or
 # unsigned).
-# 
-# 
+#
+#
 # Example 1:
 # Input: x = 123
 # Output: 321
@@ -32,14 +32,14 @@
 # Example 4:
 # Input: x = 0
 # Output: 0
-# 
-# 
+#
+#
 # Constraints:
-# 
-# 
+#
+#
 # -2^31 <= x <= 2^31 - 1
-# 
-# 
+#
+#
 #
 #
 #
@@ -49,6 +49,7 @@
 
 # @lc imports=start
 from imports import *
+
 # @lc imports=end
 
 # @lc idea=start
@@ -60,7 +61,7 @@ from imports import *
 # -9
 # >>> -11  % 10
 # 9
-# >>> -11  % -10 
+# >>> -11  % -10
 # -1
 # 可见余数与除数同号。
 # >>> 11 // 10
@@ -79,34 +80,35 @@ from imports import *
 
 # @lc rank=10
 
+
 # @lc code=start
 class Solution:
     def reverse(self, x: int) -> int:
-        flag  = True if x >0 else False
+        flag = True if x > 0 else False
         s = ''
 
         if flag:
-            while x !=0:
-                s += str(x %10)
-                x = x //10
+            while x != 0:
+                s += str(x % 10)
+                x = x // 10
             s.lstrip('0')
             if len(s) == len('2147483647') and s > '2147483647':
-                return 0 
-            else :
-                return (int(s) ) if (len(s) !=0 )  else 0
-        else :
-            while x !=0:
-                s += str(  x % -10 * -1 )
-                x = x //-10 *-1
+                return 0
+            else:
+                return (int(s)) if (len(s) != 0) else 0
+        else:
+            while x != 0:
+                s += str(x % -10 * -1)
+                x = x // -10 * -1
             s.lstrip('0')
             if len(s) == len('2147483648') and s > '2147483648':
-                return 0 
-            else :
-                return  (-1*int(s) ) if (len(s) !=0 )  else 0
-        
+                return 0
+            else:
+                return (-1 * int(s)) if (len(s) != 0) else 0
 
-        
         pass
+
+
 # @lc code=end
 
 # @lc main=start
@@ -119,7 +121,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('321')
     print()
-    
+
     print('Example 2:')
     print('Input : ')
     print('x = -123')
@@ -128,7 +130,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('-321')
     print()
-    
+
     print('Example 3:')
     print('Input : ')
     print('x = 120')
@@ -137,7 +139,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('21')
     print()
-    
+
     print('Example 4:')
     print('Input : ')
     print('x = 0')
@@ -146,6 +148,6 @@ if __name__ == '__main__':
     print('Exception :')
     print('0')
     print()
-    
+
     pass
 # @lc main=end

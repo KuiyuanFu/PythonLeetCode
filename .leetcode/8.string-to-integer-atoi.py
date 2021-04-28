@@ -151,6 +151,7 @@
 
 # @lc imports=start
 from imports import *
+
 # @lc imports=end
 
 # @lc idea=start
@@ -162,6 +163,7 @@ from imports import *
 # @lc group=
 
 # @lc rank=
+
 
 # @lc code=start
 class Solution:
@@ -175,8 +177,6 @@ class Solution:
             [3, 3, 2, 3],
             # 已经读取数字
             [3, 3, 2, 3],
-
-
         ]
         positive = 1
         i = 0
@@ -202,16 +202,19 @@ class Solution:
         num = num.lstrip('0')
         num = '0' if len(num) == 0 else num
         if positive == 1:
-            if len(num) > len('2147483647') or len(num) == len('2147483647') and num > '2147483647':
+            if len(num) > len('2147483647') or len(num) == len(
+                    '2147483647') and num > '2147483647':
                 return 2147483647
         else:
-            if len(num) > len('2147483648') or len(num) == len('2147483648') and num > '2147483648':
+            if len(num) > len('2147483648') or len(num) == len(
+                    '2147483648') and num > '2147483648':
                 return -2147483648
 
         return positive * int(num)
 
-
         pass
+
+
 # @lc code=end
 
 # @lc main=start
@@ -224,7 +227,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('42')
     print()
-    
+
     print('Example 2:')
     print('Input : ')
     print('s = "   -42"')
@@ -233,7 +236,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('-42')
     print()
-    
+
     print('Example 3:')
     print('Input : ')
     print('s = "4193 with words"')
@@ -242,7 +245,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('4193')
     print()
-    
+
     print('Example 4:')
     print('Input : ')
     print('s = "words and 987"')
@@ -251,7 +254,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('0')
     print()
-    
+
     print('Example 5:')
     print('Input : ')
     print('s = "-91283472332"')
@@ -260,6 +263,6 @@ if __name__ == '__main__':
     print('Exception :')
     print('-2147483648')
     print()
-    
+
     pass
 # @lc main=end

@@ -69,7 +69,6 @@ from imports import *
 # @lc code=start
 # Definition for singly-linked list.
 
-
 # class ListNode:
 #     def __init__(self, val=0, next=None):
 #         self.val = val
@@ -120,6 +119,8 @@ class Solution:
                         break
 
         pass
+
+
 # @lc code=end
 
 # @lc main=start
@@ -128,28 +129,32 @@ if __name__ == '__main__':
     print('Input : ')
     print('l1 = [1,2,4], l2 = [1,3,4]')
     print('Output :')
-    print(str(Solution().mergeTwoLists(listToListNode([1,2,4]),listToListNode([1,3,4]))))
+    print(
+        str(Solution().mergeTwoLists(listToListNode([1, 2, 4]),
+                                     listToListNode([1, 3, 4]))))
     print('Exception :')
     print('[1,1,2,3,4,4]')
     print()
-    
+
     print('Example 2:')
     print('Input : ')
     print('l1 = [], l2 = []')
     print('Output :')
-    print(str(Solution().mergeTwoLists(listToListNode([]),listToListNode([]))))
+    print(str(Solution().mergeTwoLists(listToListNode([]),
+                                       listToListNode([]))))
     print('Exception :')
     print('[]')
     print()
-    
+
     print('Example 3:')
     print('Input : ')
     print('l1 = [], l2 = [0]')
     print('Output :')
-    print(str(Solution().mergeTwoLists(listToListNode([]),listToListNode([0]))))
+    print(
+        str(Solution().mergeTwoLists(listToListNode([]), listToListNode([0]))))
     print('Exception :')
     print('[0]')
     print()
-    
+
     pass
 # @lc main=end

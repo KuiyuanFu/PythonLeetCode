@@ -37,12 +37,12 @@ class TreeNode:
                 q.put(node.left)
                 s.append(node.left.val)
             else:
-                s.append('None')
+                s.append('null')
             if node.right:
                 q.put(node.right)
                 s.append(node.right.val)
             else:
-                s.append('None')
+                s.append('null')
         return str(s)
 
     def __repr__(self):
@@ -63,26 +63,15 @@ def listToTreeNode(l: List[int]) -> TreeNode:
     ''' List[int] to TreeNode '''
     if len(l) == 0:
         return None
-    head = TreeNode(val=l[0])
-    if len(l) == 1:
-        return head
+    buff = [None] * len(l)
 
-    import queue
-    q = queue.Queue()
-    q.put(head)
-    f = None
-    flag = True
-    for n in range(1, len(l)):
-
-        n = l[n]
+    for i, n in enumerate(l):
         if n:
-            n = TreeNode(val=n)
-            q.put(n)
-        if flag:
-            f = q.get()
-            f.left = n
-        else:
-            f.right = n
-        flag = not flag
+            buff[i] = TreeNode(val=n)
 
-    return head
+    for i, n in enumerate(buff[:(len(l) - 1) // 2]):
+        if n:
+            n.left = buff[i * 2 + 1]
+            n.right = buff[i * 2 + 2]
+
+    return buff[0]

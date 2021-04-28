@@ -13,7 +13,7 @@
 # Testcase Example:  '"aa"\n"a"'
 #
 # Given an input string (s) and a pattern (p), implement regular expression
-# matching with support for '.' and '*' where: 
+# matching with support for '.' and '*' where:
 #
 #
 # '.' Matches any single character.​​​​
@@ -85,6 +85,7 @@
 
 # @lc imports=start
 from imports import *
+
 # @lc imports=end
 
 # @lc idea=start
@@ -98,6 +99,7 @@ from imports import *
 
 # @lc rank=10
 
+
 # @lc code=start
 class Solution:
     def isMatch(self, s: str, p: str) -> bool:
@@ -105,21 +107,22 @@ class Solution:
         s = ' ' + s
         p = ' ' + p
         # 额外的一个长度，存储初始状态
-        r = len(p)+1
-        c = len(s)+1
+        r = len(p) + 1
+        c = len(s) + 1
         dp = [[False for j in range(c)] for i in range(r)]
         dp[0][0] = True
         for i in range(1, r):
             # 匹配任意字符
-            if p[i-1] == '.':
+            if p[i - 1] == '.':
                 for j in range(1, c):
-                    dp[i][j] = dp[i-1][j-1]
+                    dp[i][j] = dp[i - 1][j - 1]
             # 匹配前驱任意个字符
-            elif p[i-1] == '*':
-                if p[i-2] == '.':
+            elif p[i - 1] == '*':
+                if p[i - 2] == '.':
                     for j in range(1, c):
                         #           .没有匹配      .多匹配一个    .只匹配一次
-                        dp[i][j] = dp[i-2][j] or dp[i][j-1] or dp[i-1][j-1]
+                        dp[i][j] = dp[i - 2][j] or dp[i][j - 1] or dp[i -
+                                                                      1][j - 1]
                 else:
                     for j in range(1, c):
                         dp[i][j] = dp[i-2][j] or \
@@ -128,13 +131,15 @@ class Solution:
             # 匹配特定字符
             else:
                 for j in range(1, c):
-                    if p[i-1] == s[j - 1]:
-                        dp[i][j] = dp[i-1][j-1]
+                    if p[i - 1] == s[j - 1]:
+                        dp[i][j] = dp[i - 1][j - 1]
                     else:
                         dp[i][j] = False
-        return dp[r-1][c-1]
+        return dp[r - 1][c - 1]
 
         pass
+
+
 # @lc code=end
 
 # @lc main=start
@@ -143,46 +148,46 @@ if __name__ == '__main__':
     print('Input : ')
     print('s = "aa", p = "a"')
     print('Output :')
-    print(str(Solution().isMatch("aa","a")))
+    print(str(Solution().isMatch("aa", "a")))
     print('Exception :')
     print('false')
     print()
-    
+
     print('Example 2:')
     print('Input : ')
     print('s = "aa", p = "a*"')
     print('Output :')
-    print(str(Solution().isMatch("aa","a*")))
+    print(str(Solution().isMatch("aa", "a*")))
     print('Exception :')
     print('true')
     print()
-    
+
     print('Example 3:')
     print('Input : ')
     print('s = "ab", p = ".*"')
     print('Output :')
-    print(str(Solution().isMatch("ab",".*")))
+    print(str(Solution().isMatch("ab", ".*")))
     print('Exception :')
     print('true')
     print()
-    
+
     print('Example 4:')
     print('Input : ')
     print('s = "aab", p = "c*a*b"')
     print('Output :')
-    print(str(Solution().isMatch("aab","c*a*b")))
+    print(str(Solution().isMatch("aab", "c*a*b")))
     print('Exception :')
     print('true')
     print()
-    
+
     print('Example 5:')
     print('Input : ')
     print('s = "mississippi", p = "mis*is*p*."')
     print('Output :')
-    print(str(Solution().isMatch("mississippi","mis*is*p*.")))
+    print(str(Solution().isMatch("mississippi", "mis*is*p*.")))
     print('Exception :')
     print('false')
     print()
-    
+
     pass
 # @lc main=end

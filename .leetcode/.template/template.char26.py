@@ -4,7 +4,7 @@ class Solution:
             return -1
         if len(needle) == 0:
             return 0
-        
+
         mod = 67108863
         mod26 = mod * 26
         assciA = 97
@@ -15,12 +15,12 @@ class Solution:
             target = (target + ord(n) - assciA) * 26 % mod
             num = (num * 26) % mod
         now = 0
-        for n in haystack[:length-1]:
+        for n in haystack[:length - 1]:
             now = (now + ord(n) - assciA) * 26 % mod
 
-        for i in range(len(haystack) - length+1):
-            now = (now + ord(haystack[i+length-1]) - assciA) * 26 % mod
+        for i in range(len(haystack) - length + 1):
+            now = (now + ord(haystack[i + length - 1]) - assciA) * 26 % mod
             if now == target:
                 return i
-            now = (now+mod26 - (ord(haystack[i]) - assciA)*num) % mod
+            now = (now + mod26 - (ord(haystack[i]) - assciA) * num) % mod
         return -1

@@ -57,6 +57,7 @@
 
 # @lc imports=start
 from imports import *
+
 # @lc imports=end
 
 # @lc idea=start
@@ -69,25 +70,28 @@ from imports import *
 
 # @lc rank=
 
+
 # @lc code=start
 class Solution:
     def longestPalindrome(self, s: str) -> str:
         self.s = s
         self.maxS = ''
         for i in range(len(self.s)):
-            self. longestPalindromeIndex(i, i)
-            self. longestPalindromeIndex(i, i+1)
+            self.longestPalindromeIndex(i, i)
+            self.longestPalindromeIndex(i, i + 1)
         return self.maxS
 
     def longestPalindromeIndex(self, l: int, r: int):
-        while(l >= 0 and r < len(self.s) and self.s[l] == self.s[r]):
+        while (l >= 0 and r < len(self.s) and self.s[l] == self.s[r]):
             l -= 1
             r += 1
-        s = self.s[l+1:r]
+        s = self.s[l + 1:r]
         if len(s) > len(self.maxS):
             self.maxS = s
 
         pass
+
+
 # @lc code=end
 
 # @lc main=start
@@ -100,7 +104,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('"bab"')
     print()
-    
+
     print('Example 2:')
     print('Input : ')
     print('s = "cbbd"')
@@ -109,7 +113,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('"bb"')
     print()
-    
+
     print('Example 3:')
     print('Input : ')
     print('s = "a"')
@@ -118,7 +122,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('"a"')
     print()
-    
+
     print('Example 4:')
     print('Input : ')
     print('s = "ac"')
@@ -127,6 +131,6 @@ if __name__ == '__main__':
     print('Exception :')
     print('"a"')
     print()
-    
+
     pass
 # @lc main=end

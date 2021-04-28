@@ -60,7 +60,7 @@ from imports import *
 # @lc idea=start
 #
 # 还有一种方法，就是让一个指针先移动指定的次数，之后再与另一个指针同时遍历，这样当先移动的指针遍历结束，另一个指针就到指定的位置。
-# 是一个很好的想法，但是实际复杂度是一样的。 
+# 是一个很好的想法，但是实际复杂度是一样的。
 # (32 ms) 74.87 %
 #
 # @lc idea=end
@@ -82,7 +82,7 @@ class Solution:
         pseudo = ListNode()
         pseudo.next = head
         fast = pseudo
-        for _ in range(n+1):
+        for _ in range(n + 1):
             fast = fast.next
         slow = pseudo
         while fast:
@@ -91,6 +91,8 @@ class Solution:
         slow.next = slow.next.next
         return pseudo.next
         pass
+
+
 # @lc code=end
 
 # @lc main=start
@@ -99,28 +101,28 @@ if __name__ == '__main__':
     print('Input : ')
     print('head = [1,2,3,4,5], n = 2')
     print('Output :')
-    print(str(Solution().removeNthFromEnd(listToListNode([1,2,3,4,5]),2)))
+    print(str(Solution().removeNthFromEnd(listToListNode([1, 2, 3, 4, 5]), 2)))
     print('Exception :')
     print('[1,2,3,5]')
     print()
-    
+
     print('Example 2:')
     print('Input : ')
     print('head = [1], n = 1')
     print('Output :')
-    print(str(Solution().removeNthFromEnd(listToListNode([1]),1)))
+    print(str(Solution().removeNthFromEnd(listToListNode([1]), 1)))
     print('Exception :')
     print('[]')
     print()
-    
+
     print('Example 3:')
     print('Input : ')
     print('head = [1,2], n = 1')
     print('Output :')
-    print(str(Solution().removeNthFromEnd(listToListNode([1,2]),1)))
+    print(str(Solution().removeNthFromEnd(listToListNode([1, 2]), 1)))
     print('Exception :')
     print('[1]')
     print()
-    
+
     pass
 # @lc main=end

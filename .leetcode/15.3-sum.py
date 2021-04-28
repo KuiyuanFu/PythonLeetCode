@@ -62,8 +62,6 @@ from imports import *
 
 
 class Solution:
-
-
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         # 每一个数最多三个
         dic = {}
@@ -74,13 +72,13 @@ class Solution:
                 dic[n] += 1
         nums = []
         for i in list(dic.keys()):
-            nums += [i]*dic[i]
+            nums += [i] * dic[i]
 
         # 存储两个值的和，并用字符串检查重复
         self.nums = nums
         sumToString = {}
         for i in range(len(nums)):
-            for j in range(i+1, len(nums)):
+            for j in range(i + 1, len(nums)):
                 n = nums[i] + nums[j]
                 if not sumToString.__contains__(n):
                     sumToString[n] = []
@@ -89,7 +87,7 @@ class Solution:
         # 判断
         results = {}
         for i in range(len(nums)):
-            n = - nums[i]
+            n = -nums[i]
             if sumToString.__contains__(n):
                 for l in sumToString[n]:
                     # 是否使用了重复的元素
@@ -101,11 +99,13 @@ class Solution:
 
                         results[self.listToString(t)] = t
         return list(results.values())
-    
+
     def listToString(self, l: List[int]) -> str:
         return '#'.join([str(i) for i in l])
 
         pass
+
+
 # @lc code=end
 
 # @lc main=start
@@ -114,11 +114,11 @@ if __name__ == '__main__':
     print('Input : ')
     print('nums = [-1,0,1,2,-1,-4]')
     print('Output :')
-    print(str(Solution().threeSum([-1,0,1,2,-1,-4])))
+    print(str(Solution().threeSum([-1, 0, 1, 2, -1, -4])))
     print('Exception :')
     print('[[-1,-1,2],[-1,0,1]]')
     print()
-    
+
     print('Example 2:')
     print('Input : ')
     print('nums = []')
@@ -127,7 +127,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('[]')
     print()
-    
+
     print('Example 3:')
     print('Input : ')
     print('nums = [0]')
@@ -136,6 +136,6 @@ if __name__ == '__main__':
     print('Exception :')
     print('[]')
     print()
-    
+
     pass
 # @lc main=end

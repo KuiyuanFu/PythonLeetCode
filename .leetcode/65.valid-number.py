@@ -93,18 +93,21 @@
 
 # @lc imports=start
 from imports import *
+
 # @lc imports=end
 
 # @lc idea=start
 #
 # 判断是否是合法的数字字符串。
 # 有限状态自动机 FSA。
+# 负值状态是不合法的。
 #
 # @lc idea=end
 
-# @lc group=
+# @lc group=math
 
-# @lc rank=
+# @lc rank=10
+
 
 # @lc code=start
 class Solution:
@@ -122,7 +125,6 @@ class Solution:
             [3, -1, -1, -4],
             # 4 d e d
             [4, -1, -1, -1],
-
 
             # -5 d e +
             [4, -1, -1, -1],
@@ -157,8 +159,9 @@ class Solution:
             return False
         return True
 
-
         pass
+
+
 # @lc code=end
 
 # @lc main=start
@@ -171,7 +174,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('true')
     print()
-    
+
     print('Example 2:')
     print('Input : ')
     print('s = "e"')
@@ -180,7 +183,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('false')
     print()
-    
+
     print('Example 3:')
     print('Input : ')
     print('s = "."')
@@ -189,7 +192,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('false')
     print()
-    
+
     print('Example 4:')
     print('Input : ')
     print('s = ".1"')
@@ -198,6 +201,6 @@ if __name__ == '__main__':
     print('Exception :')
     print('true')
     print()
-    
+
     pass
 # @lc main=end

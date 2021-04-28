@@ -61,11 +61,13 @@
 
 # @lc imports=start
 from imports import *
+
 # @lc imports=end
 
 # @lc idea=start
 #
-# 给定一个数组，正序，使其加一。
+# 给定一个数组，每一个元素表示整数中的一位，正序，使其加一。
+# 直接迭代即可。
 #
 # @lc idea=end
 
@@ -73,11 +75,12 @@ from imports import *
 
 # @lc rank=
 
+
 # @lc code=start
 class Solution:
     def plusOne(self, digits: List[int]) -> List[int]:
         i = 1
-        for index in range(len(digits)-1, -1, -1):
+        for index in range(len(digits) - 1, -1, -1):
             digits[index] += i
             i = digits[index] // 10
             digits[index] = digits[index] % 10
@@ -87,6 +90,8 @@ class Solution:
             digits = [1] + digits
         return digits
         pass
+
+
 # @lc code=end
 
 # @lc main=start
@@ -95,20 +100,20 @@ if __name__ == '__main__':
     print('Input : ')
     print('digits = [1,2,3]')
     print('Output :')
-    print(str(Solution().plusOne([1,2,3])))
+    print(str(Solution().plusOne([1, 2, 3])))
     print('Exception :')
     print('[1,2,4]')
     print()
-    
+
     print('Example 2:')
     print('Input : ')
     print('digits = [4,3,2,1]')
     print('Output :')
-    print(str(Solution().plusOne([4,3,2,1])))
+    print(str(Solution().plusOne([4, 3, 2, 1])))
     print('Exception :')
     print('[4,3,2,2]')
     print()
-    
+
     print('Example 3:')
     print('Input : ')
     print('digits = [0]')
@@ -117,6 +122,6 @@ if __name__ == '__main__':
     print('Exception :')
     print('[1]')
     print()
-    
+
     pass
 # @lc main=end

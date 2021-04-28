@@ -55,11 +55,11 @@
 #
 #
 
-
 # @lc tags=array;hash-table
 
 # @lc imports=start
 from imports import *
+
 # @lc imports=end
 
 # @lc idea=start
@@ -73,6 +73,7 @@ from imports import *
 
 # @lc rank=
 
+
 # @lc code=start
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
@@ -82,6 +83,8 @@ class Solution:
                 return [s[target - n], i]
             else:
                 s[n] = i
+
+
 # @lc code=end
 
 # @lc main=start
@@ -90,28 +93,28 @@ if __name__ == '__main__':
     print('Input : ')
     print('nums = [2,7,11,15], target = 9')
     print('Output :')
-    print(str(Solution().twoSum([2,7,11,15],9)))
+    print(str(Solution().twoSum([2, 7, 11, 15], 9)))
     print('Exception :')
     print('[0,1]Because nums[0] + nums[1] == 9, we return [0, 1].')
     print()
-    
+
     print('Example 2:')
     print('Input : ')
     print('nums = [3,2,4], target = 6')
     print('Output :')
-    print(str(Solution().twoSum([3,2,4],6)))
+    print(str(Solution().twoSum([3, 2, 4], 6)))
     print('Exception :')
     print('[1,2]')
     print()
-    
+
     print('Example 3:')
     print('Input : ')
     print('nums = [3,3], target = 6')
     print('Output :')
-    print(str(Solution().twoSum([3,3],6)))
+    print(str(Solution().twoSum([3, 3], 6)))
     print('Exception :')
     print('[0,1]')
     print()
-    
+
     pass
 # @lc main=end

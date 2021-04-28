@@ -59,11 +59,11 @@
 #
 #
 
-
 # @lc tags=hash-table;two-pointers;string;sliding-window
 
 # @lc imports=start
 from imports import *
+
 # @lc imports=end
 
 # @lc idea=start
@@ -78,6 +78,7 @@ from imports import *
 # @lc group=
 
 # @lc rank=
+
 
 # @lc code=start
 class Solution:
@@ -94,14 +95,16 @@ class Solution:
                 for j in range(left, right):
                     dic.pop(s[j])
                 l = i - right
-                left = right+1
+                left = right + 1
             else:
-                l = l+ 1
+                l = l + 1
             dic[c] = i
             if l > lMax:
                 lMax = l
             # print(  l.__str__() + "\t" + lMax.__str__())
         return lMax
+
+
 # @lc code=end
 
 # @lc main=start
@@ -114,7 +117,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('3')
     print()
-    
+
     print('Example 2:')
     print('Input : ')
     print('s = "bbbbb"')
@@ -123,7 +126,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('1')
     print()
-    
+
     print('Example 3:')
     print('Input : ')
     print('s = "pwwkew"')
@@ -132,7 +135,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('3')
     print()
-    
+
     print('Example 4:')
     print('Input : ')
     print('s = ""')
@@ -141,6 +144,6 @@ if __name__ == '__main__':
     print('Exception :')
     print('0')
     print()
-    
+
     pass
 # @lc main=end

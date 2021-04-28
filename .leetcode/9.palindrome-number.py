@@ -67,18 +67,20 @@
 
 # @lc imports=start
 from imports import *
+
 # @lc imports=end
 
 # @lc idea=start
-# 
+#
 # 判断数字是否是回文.
 # 根据题意，负数一定不是，正数情况下，正常是需要依次求余来确定每一位的数字的，这里直接使用 itoa 来确定字符串，直接比较，很方便。
-# 
+#
 # @lc idea=end
 
 # @lc group=
 
 # @lc rank=
+
 
 # @lc code=start
 class Solution:
@@ -98,6 +100,7 @@ class Solution:
 
         pass
 
+
 # @lc code=end
 
 # @lc main=start
@@ -110,7 +113,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('true')
     print()
-    
+
     print('Example 2:')
     print('Input : ')
     print('x = -121')
@@ -119,7 +122,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('false')
     print()
-    
+
     print('Example 3:')
     print('Input : ')
     print('x = 10')
@@ -128,7 +131,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('false')
     print()
-    
+
     print('Example 4:')
     print('Input : ')
     print('x = -101')
@@ -137,6 +140,6 @@ if __name__ == '__main__':
     print('Exception :')
     print('false')
     print()
-    
+
     pass
 # @lc main=end

@@ -37,18 +37,18 @@
 #
 #
 
-
 # @lc tags=array;two-pointers
 
 # @lc imports=start
 from imports import *
+
 # @lc imports=end
 
 # @lc idea=start
-# 
+#
 # 给定一个数组，求数组中三个元素和最接近目标的和。
 # 使用回溯和备忘录方法，每一次经过一个索引，分成两部分，一个是使用这个值，另一个是不使用。使用次数为3时，就返回和，之后判断差值。
-# 
+#
 # 结果仅仅超过 5.01 % ，效率低。
 #
 # @lc idea=end
@@ -56,6 +56,7 @@ from imports import *
 # @lc group=
 
 # @lc rank=
+
 
 # @lc code=start
 class Solution:
@@ -69,11 +70,12 @@ class Solution:
                 dic[n] += 1
         nums = []
         for i in list(dic.keys()):
-            nums += [i]*dic[i]
+            nums += [i] * dic[i]
         self.nums = nums
         self.target = target
         self.memory = {}
         return self.recursion(0, 0, 0)
+
     # 现在的索引 已经使用的次数  和
     def recursion(self, index: int, times: int, n: int):
 
@@ -81,19 +83,22 @@ class Solution:
             return n
         if index == len(self.nums):
             return float('inf')
-        if (index, times, n) in self. memory:
+        if (index, times, n) in self.memory:
             return self.memory[(index, times, n)]
         # 不使用当前的值
-        resultFirst = self.recursion(index+1, times, n)
+        resultFirst = self.recursion(index + 1, times, n)
         # 使用了当前的值
-        resultSecond = self.recursion(index+1, times + 1, n + self.nums[index])
+        resultSecond = self.recursion(index + 1, times + 1,
+                                      n + self.nums[index])
 
-        result = resultFirst if abs(
-            resultFirst - self.target) < abs(resultSecond - self.target) else resultSecond
+        result = resultFirst if abs(resultFirst - self.target) < abs(
+            resultSecond - self.target) else resultSecond
         self.memory[(index, times, n)] = result
         return result
 
         pass
+
+
 # @lc code=end
 
 # @lc main=start
@@ -102,10 +107,10 @@ if __name__ == '__main__':
     print('Input : ')
     print('nums = [-1,2,1,-4], target = 1')
     print('Output :')
-    print(str(Solution().threeSumClosest([-1,2,1,-4],1)))
+    print(str(Solution().threeSumClosest([-1, 2, 1, -4], 1)))
     print('Exception :')
     print('2')
     print()
-    
+
     pass
 # @lc main=end

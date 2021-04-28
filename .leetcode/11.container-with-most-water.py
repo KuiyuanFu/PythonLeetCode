@@ -88,8 +88,8 @@ class Solution:
 
         leftMax = 0
         rightMax = len(height) - 1
-        waterMax = min(height[leftMax], height[rightMax]
-                       ) * (rightMax - leftMax)
+        waterMax = min(height[leftMax],
+                       height[rightMax]) * (rightMax - leftMax)
         left = leftMax
         right = rightMax
         while left < right:
@@ -116,6 +116,8 @@ class Solution:
         return waterMax
 
         pass
+
+
 # @lc code=end
 
 # @lc main=start
@@ -124,37 +126,37 @@ if __name__ == '__main__':
     print('Input : ')
     print('height = [1,8,6,2,5,4,8,3,7]')
     print('Output :')
-    print(str(Solution().maxArea([1,8,6,2,5,4,8,3,7])))
+    print(str(Solution().maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7])))
     print('Exception :')
     print('49')
     print()
-    
+
     print('Example 2:')
     print('Input : ')
     print('height = [1,1]')
     print('Output :')
-    print(str(Solution().maxArea([1,1])))
+    print(str(Solution().maxArea([1, 1])))
     print('Exception :')
     print('1')
     print()
-    
+
     print('Example 3:')
     print('Input : ')
     print('height = [4,3,2,1,4]')
     print('Output :')
-    print(str(Solution().maxArea([4,3,2,1,4])))
+    print(str(Solution().maxArea([4, 3, 2, 1, 4])))
     print('Exception :')
     print('16')
     print()
-    
+
     print('Example 4:')
     print('Input : ')
     print('height = [1,2,1]')
     print('Output :')
-    print(str(Solution().maxArea([1,2,1])))
+    print(str(Solution().maxArea([1, 2, 1])))
     print('Exception :')
     print('2')
     print()
-    
+
     pass
 # @lc main=end

@@ -36,8 +36,8 @@
 # are six instances where subtraction is used:
 #
 #
-# I can be placed before V (5) and X (10) to make 4 and 9. 
-# X can be placed before L (50) and C (100) to make 40 and 90. 
+# I can be placed before V (5) and X (10) to make 4 and 9.
+# X can be placed before L (50) and C (100) to make 40 and 90.
 # C can be placed before D (500) and M (1000) to make 400 and 900.
 #
 #
@@ -156,8 +156,9 @@ class Solution:
 
         return s
 
-
         pass
+
+
 # @lc code=end
 
 # @lc main=start
@@ -170,7 +171,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('"III"')
     print()
-    
+
     print('Example 2:')
     print('Input : ')
     print('num = 4')
@@ -179,7 +180,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('"IV"')
     print()
-    
+
     print('Example 3:')
     print('Input : ')
     print('num = 9')
@@ -188,7 +189,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('"IX"')
     print()
-    
+
     print('Example 4:')
     print('Input : ')
     print('num = 58')
@@ -197,7 +198,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('"LVIII"')
     print()
-    
+
     print('Example 5:')
     print('Input : ')
     print('num = 1994')
@@ -206,6 +207,6 @@ if __name__ == '__main__':
     print('Exception :')
     print('"MCMXCIV"')
     print()
-    
+
     pass
 # @lc main=end
