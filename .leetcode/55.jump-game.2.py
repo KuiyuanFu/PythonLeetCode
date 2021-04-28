@@ -54,6 +54,7 @@
 
 # @lc imports=start
 from imports import *
+
 # @lc imports=end
 
 # @lc idea=start
@@ -67,6 +68,7 @@ from imports import *
 
 # @lc rank=
 
+
 # @lc code=start
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
@@ -79,8 +81,9 @@ class Solution:
             reach = max(reach, now + nums[now])
         return reach >= len(nums) - 1
 
-
         pass
+
+
 # @lc code=end
 
 # @lc main=start
@@ -89,19 +92,19 @@ if __name__ == '__main__':
     print('Input : ')
     print('nums = [2,3,1,1,4]')
     print('Output :')
-    print(str(Solution().canJump([2,3,1,1,4])))
+    print(str(Solution().canJump([2, 3, 1, 1, 4])))
     print('Exception :')
     print('true')
     print()
-    
+
     print('Example 2:')
     print('Input : ')
     print('nums = [3,2,1,0,4]')
     print('Output :')
-    print(str(Solution().canJump([3,2,1,0,4])))
+    print(str(Solution().canJump([3, 2, 1, 0, 4])))
     print('Exception :')
     print('false')
     print()
-    
+
     pass
 # @lc main=end

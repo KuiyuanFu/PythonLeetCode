@@ -53,11 +53,12 @@
 
 # @lc imports=start
 from imports import *
+
 # @lc imports=end
 
 # @lc idea=start
 #
-# n皇后问题，皇后不能在同一行、列、斜线。
+# n皇后问题，皇后不能在同一行、列、斜线。求不同的解法。
 # 直接回溯。
 #
 # @lc idea=end
@@ -65,6 +66,7 @@ from imports import *
 # @lc group=
 
 # @lc rank=
+
 
 # @lc code=start
 class Solution:
@@ -86,13 +88,13 @@ class Solution:
             if f == 0:
                 self.board[r][j] = 'Q'
                 self.setFlag(r, j, 1)
-                self.solveNQueensRecur(r+1)
+                self.solveNQueensRecur(r + 1)
                 self.board[r][j] = '.'
                 self.setFlag(r, j, -1)
 
     def setFlag(self, iS, jS, flag):
         i, j = iS, jS
-        while i < self.b and j >0:
+        while i < self.b and j > 0:
             i += 1
             j -= 1
             self.flags[i][j] += flag
@@ -106,8 +108,9 @@ class Solution:
             i += 1
             self.flags[i][j] += flag
 
-
         pass
+
+
 # @lc code=end
 
 # @lc main=start
@@ -120,7 +123,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('[[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]')
     print()
-    
+
     print('Example 2:')
     print('Input : ')
     print('n = 1')
@@ -129,6 +132,6 @@ if __name__ == '__main__':
     print('Exception :')
     print('[["Q"]]')
     print()
-    
+
     pass
 # @lc main=end

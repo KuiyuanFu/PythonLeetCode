@@ -45,18 +45,20 @@
 
 # @lc imports=start
 from imports import *
+
 # @lc imports=end
 
 # @lc idea=start
 #
 # 求大小为n的方阵，其中元素以螺旋方式排列。
-# 由内到外，每次右旋之后增加新的一行。dd
+# 从中心元素到四周元素，从大到小，每次右旋之后增加新的一行。
 #
 # @lc idea=end
 
-# @lc group=
+# @lc group=array
 
-# @lc rank=
+# @lc rank=10
+
 
 # @lc code=start
 class Solution:
@@ -66,7 +68,10 @@ class Solution:
         matrix = [[number]]
         while number != 1:
             length = len(matrix)
-            l =  [list(range(number- length, number , ))] 
+            l = [list(range(
+                number - length,
+                number,
+            ))]
             matrix = [list(l) for l in (zip(*matrix[::-1]))]
             matrix = l + matrix
             number = number - length
@@ -74,7 +79,6 @@ class Solution:
         return matrix
 
 
-        pass
 # @lc code=end
 
 # @lc main=start
@@ -87,7 +91,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('[[1,2,3],[8,9,4],[7,6,5]]')
     print()
-    
+
     print('Example 2:')
     print('Input : ')
     print('n = 1')
@@ -96,6 +100,6 @@ if __name__ == '__main__':
     print('Exception :')
     print('[[1]]')
     print()
-    
+
     pass
 # @lc main=end

@@ -14,49 +14,50 @@
 #
 # Given an integer array nums, find the contiguous subarray (containing at
 # least one number) which has the largest sum and return its sum.
-# 
-# 
+#
+#
 # Example 1:
-# 
-# 
+#
+#
 # Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
 # Output: 6
 # Explanation: [4,-1,2,1] has the largest sum = 6.
-# 
-# 
+#
+#
 # Example 2:
-# 
-# 
+#
+#
 # Input: nums = [1]
 # Output: 1
-# 
-# 
+#
+#
 # Example 3:
-# 
-# 
+#
+#
 # Input: nums = [5,4,-1,7,8]
 # Output: 23
-# 
-# 
-# 
+#
+#
+#
 # Constraints:
-# 
-# 
+#
+#
 # 1 <= nums.length <= 3 * 10^4
 # -10^5 <= nums[i] <= 10^5
-# 
-# 
-# 
+#
+#
+#
 # Follow up: If you have figured out the O(n) solution, try coding another
 # solution using the divide and conquer approach, which is more subtle.
 #
-# 
+#
 #
 
 # @lc tags=array;divide-and-conquer;dynamic-programming
 
 # @lc imports=start
 from imports import *
+
 # @lc imports=end
 
 # @lc idea=start
@@ -66,24 +67,25 @@ from imports import *
 #
 # @lc idea=end
 
-# @lc group=
+# @lc group=dynamic-programming
 
-# @lc rank=
+# @lc rank=10
+
 
 # @lc code=start
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
         dp = nums[0]
-        result  = nums[0]
-        for i in range(1,len(nums)):
+        result = nums[0]
+        for i in range(1, len(nums)):
             n = nums[i]
             dp = n if dp < 0 else (n + dp)
-            result = max(dp,result)
+            result = max(dp, result)
         return result
- 
 
-        
         pass
+
+
 # @lc code=end
 
 # @lc main=start
@@ -92,11 +94,11 @@ if __name__ == '__main__':
     print('Input : ')
     print('nums = [-2,1,-3,4,-1,2,1,-5,4]')
     print('Output :')
-    print(str(Solution().maxSubArray([-2,1,-3,4,-1,2,1,-5,4])))
+    print(str(Solution().maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4])))
     print('Exception :')
     print('6')
     print()
-    
+
     print('Example 2:')
     print('Input : ')
     print('nums = [1]')
@@ -105,15 +107,15 @@ if __name__ == '__main__':
     print('Exception :')
     print('1')
     print()
-    
+
     print('Example 3:')
     print('Input : ')
     print('nums = [5,4,-1,7,8]')
     print('Output :')
-    print(str(Solution().maxSubArray([5,4,-1,7,8])))
+    print(str(Solution().maxSubArray([5, 4, -1, 7, 8])))
     print('Exception :')
     print('23')
     print()
-    
+
     pass
 # @lc main=end

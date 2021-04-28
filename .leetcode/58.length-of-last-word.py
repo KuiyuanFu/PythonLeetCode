@@ -42,11 +42,12 @@
 
 # @lc imports=start
 from imports import *
+
 # @lc imports=end
 
 # @lc idea=start
 #
-#  求最后一个词的长度，直接求解。
+#  给定一个字符串，包含多个单词，求最后一个词的长度，直接求解。
 #
 # @lc idea=end
 
@@ -54,15 +55,18 @@ from imports import *
 
 # @lc rank=
 
+
 # @lc code=start
 class Solution:
     def lengthOfLastWord(self, s: str) -> int:
         s = s.strip(' ')
         if len(s) == 0:
             return 0
-        return  len(s.split(' ')[-1])
+        return len(s.split(' ')[-1])
 
         pass
+
+
 # @lc code=end
 
 # @lc main=start
@@ -75,7 +79,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('5')
     print()
-    
+
     print('Example 2:')
     print('Input : ')
     print('s = " "')
@@ -84,6 +88,6 @@ if __name__ == '__main__':
     print('Exception :')
     print('0')
     print()
-    
+
     pass
 # @lc main=end

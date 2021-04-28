@@ -51,6 +51,7 @@
 
 # @lc imports=start
 from imports import *
+
 # @lc imports=end
 
 # @lc idea=start
@@ -64,6 +65,7 @@ from imports import *
 
 # @lc rank=
 
+
 # @lc code=start
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
@@ -76,8 +78,9 @@ class Solution:
                 results.append(i)
         return results
 
-
         pass
+
+
 # @lc code=end
 
 # @lc main=start
@@ -86,19 +89,19 @@ if __name__ == '__main__':
     print('Input : ')
     print('intervals = [[1,3],[2,6],[8,10],[15,18]]')
     print('Output :')
-    print(str(Solution().merge([[1,3],[2,6],[8,10],[15,18]])))
+    print(str(Solution().merge([[1, 3], [2, 6], [8, 10], [15, 18]])))
     print('Exception :')
     print('[[1,6],[8,10],[15,18]]')
     print()
-    
+
     print('Example 2:')
     print('Input : ')
     print('intervals = [[1,4],[4,5]]')
     print('Output :')
-    print(str(Solution().merge([[1,4],[4,5]])))
+    print(str(Solution().merge([[1, 4], [4, 5]])))
     print('Exception :')
     print('[[1,5]]')
     print()
-    
+
     pass
 # @lc main=end

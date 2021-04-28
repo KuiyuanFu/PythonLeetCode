@@ -47,18 +47,21 @@
 
 # @lc imports=start
 from imports import *
+
 # @lc imports=end
 
 # @lc idea=start
 #
-# 按照旋转顺序输出矩阵的所有元素。
-# 那就旋转，之后按行输出，使用zip 实现。
+# 给定一个二维矩阵，按照顺时针旋转顺序输出矩阵的所有元素。
+# 那就旋转，之后按行输出。
+# 使用zip 实现，每一次输出第一行后，将剩余矩阵顺时针旋转，这样就将最右侧的一列，变成了第一行。
 #
 # @lc idea=end
 
-# @lc group=
+# @lc group=array
 
-# @lc rank=
+# @lc rank=10
+
 
 # @lc code=start
 class Solution:
@@ -66,10 +69,13 @@ class Solution:
         result = []
         while len(matrix) != 0:
             result = result + list(matrix[0])
+            # zip(*) 是将输入的每一行视为单独的输入，之后讲每一列组成新的元组，作为新的一行。
             matrix = list(zip(*matrix[1:]))[::-1]
         return result
 
         pass
+
+
 # @lc code=end
 
 # @lc main=start
@@ -78,19 +84,21 @@ if __name__ == '__main__':
     print('Input : ')
     print('matrix = [[1,2,3],[4,5,6],[7,8,9]]')
     print('Output :')
-    print(str(Solution().spiralOrder([[1,2,3],[4,5,6],[7,8,9]])))
+    print(str(Solution().spiralOrder([[1, 2, 3], [4, 5, 6], [7, 8, 9]])))
     print('Exception :')
     print('[1,2,3,6,9,8,7,4,5]')
     print()
-    
+
     print('Example 2:')
     print('Input : ')
     print('matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]')
     print('Output :')
-    print(str(Solution().spiralOrder([[1,2,3,4],[5,6,7,8],[9,10,11,12]])))
+    print(
+        str(Solution().spiralOrder([[1, 2, 3, 4], [5, 6, 7, 8],
+                                    [9, 10, 11, 12]])))
     print('Exception :')
     print('[1,2,3,4,8,12,11,10,9,5,6,7]')
     print()
-    
+
     pass
 # @lc main=end
