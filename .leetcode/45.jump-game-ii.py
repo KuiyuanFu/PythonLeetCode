@@ -55,18 +55,20 @@
 
 # @lc imports=start
 from imports import *
+
 # @lc imports=end
 
 # @lc idea=start
 #
-# 给定数组，数组的数字就是当前的跳跃能力，目标是跳到数组的结尾。
-# 求最小的跳跃次数，贪心算法，每次跳跃看跳到当前跳跃范围内的格子中，再跳一次，最远跳跃距离，来确定下一次跳到哪。
+# 给定数组，数组的数字就是当前的跳跃能力，目标是跳到数组的结尾。求最小的跳跃次数。
+# 贪心算法，每次跳跃看跳到当前跳跃范围内的格子中，再以这个格子跳跃能力跳一次，综合最远的跳跃距离，来确定下一次跳到哪个格子。
 #
 # @lc idea=end
 
-# @lc group=
+# @lc group=greedy
 
-# @lc rank=
+# @lc rank=10
+
 
 # @lc code=start
 class Solution:
@@ -77,12 +79,15 @@ class Solution:
         now = 0
         while True:
             jumpLength = nums[now]
-            if now + jumpLength >= len(nums)-1:
+            # 直接到终点了
+            if now + jumpLength >= len(nums) - 1:
                 times += 1
                 break
+
+            # 找到再跳跃一次距离最远的接力点
             next = now
             maxLength = 0
-            for i in range(now + 1, now + 1+jumpLength):
+            for i in range(now + 1, now + 1 + jumpLength):
                 if i + nums[i] > maxLength:
                     next = i
                     maxLength = i + nums[i]
@@ -92,8 +97,9 @@ class Solution:
 
         return times
 
-
         pass
+
+
 # @lc code=end
 
 # @lc main=start
@@ -102,19 +108,19 @@ if __name__ == '__main__':
     print('Input : ')
     print('nums = [2,3,1,1,4]')
     print('Output :')
-    print(str(Solution().jump([2,3,1,1,4])))
+    print(str(Solution().jump([2, 3, 1, 1, 4])))
     print('Exception :')
     print('2')
     print()
-    
+
     print('Example 2:')
     print('Input : ')
     print('nums = [2,3,0,1,4]')
     print('Output :')
-    print(str(Solution().jump([2,3,0,1,4])))
+    print(str(Solution().jump([2, 3, 0, 1, 4])))
     print('Exception :')
     print('2')
     print()
-    
+
     pass
 # @lc main=end

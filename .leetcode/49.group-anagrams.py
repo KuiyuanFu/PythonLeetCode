@@ -14,12 +14,12 @@
 #
 # Given an array of strings strs, group the anagrams together. You can return
 # the answer in any order.
-# 
+#
 # An Anagram is a word or phrase formed by rearranging the letters of a
 # different word or phrase, typically using all the original letters exactly
 # once.
-# 
-# 
+#
+#
 # Example 1:
 # Input: strs = ["eat","tea","tan","ate","nat","bat"]
 # Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
@@ -29,24 +29,25 @@
 # Example 3:
 # Input: strs = ["a"]
 # Output: [["a"]]
-# 
-# 
+#
+#
 # Constraints:
-# 
-# 
+#
+#
 # 1 <= strs.length <= 10^4
 # 0 <= strs[i].length <= 100
 # strs[i] consists of lower-case English letters.
-# 
-# 
 #
-# 
+#
+#
+#
 #
 
 # @lc tags=hash-table;string
 
 # @lc imports=start
 from imports import *
+
 # @lc imports=end
 
 # @lc idea=start
@@ -60,18 +61,21 @@ from imports import *
 
 # @lc rank=
 
+
 # @lc code=start
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
 
         d = {}
         for w in strs:
-            k = ''.join(sorted(w)) 
+            k = ''.join(sorted(w))
             l = d.get(k, [])
             l.append(w)
-            d[k] =  l
+            d[k] = l
         return list(d.values())
         pass
+
+
 # @lc code=end
 
 # @lc main=start
@@ -80,11 +84,13 @@ if __name__ == '__main__':
     print('Input : ')
     print('strs = ["eat","tea","tan","ate","nat","bat"]')
     print('Output :')
-    print(str(Solution().groupAnagrams(["eat","tea","tan","ate","nat","bat"])))
+    print(
+        str(Solution().groupAnagrams(
+            ["eat", "tea", "tan", "ate", "nat", "bat"])))
     print('Exception :')
     print('[["bat"],["nat","tan"],["ate","eat","tea"]]')
     print()
-    
+
     print('Example 2:')
     print('Input : ')
     print('strs = [""]')
@@ -93,7 +99,7 @@ if __name__ == '__main__':
     print('Exception :')
     print('[[""]]')
     print()
-    
+
     print('Example 3:')
     print('Input : ')
     print('strs = ["a"]')
@@ -102,6 +108,6 @@ if __name__ == '__main__':
     print('Exception :')
     print('[["a"]]')
     print()
-    
+
     pass
 # @lc main=end

@@ -46,22 +46,24 @@
 
 # @lc imports=start
 from imports import *
+
 # @lc imports=end
 
 # @lc idea=start
 #
 # 求无序数组中，缺少的最小的正数。
-# 空间 n 的算法很容易，但是要求 空间 1， 时间 n。
-# 利用已有空间，存储此位置上的值是否已经存在。因为缺少的正数大小不可能超过长度，所以空间是足够的。
+# 空间 n 的算法很容易，但是要求 空间 1，时间 n。
+# 利用已有空间，对于每个位置，存储此位置上的值是否已经存在。因为缺少的正数大小不可能超过长度，所以空间是足够的。
 # 设0为标志，第一次循环改所有的0为-1，去掉干扰。
 # 第二次循环，读取值，设置对应索引的标志位，使用递归算法，防止覆盖，最多两次循环。
 # 第三次循环，检测。
 #
 # @lc idea=end
 
-# @lc group=
+# @lc group=array
 
-# @lc rank=
+# @lc rank=10
+
 
 # @lc code=start
 class Solution:
@@ -80,7 +82,7 @@ class Solution:
             if self.nums[l] != 0:
                 break
             l += 1
-        return l+1
+        return l + 1
 
     def setFlag(self, index, num):
         if 0 < num <= len(self.nums):
@@ -90,7 +92,6 @@ class Solution:
             self.setFlag(i, n)
 
 
-        pass
 # @lc code=end
 
 # @lc main=start
@@ -99,28 +100,28 @@ if __name__ == '__main__':
     print('Input : ')
     print('nums = [1,2,0]')
     print('Output :')
-    print(str(Solution().firstMissingPositive([1,2,0])))
+    print(str(Solution().firstMissingPositive([1, 2, 0])))
     print('Exception :')
     print('3')
     print()
-    
+
     print('Example 2:')
     print('Input : ')
     print('nums = [3,4,-1,1]')
     print('Output :')
-    print(str(Solution().firstMissingPositive([3,4,-1,1])))
+    print(str(Solution().firstMissingPositive([3, 4, -1, 1])))
     print('Exception :')
     print('2')
     print()
-    
+
     print('Example 3:')
     print('Input : ')
     print('nums = [7,8,9,11,12]')
     print('Output :')
-    print(str(Solution().firstMissingPositive([7,8,9,11,12])))
+    print(str(Solution().firstMissingPositive([7, 8, 9, 11, 12])))
     print('Exception :')
     print('1')
     print()
-    
+
     pass
 # @lc main=end
