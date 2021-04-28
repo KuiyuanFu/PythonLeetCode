@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=33 lang=python3
 #
 # [33] Search in Rotated Sorted Array
@@ -52,6 +51,13 @@
 #
 #
 #
+
+# @lc tags=array;binary-search
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 求在旋转的无重复有序数组中，搜索一个关键字。
@@ -60,9 +66,9 @@
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
 
+# @lc rank=
 
 # @lc code=start
 import bisect
@@ -72,20 +78,20 @@ class Solution:
     def search(self, nums: List[int], target: int) -> int:
 
         l = 0
-        r = len(nums)-1
+        r = len(nums) - 1
         while l < r:
-            mid = (l+r) // 2
+            mid = (l + r) // 2
             if nums[mid] > nums[r]:
-                l = mid+1
+                l = mid + 1
             else:
-                r = mid 
+                r = mid
         #  旋转点为最小值
         rot = r
         length = len(nums)
-        l = rot 
-        r = rot+length -1
+        l = rot
+        r = rot + length - 1
         while l <= r:
-            mid = (l+r) // 2
+            mid = (l + r) // 2
             if nums[mid % length] == target:
                 return mid % length
             elif nums[mid % length] < target:
@@ -94,11 +100,39 @@ class Solution:
                 r = mid - 1
         return -1
 
+        pass
+
 
 # @lc code=end
+
+# @lc main=start
 if __name__ == '__main__':
-    print(Solution().search([1, 3], 0))
-    print(Solution().search([1, 3], 1))
-    print(Solution().search([1, 3], 3))
-    print(Solution().search([4, 5, 6, 7, 0, 1, 2], 0))
-    print(Solution().search([4, 5, 6, 7, 0, 1, 2], 3))
+    print('Example 1:')
+    print('Input : ')
+    print('nums = [4,5,6,7,0,1,2], target = 0')
+    print('Output :')
+    print(str(Solution().search([4, 5, 6, 7, 0, 1, 2], 0)))
+    print('Exception :')
+    print('4')
+    print()
+
+    print('Example 2:')
+    print('Input : ')
+    print('nums = [4,5,6,7,0,1,2], target = 3')
+    print('Output :')
+    print(str(Solution().search([4, 5, 6, 7, 0, 1, 2], 3)))
+    print('Exception :')
+    print('-1')
+    print()
+
+    print('Example 3:')
+    print('Input : ')
+    print('nums = [1], target = 0')
+    print('Output :')
+    print(str(Solution().search([1], 0)))
+    print('Exception :')
+    print('-1')
+    print()
+
+    pass
+# @lc main=end

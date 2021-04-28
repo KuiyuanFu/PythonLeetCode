@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=50 lang=python3
 #
 # [50] Pow(x, n)
@@ -50,14 +49,26 @@
 #
 #
 #
+
+# @lc tags=math;binary-search
+
+# @lc imports=start
+from imports import *
+
+# @lc imports=end
+
 # @lc idea=start
 #
-# 幂函数。模重复平方计算法。
+# 幂函数。
+# 模重复平方计算法。
+# 复杂的地方是求负的幂次。
+# 将模重复平方计算法使用负数实现，若幂次为负，再取倒数。
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
+
+# @lc rank=
 
 
 # @lc code=start
@@ -65,24 +76,56 @@ class Solution:
     def myPow(self, x: float, n: int) -> float:
         if x == 1 or n == 0:
             return 1
+        # 变负，防止溢出，虽然python不会溢出
         minus = n < 0
         if not minus:
             n = -n
         sum = 1
         while n != 0:
+            # 最后一位为1，则乘上这位的大小
             if n % 2:
-                sum =sum * x 
-            x = x*x
+                sum = sum * x
+            # 自乘，表示的幂数翻倍
+            x = x * x
+            # 幂次缩小，最后一位已经使用了
             n = n // -2 * -1
         if minus:
             sum = 1 / sum
         return sum
 
+        pass
+
 
 # @lc code=end
+
+# @lc main=start
 if __name__ == '__main__':
-    print(Solution().myPow(2, 10))
-    print(Solution().myPow(-2, 10))
-    print(Solution().myPow(2.1, 3))
-    print(Solution().myPow(-2.1, 3))
-    print(Solution().myPow(2, -2))
+    print('Example 1:')
+    print('Input : ')
+    print('x = 2.00000, n = 10')
+    print('Output :')
+    print(str(Solution().myPow(2.00000, 10)))
+    print('Exception :')
+    print('1024.00000')
+    print()
+
+    print('Example 2:')
+    print('Input : ')
+    print('x = 2.10000, n = 3')
+    print('Output :')
+    print(str(Solution().myPow(2.10000, 3)))
+    print('Exception :')
+    print('9.26100')
+    print()
+
+    print('Example 3:')
+    print('Input : ')
+    print('x = 2.00000, n = -2')
+    print('Output :')
+    print(str(Solution().myPow(2.00000, -2)))
+    print('Exception :')
+    print('0.25000')
+    print()
+
+    pass
+# @lc main=end

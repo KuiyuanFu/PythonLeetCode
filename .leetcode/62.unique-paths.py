@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=62 lang=python3
 #
 # [62] Unique Paths
@@ -68,32 +67,78 @@
 #
 #
 #
+
+# @lc tags=array;dynamic-programming
+
+# @lc imports=start
+from imports import *
+
+# @lc imports=end
+
 # @lc idea=start
 #
-# 在一个board 上，只能向右或下走，从左上到右下有多少种路径。
-# dp。
+# 给定一个二维矩阵board，只能向右或下走的条件下，从左上到右下有多少种路径。
+# 动态规划，先初始化最后一行和最右一列，都只有一种方式，之后反向动态规划。
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
+
+# @lc rank=
 
 
 # @lc code=start
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
-        dp = [[1] * m]*2
+        dp = [[1] * m] * 2
         for _ in range(n - 1):
             dp[1], dp[0] = dp[0], dp[1]
             for j in range(1, m):
-                dp[1][j] = dp[0][j] + dp[1][j-1]
+                dp[1][j] = dp[0][j] + dp[1][j - 1]
         return dp[1][-1]
+
+        pass
 
 
 # @lc code=end
 
+# @lc main=start
 if __name__ == '__main__':
-    print(Solution().uniquePaths(2,2))
-    print(Solution().uniquePaths(2,3))
-    print(Solution().uniquePaths(3,3))
-    print(Solution().uniquePaths(3, 7))
+    print('Example 1:')
+    print('Input : ')
+    print('m = 3, n = 7')
+    print('Output :')
+    print(str(Solution().uniquePaths(3, 7)))
+    print('Exception :')
+    print('28')
+    print()
+
+    print('Example 2:')
+    print('Input : ')
+    print('m = 3, n = 2')
+    print('Output :')
+    print(str(Solution().uniquePaths(3, 2)))
+    print('Exception :')
+    print('3')
+    print()
+
+    print('Example 3:')
+    print('Input : ')
+    print('m = 7, n = 3')
+    print('Output :')
+    print(str(Solution().uniquePaths(7, 3)))
+    print('Exception :')
+    print('28')
+    print()
+
+    print('Example 4:')
+    print('Input : ')
+    print('m = 3, n = 3')
+    print('Output :')
+    print(str(Solution().uniquePaths(3, 3)))
+    print('Exception :')
+    print('6')
+    print()
+
+    pass
+# @lc main=end

@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=67 lang=python3
 #
 # [67] Add Binary
@@ -35,14 +34,24 @@
 #
 #
 #
+
+# @lc tags=math;string
+
+# @lc imports=start
+from imports import *
+
+# @lc imports=end
+
 # @lc idea=start
 #
-# 二进制串求和，正序。
+# 给定两个字符串，表示二进制数，求和，正序。
+# 倒序遍历。
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
+
+# @lc rank=
 
 
 # @lc code=start
@@ -53,7 +62,7 @@ class Solution:
             a, b = b, a
         result = [0] * len(a)
         mod = 0
-        for i in range(-1, - len(b) - 1, -1):
+        for i in range(-1, -len(b) - 1, -1):
             t = ord(a[i]) - 48 + ord(b[i]) - 48 + mod
             result[i] = str(t % 2)
             mod = t // 2
@@ -64,12 +73,33 @@ class Solution:
             mod = t // 2
 
         if mod == 1:
-           result = ['1'] + result
+            result = ['1'] + result
         return ''.join(result)
+
+        pass
 
 
 # @lc code=end
-if __name__ == '__main__':
-    print(Solution().addBinary("11",  "1"))
-    print(Solution().addBinary("1010", "1011"))
 
+# @lc main=start
+if __name__ == '__main__':
+    print('Example 1:')
+    print('Input : ')
+    print('a = "11", b = "1"')
+    print('Output :')
+    print(str(Solution().addBinary("11", "1")))
+    print('Exception :')
+    print('"100"')
+    print()
+
+    print('Example 2:')
+    print('Input : ')
+    print('a = "1010", b = "1011"')
+    print('Output :')
+    print(str(Solution().addBinary("1010", "1011")))
+    print('Exception :')
+    print('"10101"')
+    print()
+
+    pass
+# @lc main=end

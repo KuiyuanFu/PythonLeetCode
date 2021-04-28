@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=29 lang=python3
 #
 # [29] Divide Two Integers
@@ -67,14 +66,25 @@
 #
 #
 #
+
+# @lc tags=math;binary-search
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
-# 除法，使用移位算法，先将数变为负的，防止溢出。每次都是将测试除数提高两倍时，看被除数是否够减，若够减则除数翻倍，统计有多少次。之后每次都是若够减，则减，否则将除数减半。
+# 除法。
+# 使用移位算法，先将数变为负的，防止溢出。
+# 每次都是测试除数提高两倍时，看被除数是否够减，若够减则除数翻倍，统计有多少次。
+# 之后每次都是若够减，则减，之后将结果左移一位，将除数减半。
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=math
+
+# @lc rank=10
 
 # @lc code=start
 
@@ -84,14 +94,14 @@ class Solution:
         quotient = 0
         doubled = 0
         # 是否异号
-        minus = (dividend > 0 and divisor < 0) or (
-            dividend < 0 and divisor > 0)
+        minus = (dividend > 0 and divisor < 0) \
+            or (dividend < 0 and divisor > 0)
 
         # 都转为负数，防止溢出
         if dividend > 0:
             dividend = -dividend
         if divisor > 0:
-            divisor = - divisor
+            divisor = -divisor
 
         # 移位，直到除数是被除数的一半以上
         while dividend >> 1 <= divisor:
@@ -107,11 +117,52 @@ class Solution:
             doubled -= 1
         if minus:
             return quotient
-        if quotient == - 2 ** 31:
-            return 2 ** 31-1
+        if quotient == -2**31:
+            return 2**31 - 1
         return -quotient
+
+        pass
 
 
 # @lc code=end
+
+# @lc main=start
 if __name__ == '__main__':
-    print(Solution().divide(-2147483648, -1))
+    print('Example 1:')
+    print('Input : ')
+    print('dividend = 10, divisor = 3')
+    print('Output :')
+    print(str(Solution().divide(10, 3)))
+    print('Exception :')
+    print('3')
+    print()
+
+    print('Example 2:')
+    print('Input : ')
+    print('dividend = 7, divisor = -3')
+    print('Output :')
+    print(str(Solution().divide(7, -3)))
+    print('Exception :')
+    print('-2')
+    print()
+
+    print('Example 3:')
+    print('Input : ')
+    print('dividend = 0, divisor = 1')
+    print('Output :')
+    print(str(Solution().divide(0, 1)))
+    print('Exception :')
+    print('0')
+    print()
+
+    print('Example 4:')
+    print('Input : ')
+    print('dividend = 1, divisor = 1')
+    print('Output :')
+    print(str(Solution().divide(1, 1)))
+    print('Exception :')
+    print('1')
+    print()
+
+    pass
+# @lc main=end

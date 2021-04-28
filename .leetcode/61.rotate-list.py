@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=61 lang=python3
 #
 # [61] Rotate List
@@ -42,22 +41,30 @@
 #
 #
 #
+
+# @lc tags=linked-list;two-pointers
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
-# 将链表向下一位旋转，也就是将尾变成头，头变成第二个节点。
+# 给定一个链表，在指定位置旋转，即将指定作为头，原头放到尾的位置。
+# 两次遍历，得到指定位置的节点，直接旋转。
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
 
+# @lc rank=
 
 # @lc code=start
 # Definition for singly-linked list.
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 
 
 class Solution:
@@ -83,10 +90,35 @@ class Solution:
             p = p.next
 
         # 拼接
-        pseudo .next = p.next
-        p .next = None
+        pseudo.next = p.next
+        p.next = None
         tail.next = head
-        return pseudo .next
+        return pseudo.next
+
+        pass
 
 
 # @lc code=end
+
+# @lc main=start
+if __name__ == '__main__':
+    print('Example 1:')
+    print('Input : ')
+    print('head = [1,2,3,4,5], k = 2')
+    print('Output :')
+    print(str(Solution().rotateRight(listToListNode([1, 2, 3, 4, 5]), 2)))
+    print('Exception :')
+    print('[4,5,1,2,3]')
+    print()
+
+    print('Example 2:')
+    print('Input : ')
+    print('head = [0,1,2], k = 4')
+    print('Output :')
+    print(str(Solution().rotateRight(listToListNode([0, 1, 2]), 4)))
+    print('Exception :')
+    print('[2,0,1]')
+    print()
+
+    pass
+# @lc main=end

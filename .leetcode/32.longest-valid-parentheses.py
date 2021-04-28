@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=32 lang=python3
 #
 # [32] Longest Valid Parentheses
@@ -51,14 +50,25 @@
 #
 #
 #
+
+# @lc tags=string;dynamic-programming
+
+# @lc imports=start
+from imports import *
+
+# @lc imports=end
+
 # @lc idea=start
 #
-# 求最长有效括号，使用栈和一个临时变量，栈中存储匹配这个左括号，就会多出多少长度。
+# 给定一个只含有左右括号的字符串，求最长有效括号。
+# 使用栈和一个临时变量，临时变量表示当前合法的长度，每遇到一个左括号，将临时变量入栈，即若匹配这个左括号，就会增加的额外长度。
+# 每次遇到右括号，检查栈是否为空，若为空，则匹配失败，长度置为0；若栈中不为空，则长度增加2及栈中的值。
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
+
+# @lc rank=
 
 
 # @lc code=start
@@ -81,4 +91,39 @@ class Solution:
                     length = 0
 
         return lengthMax
+        pass
+
+
 # @lc code=end
+
+# @lc main=start
+if __name__ == '__main__':
+    print('Example 1:')
+    print('Input : ')
+    print('s = "(()"')
+    print('Output :')
+    print(str(Solution().longestValidParentheses("(()")))
+    print('Exception :')
+    print('2')
+    print()
+
+    print('Example 2:')
+    print('Input : ')
+    print('s = ")()())"')
+    print('Output :')
+    print(str(Solution().longestValidParentheses(")()())")))
+    print('Exception :')
+    print('4')
+    print()
+
+    print('Example 3:')
+    print('Input : ')
+    print('s = ""')
+    print('Output :')
+    print(str(Solution().longestValidParentheses("")))
+    print('Exception :')
+    print('0')
+    print()
+
+    pass
+# @lc main=end

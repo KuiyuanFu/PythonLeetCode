@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=28 lang=python3
 #
 # [28] Implement strStr()
@@ -46,16 +45,25 @@
 #
 #
 #
+
+# @lc tags=two-pointers;string
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
-# 找字符串中找到指定字符串的索引值，没有则-1。
-# (40 ms) 26.26 % 
+# 在字符串中找到指定字符串的索引值，没有则返回 -1。
+# 使用转化为数字取模来生成字符串的一个特征码。再进行比较，只需要遍历一次。
+# (40 ms) 26.26 %
 # 这就是python 太慢了，否则会比直接提取字符串要快。
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
+
+# @lc rank=
 
 # @lc code=start
 
@@ -66,7 +74,7 @@ class Solution:
             return -1
         if len(needle) == 0:
             return 0
-        
+
         mod = 67108863
         mod26 = mod * 26
         assciA = 97
@@ -77,18 +85,49 @@ class Solution:
             target = (target + ord(n) - assciA) * 26 % mod
             num = (num * 26) % mod
         now = 0
-        for n in haystack[:length-1]:
+        for n in haystack[:length - 1]:
             now = (now + ord(n) - assciA) * 26 % mod
 
-        for i in range(len(haystack) - length+1):
-            now = (now + ord(haystack[i+length-1]) - assciA) * 26 % mod
+        for i in range(len(haystack) - length + 1):
+            now = (now + ord(haystack[i + length - 1]) - assciA) * 26 % mod
             if now == target:
                 return i
-            now = (now+mod26 - (ord(haystack[i]) - assciA)*num) % mod
+            now = (now + mod26 - (ord(haystack[i]) - assciA) * num) % mod
         return -1
+
+        pass
 
 
 # @lc code=end
 
+# @lc main=start
 if __name__ == '__main__':
-    print(Solution().strStr("hello", "ll"))
+    print('Example 1:')
+    print('Input : ')
+    print('haystack = "hello", needle = "ll"')
+    print('Output :')
+    print(str(Solution().strStr("hello", "ll")))
+    print('Exception :')
+    print('2')
+    print()
+
+    print('Example 2:')
+    print('Input : ')
+    print('haystack = "aaaaa", needle = "bba"')
+    print('Output :')
+    print(str(Solution().strStr("aaaaa", "bba")))
+    print('Exception :')
+    print('-1')
+    print()
+
+    print('Example 3:')
+    print('Input : ')
+    print('haystack = "", needle = ""')
+    print('Output :')
+    print(str(Solution().strStr("", "")))
+    print('Exception :')
+    print('0')
+    print()
+
+    pass
+# @lc main=end

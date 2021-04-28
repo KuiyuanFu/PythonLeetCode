@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=68 lang=python3
 #
 # [68] Text Justification
@@ -97,15 +96,24 @@
 #
 #
 #
+
+# @lc tags=string
+
+# @lc imports=start
+from imports import *
+
+# @lc imports=end
+
 # @lc idea=start
 #
-# 文本适配。
-# 占满宽度。
+# 文本适配。给定一系列单词，使用平铺模式，即每一行尽可能插入最多的单词，当不能继续插入时，两单词间的间隔要平均，前比后多。
+#
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
+
+# @lc rank=
 
 
 # @lc code=start
@@ -117,14 +125,14 @@ class Solution:
         for word in words[1:]:
             if length + len(now) + len(word) > maxWidth:
                 if len(now) == 1:
-                    result .append(now[0] + ' '*(maxWidth - len(now[0])))
+                    result.append(now[0] + ' ' * (maxWidth - len(now[0])))
                 else:
                     blankSpace = maxWidth - length
                     base = blankSpace // (len(now) - 1)
                     times = blankSpace % (len(now) - 1)
-                    t = (' ' * (base + 1)).join(now[:times+1])
-                    t = (' ' * (base)).join([t] + now[times+1:])
-                    result .append(t)
+                    t = (' ' * (base + 1)).join(now[:times + 1])
+                    t = (' ' * (base)).join([t] + now[times + 1:])
+                    result.append(t)
                 pass
                 now = [word]
                 length = len(word)
@@ -133,11 +141,58 @@ class Solution:
                 now.append(word)
         if len(now) != 0:
             t = ' '.join(now)
-            result .append(t + ' '*(maxWidth - len(t)))
+            result.append(t + ' ' * (maxWidth - len(t)))
         return result
 
 
 # @lc code=end
+
+# @lc main=start
 if __name__ == '__main__':
-    print(Solution().fullJustify(
-        ["This", "is", "an", "example", "of", "text", "justification."], 16))
+    print('Example 1:')
+    print('Input : ')
+    print(
+        'words = ["This", "is", "an", "example", "of", "text","justification."], maxWidth = 16'
+    )
+    print('Output :')
+    print(
+        str(Solution().fullJustify(
+            ["This", "is", "an", "example", "of", "text", "justification."],
+            16)))
+    print('Exception :')
+    print('["This    is    an","example  of text","justification.  "]')
+    print()
+
+    print('Example 2:')
+    print('Input : ')
+    print(
+        'words = ["What","must","be","acknowledgment","shall","be"], maxWidth =16'
+    )
+    print('Output :')
+    print(
+        str(Solution().fullJustify(
+            ["What", "must", "be", "acknowledgment", "shall", "be"], 16)))
+    print('Exception :')
+    print('["What   must   be","acknowledgment  ","shall be        "]')
+    print()
+
+    print('Example 3:')
+    print('Input : ')
+    print(
+        'words =["Science","is","what","we","understand","well","enough","to","explain","to","a","computer.","Art","is","everything","else","we","do"],maxWidth = 20'
+    )
+    print('Output :')
+    print(
+        str(Solution().fullJustify([
+            "Science", "is", "what", "we", "understand", "well", "enough",
+            "to", "explain", "to", "a", "computer.", "Art", "is", "everything",
+            "else", "we", "do"
+        ], 20)))
+    print('Exception :')
+    print(
+        '["Science  is  what we",⁠ "understand      well","enough to explain to","a  computer.  Art is","everything  else  we","do                  "]'
+    )
+    print()
+
+    pass
+# @lc main=end

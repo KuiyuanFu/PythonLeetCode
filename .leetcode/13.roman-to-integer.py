@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=13 lang=python3
 #
 # [13] Roman to Integer
@@ -37,8 +36,8 @@
 # are six instances where subtraction is used:
 #
 #
-# I can be placed before V (5) and X (10) to make 4 and 9. 
-# X can be placed before L (50) and C (100) to make 40 and 90. 
+# I can be placed before V (5) and X (10) to make 4 and 9.
+# X can be placed before L (50) and C (100) to make 40 and 90.
 # C can be placed before D (500) and M (1000) to make 400 and 900.
 #
 #
@@ -91,20 +90,31 @@
 # It is guaranteed that s is a valid roman numeral in the range [1, 3999].
 #
 #
+
+# @lc tags=math;string
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
-# 罗马汉字转数字，需要根据大小关系，判断是否是较小值在较大值左侧，需要减掉这个。
+# 罗马汉字转数字.
+# 需要根据大小关系，如果较小值在较大值左侧，需要减掉这个较小值。
 #
 # @lc idea=end
 
-from typing import *
+# @lc group=
+
+# @lc rank=
+
 # @lc code=start
 
 
 class Solution:
     def romanToInt(self, s: str) -> int:
-        keys = [1000,  500,  100,  50,  10, 5, 1, ]
-        values = ['M', 'D', 'C',  'L', 'X', 'V', 'I']
+        keys = [1000, 500, 100, 50, 10, 5, 1]
+        values = ['M', 'D', 'C', 'L', 'X', 'V', 'I']
         num = 0
         nPre = 0
         for i, c in enumerate(s):
@@ -113,8 +123,57 @@ class Solution:
             num += n + ((-2 * nPre) if nPre < n else 0)
             nPre = n
         return num
+        pass
+
+
 # @lc code=end
 
-
+# @lc main=start
 if __name__ == '__main__':
-    print(Solution().romanToInt("MCMXCIV"))
+    print('Example 1:')
+    print('Input : ')
+    print('s = "III"')
+    print('Output :')
+    print(str(Solution().romanToInt("III")))
+    print('Exception :')
+    print('3')
+    print()
+
+    print('Example 2:')
+    print('Input : ')
+    print('s = "IV"')
+    print('Output :')
+    print(str(Solution().romanToInt("IV")))
+    print('Exception :')
+    print('4')
+    print()
+
+    print('Example 3:')
+    print('Input : ')
+    print('s = "IX"')
+    print('Output :')
+    print(str(Solution().romanToInt("IX")))
+    print('Exception :')
+    print('9')
+    print()
+
+    print('Example 4:')
+    print('Input : ')
+    print('s = "LVIII"')
+    print('Output :')
+    print(str(Solution().romanToInt("LVIII")))
+    print('Exception :')
+    print('58')
+    print()
+
+    print('Example 5:')
+    print('Input : ')
+    print('s = "MCMXCIV"')
+    print('Output :')
+    print(str(Solution().romanToInt("MCMXCIV")))
+    print('Exception :')
+    print('1994')
+    print()
+
+    pass
+# @lc main=end

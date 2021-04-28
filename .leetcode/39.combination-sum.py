@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=39 lang=python3
 #
 # [39] Combination Sum
@@ -78,19 +77,30 @@
 #
 #
 #
+
+# @lc tags=array;backtracking
+
+# @lc imports=start
+from imports import *
+
+# @lc imports=end
+
 # @lc idea=start
 #
-# 求数字和为target 的所有组合。递归，备忘录。
+# 给定一个无重复元素的数组，再给定target，求元素和为target 的所有组合，每个元素可以用多次。
+# 递归，备忘录。对于每一个数字，看target除其的商，就是其在组合中最多出现的次数，之后每一次增加一个，对应的target就减少其数值，进入递归。
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
+
+# @lc rank=
 
 
 # @lc code=start
 class Solution:
-    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+    def combinationSum(self, candidates: List[int],
+                       target: int) -> List[List[int]]:
         candidates.sort(True)
         self.candidates = candidates
         self.memo = {}
@@ -103,15 +113,66 @@ class Solution:
         n = target // self.candidates[index]
         result = []
         if target % self.candidates[index] == 0:
-            result.append([self.candidates[index]]*n)
+            result.append([self.candidates[index]] * n)
             n -= 1
         if index + 1 < len(self.candidates):
-            for i in range(n+1):
-                for t in self.do(index+1, target - self.candidates[index] * i):
-                    result.append([self.candidates[index]]*i + t)
+            for i in range(n + 1):
+                for t in self.do(index + 1,
+                                 target - self.candidates[index] * i):
+                    result.append([self.candidates[index]] * i + t)
         return result
+
+        pass
 
 
 # @lc code=end
+
+# @lc main=start
 if __name__ == '__main__':
-    print(Solution().combinationSum([2, 3, 6, 7],  7))
+    print('Example 1:')
+    print('Input : ')
+    print('candidates = [2,3,6,7], target = 7')
+    print('Output :')
+    print(str(Solution().combinationSum([2, 3, 6, 7], 7)))
+    print('Exception :')
+    print('[[2,2,3],[7]]')
+    print()
+
+    print('Example 2:')
+    print('Input : ')
+    print('candidates = [2,3,5], target = 8')
+    print('Output :')
+    print(str(Solution().combinationSum([2, 3, 5], 8)))
+    print('Exception :')
+    print('[[2,2,2,2],[2,3,3],[3,5]]')
+    print()
+
+    print('Example 3:')
+    print('Input : ')
+    print('candidates = [2], target = 1')
+    print('Output :')
+    print(str(Solution().combinationSum([2], 1)))
+    print('Exception :')
+    print('[]')
+    print()
+
+    print('Example 4:')
+    print('Input : ')
+    print('candidates = [1], target = 1')
+    print('Output :')
+    print(str(Solution().combinationSum([1], 1)))
+    print('Exception :')
+    print('[[1]]')
+    print()
+
+    print('Example 5:')
+    print('Input : ')
+    print('candidates = [1], target = 2')
+    print('Output :')
+    print(str(Solution().combinationSum([1], 2)))
+    print('Exception :')
+    print('[[1,1]]')
+    print()
+
+    pass
+# @lc main=end

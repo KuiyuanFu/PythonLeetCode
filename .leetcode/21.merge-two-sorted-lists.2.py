@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=21 lang=python3
 #
 # [21] Merge Two Sorted Lists
@@ -49,6 +48,13 @@
 #
 #
 #
+
+# @lc tags=linked-list
+
+# @lc imports=start
+from imports import *
+# @lc imports=end
+
 # @lc idea=start
 #
 # 试一下更快的写法。
@@ -56,16 +62,17 @@
 #
 # @lc idea=end
 
-from typing import *
+# @lc group=
+
+# @lc rank=
 
 # @lc code=start
 # Definition for singly-linked list.
 
-
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 
 
 class Solution:
@@ -111,4 +118,43 @@ class Solution:
                         flag = not flag
                         break
 
+        pass
+
+
 # @lc code=end
+
+# @lc main=start
+if __name__ == '__main__':
+    print('Example 1:')
+    print('Input : ')
+    print('l1 = [1,2,4], l2 = [1,3,4]')
+    print('Output :')
+    print(
+        str(Solution().mergeTwoLists(listToListNode([1, 2, 4]),
+                                     listToListNode([1, 3, 4]))))
+    print('Exception :')
+    print('[1,1,2,3,4,4]')
+    print()
+
+    print('Example 2:')
+    print('Input : ')
+    print('l1 = [], l2 = []')
+    print('Output :')
+    print(str(Solution().mergeTwoLists(listToListNode([]),
+                                       listToListNode([]))))
+    print('Exception :')
+    print('[]')
+    print()
+
+    print('Example 3:')
+    print('Input : ')
+    print('l1 = [], l2 = [0]')
+    print('Output :')
+    print(
+        str(Solution().mergeTwoLists(listToListNode([]), listToListNode([0]))))
+    print('Exception :')
+    print('[0]')
+    print()
+
+    pass
+# @lc main=end

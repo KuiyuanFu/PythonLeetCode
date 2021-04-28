@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=65 lang=python3
 #
 # [65] Valid Number
@@ -89,15 +88,25 @@
 #
 #
 #
+
+# @lc tags=math;string
+
+# @lc imports=start
+from imports import *
+
+# @lc imports=end
+
 # @lc idea=start
 #
 # 判断是否是合法的数字字符串。
 # 有限状态自动机 FSA。
+# 负值状态是不合法的。
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=math
+
+# @lc rank=10
 
 
 # @lc code=start
@@ -116,7 +125,6 @@ class Solution:
             [3, -1, -1, -4],
             # 4 d e d
             [4, -1, -1, -1],
-
 
             # -5 d e +
             [4, -1, -1, -1],
@@ -151,12 +159,48 @@ class Solution:
             return False
         return True
 
+        pass
+
 
 # @lc code=end
+
+# @lc main=start
 if __name__ == '__main__':
-    print(Solution().isNumber('0'))
-    print(Solution().isNumber('e'))
-    print(Solution().isNumber('.'))
-    print(Solution().isNumber('.1'))
-    print(Solution().isNumber('.1.'))
-    print(Solution().isNumber('6e6.5'))
+    print('Example 1:')
+    print('Input : ')
+    print('s = "0"')
+    print('Output :')
+    print(str(Solution().isNumber("0")))
+    print('Exception :')
+    print('true')
+    print()
+
+    print('Example 2:')
+    print('Input : ')
+    print('s = "e"')
+    print('Output :')
+    print(str(Solution().isNumber("e")))
+    print('Exception :')
+    print('false')
+    print()
+
+    print('Example 3:')
+    print('Input : ')
+    print('s = "."')
+    print('Output :')
+    print(str(Solution().isNumber(".")))
+    print('Exception :')
+    print('false')
+    print()
+
+    print('Example 4:')
+    print('Input : ')
+    print('s = ".1"')
+    print('Output :')
+    print(str(Solution().isNumber(".1")))
+    print('Exception :')
+    print('true')
+    print()
+
+    pass
+# @lc main=end

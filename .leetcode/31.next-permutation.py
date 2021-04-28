@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=31 lang=python3
 #
 # [31] Next Permutation
@@ -46,16 +45,25 @@
 #
 #
 #
+
+# @lc tags=array
+
+# @lc imports=start
+from imports import *
+
+# @lc imports=end
+
 # @lc idea=start
 #
-# 求下一个排列，按照字典顺序，溢出则返回第一个。
+# 给定一个排列，求按照字典顺序的下一个排列，溢出则返回第一个。
 # 首先，若是所有关键字都是逆序的，那么则要返回正序的。
-# 其次，从后向前找逆序的长度，之后将上一个关键字换成逆序中，满足差值最小，比其大的关键字。之后把逆序变成正序。
+# 其次，从后向前找逆序，之后不是逆序的最后一个关键字换成逆序中比其大的最小关键字。之后把逆序部分变成正序。
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
+
+# @lc rank=
 
 
 # @lc code=start
@@ -67,24 +75,69 @@ class Solution:
 
         if len(nums) < 2:
             return
+        lastIndex = len(nums) - 1
         # 找逆序
-        l = len(nums)-1
-        for i in range(len(nums)-1, 0, -1):
-            if nums[l-1] >= nums[l]:
+        l = lastIndex
+        for i in range(lastIndex, 0, -1):
+            if nums[l - 1] >= nums[l]:
                 l -= 1
             else:
                 break
         # 变成正序
-        for i in range((len(nums) - l  )//2):
-            nums[l+i], nums[len(nums)-1 - i] = nums[len(nums)-1 - i], nums[l+i]
+        for i in range((len(nums) - l) // 2):
+            nums[l + i], nums[lastIndex - i] = nums[lastIndex - i], nums[l + i]
 
         # 不全为逆序
         if l != 0:
             import bisect
-            index = bisect.bisect(nums, nums[l-1], l)
-            nums[l-1], nums[index] = nums[index], nums[l-1]
+            index = bisect.bisect(nums, nums[l - 1], l)
+            nums[l - 1], nums[index] = nums[index], nums[l - 1]
         return nums
 
+        pass
+
+
 # @lc code=end
+
+# @lc main=start
 if __name__ == '__main__':
-    print(Solution().nextPermutation([1,3,2]))
+    print(str(Solution().nextPermutation([1, 2, 0, 3, 0, 1, 2, 4])))
+
+    print('Example 1:')
+    print('Input : ')
+    print('nums = [1,2,3]')
+    print('Output :')
+    print(str(Solution().nextPermutation([1, 2, 3])))
+    print('Exception :')
+    print('[1,3,2]')
+    print()
+
+    print('Example 2:')
+    print('Input : ')
+    print('nums = [3,2,1]')
+    print('Output :')
+    print(str(Solution().nextPermutation([3, 2, 1])))
+    print('Exception :')
+    print('[1,2,3]')
+    print()
+
+    print('Example 3:')
+    print('Input : ')
+    print('nums = [1,1,5]')
+    print('Output :')
+    print(str(Solution().nextPermutation([1, 1, 5])))
+    print('Exception :')
+    print('[1,5,1]')
+    print()
+
+    print('Example 4:')
+    print('Input : ')
+    print('nums = [1]')
+    print('Output :')
+    print(str(Solution().nextPermutation([1])))
+    print('Exception :')
+    print('[1]')
+    print()
+
+    pass
+# @lc main=end

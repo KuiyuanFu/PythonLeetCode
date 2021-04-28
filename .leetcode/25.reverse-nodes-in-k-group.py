@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=25 lang=python3
 #
 # [25] Reverse Nodes in k-Group
@@ -68,14 +67,24 @@
 #
 #
 #
+
+# @lc tags=linked-list
+
+# @lc imports=start
+from imports import *
+
+# @lc imports=end
+
 # @lc idea=start
 #
-# 反转相邻的 n 个节点，需要二次遍历
+# 给定一个链表，反转相邻的 n 个节点。
+# 需要二次遍历。
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
+
+# @lc rank=
 
 
 # @lc code=start
@@ -111,12 +120,54 @@ class Solution:
                 r.next = l
                 l = r
                 r = rNext
-                
 
             p.next = l
             pNext.next = r
             p = pNext
 
         return pseudo.next
+        pass
+
+
 # @lc code=end
 
+# @lc main=start
+if __name__ == '__main__':
+    print('Example 1:')
+    print('Input : ')
+    print('head = [1,2,3,4,5], k = 2')
+    print('Output :')
+    print(str(Solution().reverseKGroup(listToListNode([1, 2, 3, 4, 5]), 2)))
+    print('Exception :')
+    print('[2,1,4,3,5]')
+    print()
+
+    print('Example 2:')
+    print('Input : ')
+    print('head = [1,2,3,4,5], k = 3')
+    print('Output :')
+    print(str(Solution().reverseKGroup(listToListNode([1, 2, 3, 4, 5]), 3)))
+    print('Exception :')
+    print('[3,2,1,4,5]')
+    print()
+
+    print('Example 3:')
+    print('Input : ')
+    print('head = [1,2,3,4,5], k = 1')
+    print('Output :')
+    print(str(Solution().reverseKGroup(listToListNode([1, 2, 3, 4, 5]), 1)))
+    print('Exception :')
+    print('[1,2,3,4,5]')
+    print()
+
+    print('Example 4:')
+    print('Input : ')
+    print('head = [1], k = 1')
+    print('Output :')
+    print(str(Solution().reverseKGroup(listToListNode([1]), 1)))
+    print('Exception :')
+    print('[1]')
+    print()
+
+    pass
+# @lc main=end

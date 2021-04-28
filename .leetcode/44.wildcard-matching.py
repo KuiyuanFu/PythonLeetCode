@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=44 lang=python3
 #
 # [44] Wildcard Matching
@@ -77,15 +76,25 @@
 #
 #
 #
+
+# @lc tags=string;dynamic-programming;backtracking;greedy
+
+# @lc imports=start
+from imports import *
+
+# @lc imports=end
+
 # @lc idea=start
 #
-# 通配符匹配，‘？’是匹配单个字符，‘*’ 任意多个字符。其实要比 10 题还要简单。因为没有通配符组合的情况了。
+# 通配符匹配，‘？’是匹配单个字符，‘*’ 任意多个字符。
+# 其实要比 10 题还要简单。因为没有通配符组合的情况了。
 # 动态规划，注意交换dp时，需要把首位的True 去掉。
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=dynamic-programming
+
+# @lc rank=4
 
 
 # @lc code=start
@@ -95,39 +104,82 @@ class Solution:
         s = ' ' + s
         p = ' ' + p
         # 额外的一个长度，存储初始状态
-        r = len(p)+1
-        c = len(s)+1
+        r = len(p) + 1
+        c = len(s) + 1
         dp = [[False for j in range(c)] for i in range(2)]
         dp[1][0] = True
         for i in range(1, r):
             dp[0], dp[1] = dp[1], dp[0]
             dp[1][0] = False
             # 匹配任意字符
-            if p[i-1] == '?':
+            if p[i - 1] == '?':
                 for j in range(1, c):
-                    dp[1][j] = dp[0][j-1]
+                    dp[1][j] = dp[0][j - 1]
             # 匹配任意个字符
-            elif p[i-1] == '*':
+            elif p[i - 1] == '*':
                 for j in range(1, c):
                     #          没有匹配    匹配一个  多匹配一个
-                    dp[1][j] = dp[0][j] or dp[0][j-1] or dp[1][j-1] 
+                    dp[1][j] = dp[0][j] or dp[0][j - 1] or dp[1][j - 1]
 
             # 匹配特定字符
             else:
                 for j in range(1, c):
-                    if p[i-1] == s[j - 1]:
-                        dp[1][j] = dp[0][j-1]
+                    if p[i - 1] == s[j - 1]:
+                        dp[1][j] = dp[0][j - 1]
                     else:
                         dp[1][j] = False
-        return dp[1][c-1]
+        return dp[1][c - 1]
+        pass
+
+
 # @lc code=end
 
-
+# @lc main=start
 if __name__ == '__main__':
-    # print(Solution().isMatch("aa",  "a"))
-    # print(Solution().isMatch("aa",  "*"))
-    # print(Solution().isMatch("cb",  "?a"))
-    # print(Solution().isMatch("adceb",  "*a*b"))
-    # print(Solution().isMatch("acdcb",  "a*c?b"))
-    # print(Solution().isMatch("aab",  "c*a*b"))
-    print(Solution().isMatch("mississippi",  "m??*ss*?i*pi"))
+    print('Example 1:')
+    print('Input : ')
+    print('s = "aa", p = "a"')
+    print('Output :')
+    print(str(Solution().isMatch("aa", "a")))
+    print('Exception :')
+    print('false')
+    print()
+
+    print('Example 2:')
+    print('Input : ')
+    print('s = "aa", p = "*"')
+    print('Output :')
+    print(str(Solution().isMatch("aa", "*")))
+    print('Exception :')
+    print('true')
+    print()
+
+    print('Example 3:')
+    print('Input : ')
+    print('s = "cb", p = "?a"')
+    print('Output :')
+    print(str(Solution().isMatch("cb", "?a")))
+    print('Exception :')
+    print('false')
+    print()
+
+    print('Example 4:')
+    print('Input : ')
+    print('s = "adceb", p = "*a*b"')
+    print('Output :')
+    print(str(Solution().isMatch("adceb", "*a*b")))
+    print('Exception :')
+    print('true')
+    print()
+
+    print('Example 5:')
+    print('Input : ')
+    print('s = "acdcb", p = "a*c?b"')
+    print('Output :')
+    print(str(Solution().isMatch("acdcb", "a*c?b")))
+    print('Exception :')
+    print('false')
+    print()
+
+    pass
+# @lc main=end

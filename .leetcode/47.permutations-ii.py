@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=47 lang=python3
 #
 # [47] Permutations II
@@ -45,15 +44,24 @@
 #
 #
 #
+
+# @lc tags=backtracking
+
+# @lc imports=start
+from imports import *
+
+# @lc imports=end
+
 # @lc idea=start
 #
 # 给定数组，返回所有排列，可能有重复数字。
-# 只能按照顺序生成了。
+# 只能按照指定第一位的思想来进行求排列，因为这样可以控制每一次使用相同数字的个数。而插入的思想，当有重复数字时，会产生相同的排列，错误。
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
+
+# @lc rank=
 
 
 # @lc code=start
@@ -74,8 +82,8 @@ class Solution:
             if (dicCopy[n] == 0):
                 dicCopy.pop(n)
             ls = self.permuteUniqueRecur(dicCopy)
-            for l in ls :
-                results.append([n]+l)
+            for l in ls:
+                results.append([n] + l)
         return results
 
     # 获得字典，内容是每个词出现的次数
@@ -84,13 +92,30 @@ class Solution:
         for w in words:
             d[w] = d.get(w, 0) + 1
         return d
+        pass
+
+
 # @lc code=end
 
-
+# @lc main=start
 if __name__ == '__main__':
-    print(Solution().permuteUnique([1]))
-    print(Solution().permuteUnique([1, 2]))
-    print(Solution().permuteUnique([1, 2, 3]))
-    print(Solution().permuteUnique([1, 1, 2]))
-    print(Solution().permuteUnique([1, 1, 2, 2, 3]))
-    print(Solution().permuteUnique([1, 1, 2, 2, 2, 3]))
+    print('Example 1:')
+    print('Input : ')
+    print('nums = [1,1,2]')
+    print('Output :')
+    print(str(Solution().permuteUnique([1, 1, 2])))
+    print('Exception :')
+    print('[[1,1,2],⁠[1,2,1],⁠[2,1,1]]')
+    print()
+
+    print('Example 2:')
+    print('Input : ')
+    print('nums = [1,2,3]')
+    print('Output :')
+    print(str(Solution().permuteUnique([1, 2, 3])))
+    print('Exception :')
+    print('[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]')
+    print()
+
+    pass
+# @lc main=end

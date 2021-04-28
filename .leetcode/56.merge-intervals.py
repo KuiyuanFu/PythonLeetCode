@@ -1,4 +1,3 @@
-#
 # @lc app=leetcode id=56 lang=python3
 #
 # [56] Merge Intervals
@@ -47,6 +46,14 @@
 #
 #
 #
+
+# @lc tags=array;sort
+
+# @lc imports=start
+from imports import *
+
+# @lc imports=end
+
 # @lc idea=start
 #
 # 合并时间段。
@@ -54,8 +61,9 @@
 #
 # @lc idea=end
 
-from typing import *
-from collections import *
+# @lc group=
+
+# @lc rank=
 
 
 # @lc code=start
@@ -70,5 +78,30 @@ class Solution:
                 results.append(i)
         return results
 
+        pass
+
 
 # @lc code=end
+
+# @lc main=start
+if __name__ == '__main__':
+    print('Example 1:')
+    print('Input : ')
+    print('intervals = [[1,3],[2,6],[8,10],[15,18]]')
+    print('Output :')
+    print(str(Solution().merge([[1, 3], [2, 6], [8, 10], [15, 18]])))
+    print('Exception :')
+    print('[[1,6],[8,10],[15,18]]')
+    print()
+
+    print('Example 2:')
+    print('Input : ')
+    print('intervals = [[1,4],[4,5]]')
+    print('Output :')
+    print(str(Solution().merge([[1, 4], [4, 5]])))
+    print('Exception :')
+    print('[[1,5]]')
+    print()
+
+    pass
+# @lc main=end
