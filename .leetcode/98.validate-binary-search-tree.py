@@ -62,13 +62,14 @@ from imports import *
 #
 # 给定一棵树，判断其是否为二叉搜索树。
 # 直接深度优先遍历。
+# 实际上是线段树的思想。
 #
 #
 # @lc idea=end
 
-# @lc group=
+# @lc group=depth-first-search
 
-# @lc rank=
+# @lc rank=10
 
 
 # @lc code=start
