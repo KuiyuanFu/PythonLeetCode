@@ -60,8 +60,7 @@ from imports import *
 
 # @lc idea=start
 #
-# 给定一棵树，判断其是否为二叉搜索树。
-# 直接深度优先遍历。
+# 迭代写法。
 #
 #
 # @lc idea=end
@@ -80,16 +79,23 @@ from imports import *
 #         self.right = right
 class Solution:
     def isValidBST(self, root: TreeNode) -> bool:
-        def recur(root, l, r):
-            return  not root \
-                or ((not root.left \
-                or ((root.left.val<root.val and (not l or l <root.left.val )) \
-                    and recur(root.left ,l,root.val)))\
-                and (not root.right \
-                or ((root.right.val>root.val and (not r or r >root.right.val )) \
-                    and recur(root.right,root.val,r))))
-
-        return recur(root, None, None)
+        if not root:
+            return True
+        buffer = []
+        buffer.append((root, None, None))
+        while buffer:
+            root, l, r = buffer.pop()
+            if root.left:
+                if root.left.val < root.val and (not l or l < root.left.val):
+                    buffer.append((root.left, l, root.val))
+                else:
+                    return False
+            if root.right:
+                if root.right.val > root.val and (not r or r > root.right.val):
+                    buffer.append((root.right, root.val, r))
+                else:
+                    return False
+        return True
         pass
 
 
