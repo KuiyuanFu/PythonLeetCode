@@ -61,7 +61,6 @@ from imports import *
 # @lc idea=start
 #
 # 迭代写法。
-# 这个是
 #
 #
 # @lc idea=end
