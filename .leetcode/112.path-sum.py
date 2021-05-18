@@ -60,7 +60,8 @@ from imports import *
 
 # @lc idea=start
 #
-#
+# 给定一个二叉树，判断是否有从root到叶子结点的路径上节点值的和等于目标值。
+# 直接遍历即可。
 #
 # @lc idea=end
 
