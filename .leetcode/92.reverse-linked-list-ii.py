@@ -54,7 +54,7 @@ from imports import *
 
 # @lc idea=start
 #
-# 给定一个链表，再给定左右边界，反转范围内的节点。
+# 给定一个链表，再给定左右边界，反转范围内的结点。
 # 直接遍历。
 #
 # @lc idea=end
@@ -87,7 +87,7 @@ class Solution:
             rNext = r.next
             r.next = l
             l, r = r, rNext
-            
+
         p.next = l
         pNext.next = r
 

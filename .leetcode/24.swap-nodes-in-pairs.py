@@ -57,7 +57,7 @@ from imports import *
 
 # @lc idea=start
 #
-# 给定一个链表，反转相邻的两个节点。
+# 给定一个链表，反转相邻的两个结点。
 # 直接操作就行。
 #
 # @lc idea=end

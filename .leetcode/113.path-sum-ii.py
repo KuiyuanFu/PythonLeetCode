@@ -59,7 +59,7 @@ from imports import *
 
 # @lc idea=start
 #
-# 给定一个二叉树，从root到叶子结点的路径上节点值的和等于目标值的路径。
+# 给定一个二叉树，从root到叶子结点的路径上结点值的和等于目标值的路径。
 # 回溯遍历。
 #
 # @lc idea=end

@@ -77,7 +77,7 @@ from imports import *
 
 # @lc idea=start
 #
-# 给定一个链表，反转相邻的 n 个节点。
+# 给定一个链表，反转相邻的 n 个结点。
 # 需要二次遍历。
 #
 # @lc idea=end
