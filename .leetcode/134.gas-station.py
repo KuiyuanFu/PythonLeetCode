@@ -117,10 +117,6 @@ class Solution:
         else:
             return -1
 
-        return
-
-        pass
-
 
 # @lc code=end
 
