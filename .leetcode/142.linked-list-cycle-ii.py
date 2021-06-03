@@ -89,8 +89,21 @@ from imports import *
 
 class Solution:
     def detectCycle(self, head: ListNode) -> ListNode:
-
-        pass
+        slow = head
+        fast = head
+        while True:
+            if fast and fast.next:
+                fast = fast.next.next
+            else:
+                return None
+            slow = slow.next
+            if slow == fast:
+                break
+        slow = head
+        while slow != fast:
+            slow = slow.next
+            fast = fast.next
+        return slow
 
 
 # @lc code=end
