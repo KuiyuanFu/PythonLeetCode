@@ -86,10 +86,6 @@
 # @lc tags=hash-table;linked-list
 
 # @lc imports=start
-from operator import ne
-from os import dup
-from platform import node
-from tkinter.messagebox import NO
 from imports import *
 # @lc imports=end
 
@@ -105,9 +101,9 @@ from imports import *
 #
 # @lc idea=end
 
-# @lc group=
+# @lc group=linked-list
 
-# @lc rank=
+# @lc rank=10
 
 # @lc code=start
 
