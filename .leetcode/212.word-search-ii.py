@@ -56,8 +56,6 @@
 # @lc tags=backtracking;trie
 
 # @lc imports=start
-from os import rename
-from sys import builtin_module_names, flags
 from imports import *
 
 # @lc imports=end
