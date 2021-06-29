@@ -69,22 +69,21 @@ class Solution:
     def numSquares(self, n: int) -> int:
         mem = {}
 
-        def rNumSquares(n: int, m: int) -> int:
+        def rNumSquares(n: int) -> int:
             if n < 4:
                 return n
             if n in mem:
                 return mem[n]
             count = n
-            m = min(m, int(n**0.5))
-            for i in range(m, 0, -1):
+            for i in range(int(n**0.5), 0, -1):
                 squa = i * i
-                if n // squa >= count:
+                if n // squa > count:
                     continue
-                count = min(count, rNumSquares(n - squa, i) + 1)
+                count = min(count, rNumSquares(n - squa) + 1)
             mem[n] = count
             return count
 
-        ret = rNumSquares(n, n)
+        ret = rNumSquares(n)
         return ret
 
 
