@@ -55,13 +55,13 @@ from imports import *
 # @lc idea=start
 #
 # 去掉重复的字母，并以字母表顺序排列返回。
-# 每一次从后向前遍历，在将所有未加入到结果中的元素都找到后，记录最小的元素。
+# 从左到右，没遇到一个元素，判断是否小于结果中的上一个元素，如果小于其，且之后还能遇到上一个元素，就可以弹出，将其替代。
 #
 # @lc idea=end
 
-# @lc group=
+# @lc group=greedy
 
-# @lc rank=
+# @lc rank=4
 
 
 # @lc code=start
@@ -71,29 +71,22 @@ class Solution:
 
         needToVisit = [False] * 26
         times = [0] * 26
-        res = []
-        for n in nums:
-            times[n] += 1
-            needToVisit[n] = True
+
         diffCount = 0
-        for t in times:
-            diffCount += 1 if t != 0 else 0
+        for n in nums:
+            if times[n] == 0:
+                diffCount += 1
+            times[n] += 1
 
-        idxL, idxR = 0, len(nums)
-
-        for dc in reversed(range(1, diffCount + 1)):
-            needToVisitCopy = needToVisit.copy()
-            smallest = 26
-            for i in reversed(range(idxL, idxR)):
-                n = nums[i]
-                if needToVisitCopy[n]:
-                    dc -= 1
-                    needToVisitCopy[n] = False
-                if needToVisit[n] and dc == 0 and n <= smallest:
-                    smallest = n
-                    idxL = i + 1
-            res.append(smallest)
-            needToVisit[smallest] = False
+            needToVisit[n] = True
+        res = []
+        for i, n in enumerate(nums):
+            times[n] -= 1
+            if n in res:
+                continue
+            while res and n < res[-1] and times[res[-1]] > 0:
+                res.pop()
+            res.append(n)
 
         return ''.join([chr(n + ord('a')) for n in res])
 
