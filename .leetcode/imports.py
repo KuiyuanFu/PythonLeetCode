@@ -3,6 +3,7 @@ from collections import *
 import sys
 import os
 from itertools import *
+from math import *
 
 rootPath = os.path.dirname(sys.path[0])
 os.chdir(rootPath)
