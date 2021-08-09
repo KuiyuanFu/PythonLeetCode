@@ -5,6 +5,7 @@ import os
 from itertools import *
 from math import *
 from heapq import *
+from bisect import *
 
 rootPath = os.path.dirname(sys.path[0])
 os.chdir(rootPath)
