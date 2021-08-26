@@ -83,18 +83,10 @@ class Node:
 
 class Solution:
     def levelOrder(self, root: 'Node') -> List[List[int]]:
-
-        res = []
-        ns = [root] if root else []
+        ns, res = [root] if root else [], []
         while ns:
-            nsn = []
-            l = []
-            res.append(l)
-            for n in ns:
-                l.append(n.val)
-                for c in n.children:
-                    nsn.append(c)
-            ns = nsn
+            res.append([n.val for n in ns])
+            ns = [c for n in ns for c in n.children]
         return res
         pass
 
