@@ -87,11 +87,11 @@ from imports import *
 # @lc code=start
 class Solution:
     def findRightInterval(self, intervals: List[List[int]]) -> List[int]:
-        length = len(intervals)
+
         sl = sorted([(s, i) for i, (s, e) in enumerate(intervals)])
-        il = [bisect_left(sl, (e, -1000000)) for s, e in intervals]
-        rl = [sl[i][1] if i < length else -1 for i in il]
-        return rl
+        sl.append((1000000 + 1, -1))
+        il = [sl[bisect_left(sl, (e, -1000000))][1] for s, e in intervals]
+        return il
         pass
 
 
