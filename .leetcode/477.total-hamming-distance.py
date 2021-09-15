@@ -73,12 +73,13 @@ from imports import *
 class Solution:
     def totalHammingDistance(self, nums: List[int]) -> int:
         masks = [(i, 1 << i) for i in range(30)]
-        counts = [[0, 0] for _ in range(30)]
+        number = len(nums)
+        counts = [0 for _ in range(30)]
         for n in nums:
             for i, m in masks:
-                t = 1 if n & m != 0 else 0
-                counts[i][t] += 1
-        return sum(z * o for z, o in counts)
+                if n & m != 0:
+                    counts[i] += 1
+        return sum(z * (number - z) for z in counts)
         pass
 
 
