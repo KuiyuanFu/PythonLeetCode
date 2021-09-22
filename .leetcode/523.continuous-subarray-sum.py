@@ -75,9 +75,9 @@ from imports import *
 #
 # @lc idea=end
 
-# @lc group=
+# @lc group=math;
 
-# @lc rank=
+# @lc rank=10
 
 
 # @lc code=start
