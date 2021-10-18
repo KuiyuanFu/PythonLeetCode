@@ -102,11 +102,13 @@ class Solution:
                 return [s + 1, t + 1]
             else:
                 return [b + 1, t + 1]
+        # circle
         else:
             idx = [None for i in range(1, len(edges) + 1)]
             for i, (l, r) in enumerate(edges):
                 idx[r - 1] = i
             visited = set()
+            # find circle
             for i in range(len(edges)):
                 if i in visited:
                     continue
@@ -121,6 +123,7 @@ class Solution:
                     visited.add(i)
                     cir.add(i)
                     i = fs[i]
+                # find last edge
                 if f:
                     res = [fs[i], i]
                     m = idx[i]
