@@ -77,6 +77,7 @@
 # @lc tags=array
 
 # @lc imports=start
+import builtins
 from imports import *
 
 # @lc imports=end
@@ -105,25 +106,34 @@ class Solution:
             allowedDict[b].append(u)
 
         s = set([bottom])
+        visited = set()
         while s:
             button = s.pop()
+            visited.add(button)
+
             if len(button) == 1:
                 return True
             buttonLists = [
                 allowedDict[button[i:i + 2]] for i in range(len(button) - 1)
             ]
             f = False
-            for us in buttonLists:
-                if len(us) == 0:
+            buttonLists = []
+            for i in range(len(button) - 1):
+                ls = allowedDict[button[i:i + 2]]
+                if len(ls) == 0:
                     f = True
                     break
+                else:
+                    buttonLists.append(ls)
             if f:
                 continue
 
             ls = product(*buttonLists)
 
             for t in ls:
-                s.add(''.join(t))
+                k = ''.join(t)
+                if k not in visited:
+                    s.add(k)
 
         return False
         pass
