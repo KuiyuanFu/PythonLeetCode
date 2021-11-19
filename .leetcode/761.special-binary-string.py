@@ -71,6 +71,7 @@ from imports import *
 #
 # 特殊二进制串，交换两个连续的，形成的最大的串。
 # 递归。
+# 每次扫描到一个特殊二进制串时，就调用一次递归，结果为‘1’+recur(l+1,r-1)+‘0’，因为最外层必然是这个，内层不一定。
 #
 # @lc idea=end
 
@@ -96,6 +97,10 @@ class Solution:
 
 # @lc main=start
 if __name__ == '__main__':
+    print(str(Solution().makeLargestSpecial("10")))
+
+    print(str(Solution().makeLargestSpecial("1010")))
+
     print('Example 1:')
     print('Input : ')
     print('s = "11011000"')
