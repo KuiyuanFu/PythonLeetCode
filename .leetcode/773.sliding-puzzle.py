@@ -106,6 +106,10 @@ class Solution:
             return [board[0].copy(), board[1].copy()]
 
         target = boardToKey([[1, 2, 3], [4, 5, 0]])
+
+        if boardToKey(board) == target:
+            return 0
+
         directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
 
         res = 0
@@ -115,11 +119,7 @@ class Solution:
                 break
         s = [(board, i, j)]
         while s:
-            for b, _, _ in s:
-                k = boardToKey(b)
-                if k == target:
-                    return res
-                visted.add(k)
+            res += 1
             ns = []
             for b, i, j in s:
                 for oi, oj in directions:
@@ -129,10 +129,12 @@ class Solution:
                         bc = deepCopy(b)
                         bc[i][j], bc[ni][nj] = bc[ni][nj], bc[i][j]
                         bck = boardToKey(bc)
+                        if bck == target:
+                            return res
                         if bck not in visted:
                             ns.append((bc, ni, nj))
+                            visted.add(bck)
             s = ns
-            res += 1
 
         return -1
 
