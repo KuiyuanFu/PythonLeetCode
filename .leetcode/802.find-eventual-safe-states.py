@@ -82,10 +82,14 @@ from imports import *
 # @lc code=start
 class Solution:
     def eventualSafeNodes(self, graph: List[List[int]]) -> List[int]:
-        # out degree,priority queue
+        # out degree
         ods = [len(ls) for ls in graph]
-        h = [(od, nodeIdx) for nodeIdx, od in enumerate(ods)]
-        heapify(h)
+        # 0 out degree
+        nodeIdices = []
+        for nodeIdx, od in enumerate(ods):
+            if od == 0:
+                nodeIdices.append(nodeIdx)
+
         # reversed graph
         rg = [[] for _ in range(len(graph))]
         for nodeIdx, ls in enumerate(graph):
@@ -94,13 +98,14 @@ class Solution:
 
         res = []
         #
-        while h and h[0][0] == 0:
-            nodeIdx = heappop(h)[1]
+        while nodeIdices:
+            nodeIdx = nodeIdices.pop()
             res.append(nodeIdx)
 
             for inIdx in rg[nodeIdx]:
                 ods[inIdx] -= 1
-                heappush(h, (ods[inIdx], inIdx))
+                if ods[inIdx] == 0:
+                    nodeIdices.append(inIdx)
         res.sort()
         return res
 
