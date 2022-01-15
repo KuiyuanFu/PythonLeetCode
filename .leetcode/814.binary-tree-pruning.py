@@ -81,21 +81,15 @@ from imports import *
 #         self.right = right
 class Solution:
     def pruneTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
-        def recur(p: Optional[TreeNode]):
-            if not p:
-                return p, False
-            pl, fl = recur(p.left)
-            pr, fr = recur(p.right)
-            if not fl and not fr and p.val == 0:
-                return None, False
-            p.left = pl
-            p.right = pr
-            return p, True
 
-        root, _ = recur(root)
-        return root
+        if not root:
+            return root
 
-        pass
+        root.left = self.pruneTree(root.left)
+        root.right = self.pruneTree(root.right)
+        if root.left or root.right or root.val == 1:
+            return root
+        return None
 
 
 # @lc code=end
