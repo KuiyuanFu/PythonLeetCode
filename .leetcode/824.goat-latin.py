@@ -25,9 +25,10 @@ from imports import *
 # @lc code=start
 class Solution:
     def toGoatLatin(self, sentence: str) -> str:
-
-        return ' '.join((w if w[0] in 'aeiouAEIOU' else w[1:] + w[0]) + 'ma' +
-                        'a' * (i + 1) for i, w in enumerate(sentence.split()))
+        s = set('aeiouAEIOU')
+        return ' '.join(
+            (w if w[0] in s else w[1:] + w[0]) + 'ma' + 'a' * (i + 1)
+            for i, w in enumerate(sentence.split()))
 
 
 # @lc code=end
