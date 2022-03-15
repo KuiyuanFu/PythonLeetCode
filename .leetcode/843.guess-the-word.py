@@ -82,12 +82,13 @@ from imports import *
 # 首先根据字符串两两间的相似度，作为图的边。
 # 以上作废。
 # 测试字符串，满足此字符串的每个字符，在对应位置上，频次和，最高。
+# 这道题有问题，因为如果26的字符串，每个由相同字母组成，那么测试除了正确的哪个外，都是等价的。
 #
 # @lc idea=end
 
-# @lc group=graph
+# @lc group=
 
-# @lc rank=10
+# @lc rank=
 
 
 class Master:
@@ -132,18 +133,12 @@ if __name__ == '__main__':
     )
     print('Exception :')
     print('You guessed the secret word correctly.')
-    print('Output :')
-    print(str(Solution().findSecretWord(error, error)))
-    print()
 
     print('Example 2:')
     print('Input : ')
     print('secret = "hamada", wordlist = ["hamada","khaled"], numguesses = 10')
     print('Exception :')
     print('You guessed the secret word correctly.')
-    print('Output :')
-    print(str(Solution().findSecretWord(error, error)))
-    print()
 
     pass
 # @lc main=end
