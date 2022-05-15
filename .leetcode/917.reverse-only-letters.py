@@ -47,9 +47,7 @@
 # @lc tags=two-pointers;greedy
 
 # @lc imports=start
-from ctypes.wintypes import HWINSTA
-from difflib import restore
-from tkinter import BROWSE
+
 from imports import *
 
 # @lc imports=end
