@@ -7,6 +7,7 @@ from math import *
 from heapq import *
 from bisect import *
 from functools import *
+import matplotlib.pyplot as plt
 import random
 
 rootPath = os.path.dirname(sys.path[0])
