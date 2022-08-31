@@ -74,11 +74,11 @@ class Solution:
     def shortestSuperstring(self, A):
 
         @lru_cache(None)
-        def suff(w1, w2):
-            return [
-                w2[i:] for i in range(len(w1) + 1)
-                if w1[-i:] == w2[:i] or not i
-            ][-1]
+        def suff(s1, s2):
+            for length in range(len(s2), 0, -1):
+                if s1[-length:] == s2[:length]:
+                    return s2[length:]
+            return s2
 
         @lru_cache(None)
         def dp(mask, l):
