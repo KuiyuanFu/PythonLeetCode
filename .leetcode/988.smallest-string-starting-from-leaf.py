@@ -62,7 +62,8 @@
 # @lc tags=tree
 
 # @lc imports=start
-from tkinter.messagebox import NO
+from difflib import restore
+from tkinter.messagebox import NO, RETRY
 from imports import *
 
 # @lc imports=end
@@ -89,18 +90,24 @@ from imports import *
 class Solution:
 
     def smallestFromLeaf(self, root: Optional[TreeNode]) -> str:
-        res = ''
-        if root.left is None and root.right is None:
-            pass
-        elif root.left is None:
-            res = self.smallestFromLeaf(root.right)
-        elif root.right is None:
-            res = self.smallestFromLeaf(root.left)
-        else:
-            res = min(self.smallestFromLeaf(root.left),
-                      self.smallestFromLeaf(root.right))
-        return res + chr(root.val + ord('a'))
 
+        self.res = chr(ord('a') + 27)
+
+        def recur(p: Optional[TreeNode], tail: str):
+            if p is None:
+                return
+            c = chr(ord('a') + p.val)
+            tail = c + tail
+            if p.left is None and p.right is None:
+                self.res = min(self.res, tail)
+                return
+            if p.left:
+                recur(p.left, tail)
+            if p.right:
+                recur(p.right, tail)
+
+        recur(root, '')
+        return self.res
         pass
 
 
