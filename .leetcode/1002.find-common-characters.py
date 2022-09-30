@@ -59,17 +59,26 @@ class Solution:
 
     def commonChars(self, words: List[str]) -> List[str]:
 
-        counter = [0] * 26
+        counter = [inf] * 26
+
+        cs = [chr(i + ord('a')) for i in range(26)]
 
         for word in words:
-            s = set(word)
-            for c in s:
-                counter[ord(c) - ord('a')] += 1
+            ct = Counter(word)
+
+            for c in cs:
+                t = 0 if c not in ct else ct[c]
+                k = ord(c) - ord('a')
+                counter[k] = min(t, counter[k])
+
         res = []
         t = len(words)
-        for i, c in enumerate(counter):
-            if c == t:
-                res.append(chr(i + ord('a')))
+        for i, t in enumerate(counter):
+            c = chr(i + ord('a'))
+            times = 0 if t == inf else t
+            for _ in range(times):
+                res.append(c)
+
         return res
         pass
 
